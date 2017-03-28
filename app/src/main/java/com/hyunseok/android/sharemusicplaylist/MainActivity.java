@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.StackView;
 import android.widget.TextView;
 
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -20,17 +21,14 @@ import java.util.List;
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
-    private List<String> horizontalList;
-    private HorizontalAdapter horizontalAdapter;
+    List<String> horizontalList;
+    HorizontalAdapter horizontalAdapter;
 
     @ViewById
     RecyclerView recyclerView_horizon;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+    @AfterViews // Define Initialization Code
+    protected void init() {
         horizontalList = new ArrayList<>();
         horizontalList.add("horizontal 1");
         horizontalList.add("horizontal 2");
@@ -45,19 +43,16 @@ public class MainActivity extends AppCompatActivity {
 
         horizontalAdapter = new HorizontalAdapter(this, horizontalList);
 
-        recyclerView_horizon.setAdapter(horizontalAdapter);
+
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView_horizon.setLayoutManager(horizontalLayoutManager);
-
+        recyclerView_horizon.setAdapter(horizontalAdapter);
     }
 
-
-
-    public void button_test(View view) {
-        //textView.setText("Is it ");
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+    public void button_search(View view) {
+        Intent intent = new Intent(MainActivity.this, SearchActivity_.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 }
