@@ -1,17 +1,16 @@
 package com.hyunseok.android.sharemusicplaylist;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.StackView;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.ImageButton;
+
+import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -26,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     @ViewById
     RecyclerView recyclerView_horizon;
+    @ViewById
+    EditText et_search;
+    @ViewById
+    ImageButton imgbtn_search;
 
     @AfterViews // Define Initialization Code
     protected void init() {
@@ -43,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
         horizontalAdapter = new HorizontalAdapter(this, horizontalList);
 
-
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView_horizon.setLayoutManager(horizontalLayoutManager);
         recyclerView_horizon.setAdapter(horizontalAdapter);
     }
 
-    public void button_search(View view) {
+    @Click({R.id.imgbtn_search})
+    public void search() {
         Intent intent = new Intent(MainActivity.this, SearchActivity_.class);
         startActivity(intent);
         //finish();

@@ -2,6 +2,12 @@
     <string name="app_name">ShareMusicPlaylist</string>
     <string name="title_activity_login">Sign in</string>
 
+    <!-- Strings related to Tab layout -->
+    <string name="tab_playlist">Playlist</string>
+    <string name="tab_tracks">Tracks</string>
+    <string name="tab_TAG">TAG</string>
+    <string name="tab_album">Album</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
