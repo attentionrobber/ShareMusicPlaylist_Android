@@ -13,6 +13,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hyunseok.android.sharemusicplaylist.adapter.TabPagerAdapter;
+
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -41,6 +43,9 @@ public class SearchActivity extends AppCompatActivity {
         //toolbar.setNavigationIcon(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
 
+        linearLayout.setVisibility(View.VISIBLE);
+        relativeLayout.setVisibility(View.GONE);
+
         tabLayout.setVisibility(View.INVISIBLE);
         //tabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         // Tab 생성 및 타이틀 입력         //.setIcon(R.mipmap.ic_launcher) // icon 추가가능
@@ -51,7 +56,18 @@ public class SearchActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // ViewPager
+        TabPagerAdapter adapter = new TabPagerAdapter(getSupportFragmentManager());
+        // 프래그먼트 생성 및 어댑터에 추가 // 첫번째 인자는 열의 개수, 두 번째 인자는 Tab의 flag
+        adapter.add(TabLayoutFragment.newInstance(TabLayoutFragment.TYPE_PLAYLIST)); // Playlist 보기 형식
+        adapter.add(TabLayoutFragment.newInstance(TabLayoutFragment.TYPE_TRACK)); // Tracks 곡 보기 형식
+        adapter.add(TabLayoutFragment.newInstance(TabLayoutFragment.TYPE_TAG)); // TAG 보기 형식
+        adapter.add(TabLayoutFragment.newInstance(TabLayoutFragment.TYPE_ALBUM)); // Albums 보기 형식
 
+        viewPager.setAdapter(adapter);
+        // 1. 페이저가 변경되었을 때 탭을 바꿔주는 리스너(Pager Listener)
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        // 2. 탭이 변경되었을 때 페이지를 바꿔주는 리스너
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
 
     @Click({R.id.imgbtn_search})
@@ -65,7 +81,7 @@ public class SearchActivity extends AppCompatActivity {
         switch (v.getId()) {
             case R.id.tv_playlist:
                 Toast.makeText(this, "playlist", Toast.LENGTH_SHORT).show();
-                // TODO case 별로 알맞는 소스추가
+                // TODO 각 TAB 별로 알맞는 소스추가
                 break;
             case R.id.tv_track:
                 Toast.makeText(this, "track", Toast.LENGTH_SHORT).show();

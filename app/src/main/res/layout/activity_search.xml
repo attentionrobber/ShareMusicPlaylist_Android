@@ -12,22 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
-
         <EditText
             android:layout_width="200dp"
             android:layout_height="match_parent"
             android:id="@+id/et_toolbar"
             android:background="@color/cardview_light_background"
-            android:layout_above="@+id/tabLayout" />
+            android:layout_above="@+id/tabLayout"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
         <ImageButton
             android:id="@+id/imgbtn_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/ic_menu_search"
             android:layout_above="@+id/tabLayout" />
-
-
-
     </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.TabLayout
@@ -45,8 +43,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tabLayout"
-        android:visibility="gone">
+        android:layout_below="@+id/tabLayout">
 
         <TextView
             android:id="@+id/tv_playlist"
@@ -90,7 +87,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tabLayout">
+        android:layout_below="@+id/tabLayout"
+        android:visibility="gone">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
