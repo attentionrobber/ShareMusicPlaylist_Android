@@ -7,6 +7,10 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
+    repositories {
+        mavenCentral()
+    }
+
     defaultConfig {
         applicationId "com.hyunseok.android.sharemusicplaylist"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -48,6 +52,7 @@ dependencies {
     compile rootProject.ext.retrofit_gson
 
     compile 'org.androidannotations:androidannotations:4.1.0'
+    compile rootProject.ext.facebook
 
     testCompile 'junit:junit:4.12'
 }
@@ -57,6 +62,9 @@ dependencies {
 }
 dependencies {
     compile 'com.android.support:support-v4:25.+'
+}
+dependencies {
+    compile 'com.android.support.constraint:constraint-layout:+'
 }
 dependencies {
     apt "org.androidannotations:androidannotations:$AAVersion"
