@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView_horizon.setLayoutManager(horizontalLayoutManager);
         recyclerView_horizon.setAdapter(horizontalAdapter);
+
+
     }
 
     @Click({R.id.imgbtn_search})
