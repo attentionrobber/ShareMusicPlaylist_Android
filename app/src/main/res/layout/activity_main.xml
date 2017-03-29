@@ -60,4 +60,30 @@
         android:background="@color/cardview_shadow_end_color">
     </android.support.v7.widget.RecyclerView>
 
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Login"
+        android:layout_marginRight="13dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.033" />
+
+    <TextView
+        android:id="@+id/textUserName"
+        android:layout_width="69dp"
+        android:layout_height="wrap_content"
+        android:text="GUEST"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        tools:layout_editor_absoluteY="27dp"
+        app:layout_constraintRight_toLeftOf="@+id/btnLogin"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.974" />
+
 </android.support.constraint.ConstraintLayout>

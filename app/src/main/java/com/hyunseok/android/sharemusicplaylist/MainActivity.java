@@ -10,10 +10,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
+import com.hyunseok.android.sharemusicplaylist.domain.FaceBookUser;
+import com.hyunseok.android.sharemusicplaylist.util.Logger;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
@@ -37,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     EditText et_search;
     @ViewById
     ImageButton imgbtn_search;
+    @ViewById
+    Button btnLogin;
+    @ViewById
+    TextView textUserName;
 
     @AfterViews // Define Initialization Code
     protected void init() {
@@ -59,7 +67,23 @@ public class MainActivity extends AppCompatActivity {
         recyclerView_horizon.setLayoutManager(horizontalLayoutManager);
         recyclerView_horizon.setAdapter(horizontalAdapter);
 
+        //receive User information form Login Activity
+        try {
+            textUserName.setText(((FaceBookUser) getIntent().getSerializableExtra("user")).getName());
+        }catch (Exception e){Logger.print("Main Activity", "NO User information in Intent");}
 
+    }
+    @Click({R.id.btnLogin})
+    public void moveLoginActivity() {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Logger.print("MainActivity","onActivityResult===================================================");
     }
 
     @Click({R.id.imgbtn_search})
