@@ -78,33 +78,45 @@ public class SearchActivity extends AppCompatActivity {
     @Click({R.id.tv_playlist, R.id.tv_track, R.id.tv_TAG, R.id.tv_album})
     public void goDetail(View v) {
 
+        // TODO 각 TAB 별로 알맞는 소스추가
         switch (v.getId()) {
             case R.id.tv_playlist:
                 Toast.makeText(this, "playlist", Toast.LENGTH_SHORT).show();
-                // TODO 각 TAB 별로 알맞는 소스추가
+                viewPager.setCurrentItem(0);
                 break;
             case R.id.tv_track:
                 Toast.makeText(this, "track", Toast.LENGTH_SHORT).show();
+                viewPager.setCurrentItem(1);
                 break;
             case R.id.tv_TAG:
                 Toast.makeText(this, "TAG", Toast.LENGTH_SHORT).show();
+                viewPager.setCurrentItem(2);
                 break;
             case R.id.tv_album:
                 Toast.makeText(this, "album", Toast.LENGTH_SHORT).show();
+                viewPager.setCurrentItem(3);
                 break;
         }
 
         linearLayout.setVisibility(View.GONE); // 항목 클릭 시 항목 레이아웃 숨김.
         relativeLayout.setVisibility(View.VISIBLE); // 항목 클릭시 자세히보기 레이아웃 보임.
         tabLayout.setVisibility(View.VISIBLE); // 항목 클릭 시 탭레이아웃 보임.
-
-
     }
+
+
 
     @Override
     public void onBackPressed() {
+        if(linearLayout.getVisibility() == View.GONE) { // Linear 안보일 경우
+            linearLayout.setVisibility(View.VISIBLE);
+            relativeLayout.setVisibility(View.GONE);
+            tabLayout.setVisibility(View.INVISIBLE);
+        }
 
-
-        super.onBackPressed();
+        else if(linearLayout.getVisibility() == View.VISIBLE) {
+            if(relativeLayout.getVisibility() == View.GONE) {
+                super.onBackPressed();
+            }
+        }
     }
 }
