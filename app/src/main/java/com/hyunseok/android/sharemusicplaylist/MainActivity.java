@@ -1,22 +1,16 @@
 package com.hyunseok.android.sharemusicplaylist;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Base64;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
-import com.hyunseok.android.sharemusicplaylist.domain.FaceBookUser;
+import com.hyunseok.android.sharemusicplaylist.domain.User;
 import com.hyunseok.android.sharemusicplaylist.util.Logger;
 
 import org.androidannotations.annotations.AfterViews;
@@ -24,8 +18,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         //receive User information form Login Activity
         try {
-            textUserName.setText(((FaceBookUser) getIntent().getSerializableExtra("user")).getName());
+            textUserName.setText(((User) getIntent().getSerializableExtra("user")).getName());
         }catch (Exception e){Logger.print("Main Activity", "NO User information in Intent");}
 
     }

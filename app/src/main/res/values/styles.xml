@@ -1,5 +1,5 @@
 <resources>
-    <string name="facebook_app_id">163624440825045</string>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

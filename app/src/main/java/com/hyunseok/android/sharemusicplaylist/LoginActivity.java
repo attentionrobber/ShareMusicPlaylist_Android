@@ -1,46 +1,53 @@
 package com.hyunseok.android.sharemusicplaylist;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.hyunseok.android.sharemusicplaylist.domain.FaceBookUser;
+import com.hyunseok.android.sharemusicplaylist.domain.User;
 import com.hyunseok.android.sharemusicplaylist.util.Logger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class LoginActivity extends AppCompatActivity {
     CallbackManager callbackManager;
     public static String TAG = "FaceBookLogin";
     AccessToken accessToken;
     Intent intent;
-    FaceBookUser faceBookUser;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        faceBookUser = new FaceBookUser();
+        user = new User();
         setLoginFaceBook();
 
     }
@@ -64,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void setLoginFaceBook(){
         callbackManager = CallbackManager.Factory.create();
-        LoginButton loginButton = (LoginButton)findViewById(R.id.facebook_login_button);
+        LoginButton loginButton = (LoginButton)findViewById(R.id.facebook_login_button_In);
         loginButton.setReadPermissions("email");
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
 
@@ -94,12 +101,12 @@ public class LoginActivity extends AppCompatActivity {
             public void onCompleted(JSONObject object, GraphResponse response) {
                 try {
 
-                    faceBookUser.setEmail(object.getString("email"));
-                    faceBookUser.setName(object.getString("name") );
-                    faceBookUser.setGender(object.getString("gender"));
+                    user.setEmail(object.getString("email"));
+                    user.setName(object.getString("name") );
+                    user.setGender(object.getString("gender"));
 
                     intent = new Intent(LoginActivity.this, MainActivity_.class);
-                    intent.putExtra("user", faceBookUser);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                     finish();
                 } catch (JSONException e) {e.printStackTrace();}
