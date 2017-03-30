@@ -195,7 +195,9 @@ public class LoginActivity extends AppCompatActivity {
             linearSignIn.setVisibility(View.VISIBLE);
             linearSignUp.setVisibility(View.GONE);
         }
+
     }
+
 
     @Override
     protected void onResume() {
