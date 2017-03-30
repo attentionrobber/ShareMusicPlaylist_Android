@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     EditText et_search;
     @ViewById
     ImageButton imgbtn_search;
+    
     @ViewById
     Button btnLogin;
     @ViewById
