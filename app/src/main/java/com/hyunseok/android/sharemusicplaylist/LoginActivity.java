@@ -122,8 +122,8 @@ public class LoginActivity extends AppCompatActivity {
 
         new android.os.Handler().postDelayed(
                 () -> {
-                    //finish();
                     startActivity(intent);
+                    this.finish();
                     progressDialog.dismiss();
                 }, 1500);
     }
