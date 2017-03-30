@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.security.MessageDigest;
@@ -52,9 +53,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
         viewInit();
         status = SIGNIN;
+        ((TextView)findViewById(R.id.link_signup_In)).setText("아직 가입 전 인가요? 여길 클릭하세요!");
 
 
     }
@@ -162,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
             singIn_user.setName("Master");
             singIn_user.setEmail("master@master.com");
 
-            intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent = new Intent(LoginActivity.this, MainActivity_.class);
             intent.putExtra("user", singIn_user);
             login_Success();
 
@@ -193,7 +195,9 @@ public class LoginActivity extends AppCompatActivity {
             linearSignIn.setVisibility(View.VISIBLE);
             linearSignUp.setVisibility(View.GONE);
         }
+
     }
+
 
     @Override
     protected void onResume() {
@@ -243,7 +247,7 @@ public class LoginActivity extends AppCompatActivity {
                     user.setName(object.getString("name") );
                     user.setGender(object.getString("gender"));
 
-                    intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent = new Intent(LoginActivity.this, MainActivity_.class);
                     intent.putExtra("user", user);
                     //finish();
                     startActivity(intent);
