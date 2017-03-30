@@ -54,14 +54,14 @@ public class MainTabFragment extends Fragment {
             mTabType = getArguments().getString(ARG_TAB_TYPE);
 
             switch (mTabType) {
+                case TYPE_SEARCH:
+                    layout = R.layout.fragment_main_searchtab;
+                    break;
                 case TYPE_PLAYER:
                     layout = R.layout.fragment_main_playertab;
                     break;
                 case TYPE_PLAYLIST:
                     layout = R.layout.fragment_main_playlisttab;
-                    break;
-                case TYPE_SEARCH:
-                    layout = R.layout.fragment_main_searchtab;
                     break;
                 default:
                     break;
@@ -74,14 +74,14 @@ public class MainTabFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(layout, container, false);
         switch(layout) {
+            case R.layout.fragment_main_searchtab:
+                init_searchTab(view);
+                break;
             case R.layout.fragment_main_playertab:
                 init_playerTab(view);
                 break;
             case R.layout.fragment_main_playlisttab:
                 init_playlistTab(view);
-                break;
-            case R.layout.fragment_main_searchtab:
-                init_searchTab(view);
                 break;
             default: break;
         }
