@@ -8,9 +8,18 @@ import java.io.Serializable;
 
 public class User implements Serializable{
     String email;
+    String password;
     String name;
     String gender;
     int age;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getEmail() {
         return email;
@@ -44,3 +53,4 @@ public class User implements Serializable{
         this.age = age;
     }
 }
+
