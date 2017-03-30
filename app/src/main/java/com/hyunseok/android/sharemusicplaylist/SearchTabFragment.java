@@ -1,7 +1,6 @@
 package com.hyunseok.android.sharemusicplaylist;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,14 +9,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.hyunseok.android.sharemusicplaylist.adapter.RecyclerViewAdapter;
+import com.hyunseok.android.sharemusicplaylist.adapter.SearchRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TabLayoutFragment extends Fragment {
+public class SearchTabFragment extends Fragment {
 
     private static final String ARG_TAB_TYPE = "TAB-TYPE";
     public static final String TYPE_PLAYLIST = "PLAYLIST";
@@ -28,12 +26,12 @@ public class TabLayoutFragment extends Fragment {
 
     private List<String> datas = new ArrayList<>();
 
-    public TabLayoutFragment() {
+    public SearchTabFragment() {
         // Required empty public constructor
     }
 
-    public static TabLayoutFragment newInstance(String flag) {
-        TabLayoutFragment fragment = new TabLayoutFragment();
+    public static SearchTabFragment newInstance(String flag) {
+        SearchTabFragment fragment = new SearchTabFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TAB_TYPE, flag);
         fragment.setArguments(args);
@@ -51,24 +49,10 @@ public class TabLayoutFragment extends Fragment {
             Log.i("Fragment", "000"+mTabType);
 
             // TODO 각 TAB 별로 알맞는 소스추가
-//            if(TYPE_PLAYLIST.equals(mTabType)) {
-//                Log.i("Fragment", "111"+mTabType);
-//                Toast.makeText(getContext(), "Playlist"+TYPE_PLAYLIST, Toast.LENGTH_SHORT).show();
-//            } else if(TYPE_TRACK.equals(mTabType)) {
-//                Log.i("Fragment", "222"+mTabType);
-//                Toast.makeText(getContext(), "Tracks"+TYPE_TRACK, Toast.LENGTH_SHORT).show();
-//            } else if(TYPE_TAG.equals(mTabType)) {
-//                Log.i("Fragment", "333"+mTabType);
-//                Toast.makeText(getContext(), "TAG"+TYPE_TAG, Toast.LENGTH_SHORT).show();
-//            } else if(TYPE_ALBUM.equals(mTabType)) {
-//                Log.i("Fragment", "444"+mTabType);
-//                Toast.makeText(getContext(), "Albums"+TYPE_ALBUM, Toast.LENGTH_SHORT).show();
-//            }
-
             switch (mTabType) {
                 case TYPE_PLAYLIST:
                     Log.i("Fragment", "111"+mTabType);
-                    Toast.makeText(getContext(), "Playlist"+TYPE_PLAYLIST, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Playlist"+TYPE_PLAYLIST, Toast.LENGTH_SHORT).show();
                     datas.add("rv_playlist1");
                     datas.add("rv_playlist2");
                     datas.add("rv_playlist3");
@@ -82,7 +66,7 @@ public class TabLayoutFragment extends Fragment {
                     break;
                 case TYPE_TRACK:
                     Log.i("Fragment", "222"+mTabType);
-                    Toast.makeText(getContext(), "Tracks"+TYPE_TRACK, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Tracks"+TYPE_TRACK, Toast.LENGTH_SHORT).show();
                     datas.add("rv_track1");
                     datas.add("rv_track2");
                     datas.add("rv_track3");
@@ -96,7 +80,7 @@ public class TabLayoutFragment extends Fragment {
                     break;
                 case TYPE_TAG:
                     Log.i("Fragment", "333"+mTabType);
-                    Toast.makeText(getContext(), "TAG"+TYPE_TAG, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "TAG"+TYPE_TAG, Toast.LENGTH_SHORT).show();
                     datas.add("rv_TAG1");
                     datas.add("rv_TAG2");
                     datas.add("rv_TAG3");
@@ -110,7 +94,7 @@ public class TabLayoutFragment extends Fragment {
                     break;
                 case TYPE_ALBUM:
                     Log.i("Fragment", "444"+mTabType);
-                    Toast.makeText(getContext(), "Albums"+TYPE_ALBUM, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getContext(), "Albums"+TYPE_ALBUM, Toast.LENGTH_SHORT).show();
                     datas.add("rv_album1");
                     datas.add("rv_album2");
                     datas.add("rv_album3");
@@ -130,11 +114,11 @@ public class TabLayoutFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_tab_layout, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_tab, container, false);
 
         RecyclerView recyclerView = (RecyclerView) view;
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.setAdapter(new RecyclerViewAdapter(getContext(), datas, mTabType));
+        recyclerView.setAdapter(new SearchRecyclerViewAdapter(getContext(), datas, mTabType));
 
         return view;
     }

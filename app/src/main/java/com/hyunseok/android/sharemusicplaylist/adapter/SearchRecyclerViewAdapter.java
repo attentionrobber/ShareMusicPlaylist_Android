@@ -7,19 +7,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.R;
-import com.hyunseok.android.sharemusicplaylist.TabLayoutFragment;
 
 import java.util.List;
 
 /**
+ * Search Tab 에서 검색 하면 나오는
+ * Playlist, Tracks, TAG, Album 에서의
+ * RecyclerView Adapter
+ *
  * Created by Administrator on 2017-03-29.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.Holder>{
+public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecyclerViewAdapter.Holder>{
 
     private int item_layout_id;
 
@@ -27,23 +31,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private List<String> datas;
     private String flag;
 
-    public RecyclerViewAdapter(Context context, List<String> datas, String flag) {
+    public SearchRecyclerViewAdapter(Context context, List<String> datas, String flag) {
         this.context = context;
         this.datas = datas;
         this.flag = flag;
 //        switch (flag) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
 //            //case ListFragment.TYPE_ARTIST:
-//            case TabLayoutFragment.TYPE_PLAYLIST:
-//                item_layout_id = R.layout.fragment_tab_layout_item;
+//            case SearchTabFragment.TYPE_PLAYLIST:
+//                item_layout_id = R.layout.fragment_search_tab_item;
 //                break;
-//            case TabLayoutFragment.TYPE_TRACK:
-//                item_layout_id = R.layout.fragment_tab_layout_item;
+//            case SearchTabFragment.TYPE_TRACK:
+//                item_layout_id = R.layout.fragment_search_tab_item;
 //                break;
-//            case TabLayoutFragment.TYPE_TAG:
-//                item_layout_id = R.layout.fragment_tab_layout_item;
+//            case SearchTabFragment.TYPE_TAG:
+//                item_layout_id = R.layout.fragment_search_tab_item;
 //                break;
-//            case TabLayoutFragment.TYPE_ALBUM:
-//                item_layout_id = R.layout.fragment_tab_layout_item;
+//            case SearchTabFragment.TYPE_ALBUM:
+//                item_layout_id = R.layout.fragment_search_tab_item;
 //                break;
 //        }
     }
@@ -51,7 +55,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.fragment_tab_layout_item, parent, false);
+                .inflate(R.layout.fragment_search_tab_item, parent, false);
+        // TODO layout 바꾸기. -> playlist tab, tracks tab, TAG tab, albums tab 따로
         return new Holder(view);
     }
 
@@ -78,25 +83,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public int id;
         public String title;
 
+        RelativeLayout itemLayout;
         ImageView imageView_tabitem;
         TextView tv_title_tabitem, tv_artist_tabitem;
 
         public Holder(View view) {
             super(view);
 
+            itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
             imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabitem);
             tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
             tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
 
-//            box.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(context, PlayerActivity.class);
-//                    intent.putExtra(ListFragment.ARG_POSITION, position);
-//                    intent.putExtra(ListFragment.ARG_LIST_TYPE, flag);
-//                    context.startActivity(intent);
-//                }
-//            });
+            itemLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO my playlist 로 추가
+                    //Toast.makeText(context, "itemClick"+position, Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, PlaylistDetailActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

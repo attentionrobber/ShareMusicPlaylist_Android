@@ -3,11 +3,16 @@
     <string name="facebook_app_id">163624440825045</string>
     <string name="title_activity_login">Sign in</string>
 
-    <!-- Strings related to Tab layout -->
-    <string name="tab_playlist">Playlist</string>
+    <!-- Strings related to SearchActivity TabLayout -->
+    <string name="tab_playlist_search">Playlist</string>
     <string name="tab_tracks">Tracks</string>
     <string name="tab_TAG">TAG</string>
-    <string name="tab_album">Album</string>
+    <string name="tab_album">Albums</string>
+
+    <!-- Strings related to MainActivity TabLayout -->
+    <string name="tab_player">Player</string>
+    <string name="tab_playlist_main">Playlist</string>
+    <string name="tab_search">Search</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

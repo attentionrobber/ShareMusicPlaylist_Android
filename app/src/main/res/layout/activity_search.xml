@@ -5,6 +5,8 @@
     android:id="@+id/activity_search"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.hyunseok.android.sharemusicplaylist.SearchActivity">
 
     <android.support.v7.widget.Toolbar
@@ -17,9 +19,7 @@
             android:layout_height="match_parent"
             android:id="@+id/et_toolbar"
             android:background="@color/cardview_light_background"
-            android:layout_above="@+id/tabLayout"
-            android:focusable="false"
-            android:focusableInTouchMode="false" />
+            android:layout_above="@+id/tabLayout" />
         <ImageButton
             android:id="@+id/imgbtn_search"
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
             android:id="@+id/tv_playlist"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="(0)"
+            android:text="input image of playlist (0)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher" />
@@ -56,7 +56,7 @@
             android:id="@+id/tv_track"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="text here"
+            android:text="input image of tracks (10)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher"/>
@@ -64,7 +64,7 @@
             android:id="@+id/tv_TAG"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="text here"
+            android:text="(5)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher"/>
@@ -72,7 +72,7 @@
             android:id="@+id/tv_album"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="text here"
+            android:text="(1)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher"/>
