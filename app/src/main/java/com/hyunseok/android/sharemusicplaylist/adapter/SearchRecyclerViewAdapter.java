@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
 
 import java.util.List;
@@ -100,7 +101,7 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
                 public void onClick(View v) {
                     // TODO my playlist 로 추가
                     //Toast.makeText(context, "itemClick"+position, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, PlaylistDetailActivity.class);
+                    Intent intent = new Intent(context, PlaylistDetailActivity_.class);
                     context.startActivity(intent);
                 }
             });
