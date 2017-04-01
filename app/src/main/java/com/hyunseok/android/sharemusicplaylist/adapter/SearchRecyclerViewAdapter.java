@@ -2,6 +2,7 @@ package com.hyunseok.android.sharemusicplaylist.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
+import com.hyunseok.android.sharemusicplaylist.SearchTabFragment;
 
 import java.util.List;
 
@@ -36,28 +39,29 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
         this.context = context;
         this.datas = datas;
         this.flag = flag;
-//        switch (flag) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
-//            //case ListFragment.TYPE_ARTIST:
-//            case SearchTabFragment.TYPE_PLAYLIST:
-//                item_layout_id = R.layout.fragment_search_tab_item;
-//                break;
-//            case SearchTabFragment.TYPE_TRACK:
-//                item_layout_id = R.layout.fragment_search_tab_item;
-//                break;
-//            case SearchTabFragment.TYPE_TAG:
-//                item_layout_id = R.layout.fragment_search_tab_item;
-//                break;
-//            case SearchTabFragment.TYPE_ALBUM:
-//                item_layout_id = R.layout.fragment_search_tab_item;
-//                break;
-//        }
+
+        // TODO layout 바꾸기. -> playlist tab, tracks tab, TAG tab, albums tab 따로. 아래 ViewHolder 에서도 바꿔줘야한다.
+        switch (flag) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
+            case SearchTabFragment.TYPE_PLAYLIST:
+                item_layout_id = R.layout.fragment_search_tab_item;
+                break;
+            case SearchTabFragment.TYPE_TRACK:
+                item_layout_id = R.layout.fragment_search_tab_item;
+                break;
+            case SearchTabFragment.TYPE_TAG:
+                item_layout_id = R.layout.fragment_search_tab_item;
+                break;
+            case SearchTabFragment.TYPE_ALBUM:
+                item_layout_id = R.layout.fragment_search_tab_item;
+                break;
+        }
     }
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context)
                 .inflate(R.layout.fragment_search_tab_item, parent, false);
-        // TODO layout 바꾸기. -> playlist tab, tracks tab, TAG tab, albums tab 따로
+
         return new Holder(view);
     }
 
@@ -100,11 +104,52 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
                 @Override
                 public void onClick(View v) {
                     // TODO my playlist 로 추가
-                    //Toast.makeText(context, "itemClick"+position, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, PlaylistDetailActivity_.class);
-                    context.startActivity(intent);
+
+                    switch (flag) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
+                        case SearchTabFragment.TYPE_PLAYLIST:
+                            action_playlist();
+                            break;
+                        case SearchTabFragment.TYPE_TRACK:
+                            action_track();
+                            break;
+                        case SearchTabFragment.TYPE_TAG:
+                            action_TAG();
+                            break;
+                        case SearchTabFragment.TYPE_ALBUM:
+                            action_album();
+                            break;
+                    }
                 }
             });
         }
+    }
+
+    private void action_playlist() {
+        Intent intent = new Intent(context, PlaylistDetailActivity_.class);
+        context.startActivity(intent);
+    }
+    private void action_track() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+        alertDialog.setTitle("Select Actions");
+        final CharSequence items[] = {"Play", "Add to Playlist"};
+        alertDialog.setItems(items, (dialog, which) -> {
+            switch (which) {
+                case 0:
+                    // TODO Play 되게
+                    Toast.makeText(context, "Play", Toast.LENGTH_SHORT).show();
+                    break;
+                case 1:
+                    // TODO Add to Playlist 되게
+                    Toast.makeText(context, "Add to Playlist", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        });
+        alertDialog.show();
+    }
+    private void action_TAG() {
+
+    }
+    private void action_album() {
+
     }
 }

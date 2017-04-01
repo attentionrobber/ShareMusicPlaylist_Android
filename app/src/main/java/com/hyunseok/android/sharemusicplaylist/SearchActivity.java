@@ -25,9 +25,9 @@ public class SearchActivity extends AppCompatActivity {
     @ViewById
     TabLayout tabLayout;
     @ViewById
-    LinearLayout linearLayout;
+    LinearLayout linearLayout; // 검색 후 처음 보여주는 이미지
     @ViewById
-    RelativeLayout relativeLayout;
+    RelativeLayout relativeLayout; // 검색 후 처음 보여주는 이미지를 클릭하면 상세히 보여줌.
     @ViewById
     ViewPager viewPager;
     @ViewById

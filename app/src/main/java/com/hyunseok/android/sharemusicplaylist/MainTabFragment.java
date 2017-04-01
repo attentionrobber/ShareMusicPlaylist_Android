@@ -27,7 +27,7 @@ public class MainTabFragment extends Fragment {
     private int layout;
 
     RecyclerView recyclerView_horizon, rV_myPlaylist, rV_followPlaylist;
-    PlaylistRecyclerViewAdapter playlistAdapter;
+    PlaylistRecyclerViewAdapter myPlaylistAdapter, followPlaylistAdapter;
     HorizontalAdapter horizontalAdapter;
     List<String> horizontalList;
     List<String> playlistDatas;
@@ -89,35 +89,6 @@ public class MainTabFragment extends Fragment {
         return view;
     }
 
-    private void init_playerTab(View view) {
-
-    }
-
-    private void init_playlistTab(View view) {
-        rV_myPlaylist = (RecyclerView) view.findViewById(R.id.rV_myPlaylist);
-        rV_followPlaylist = (RecyclerView) view.findViewById(R.id.rV_followPlaylist);
-
-        playlistDatas = new ArrayList<>();
-        playlistDatas.add("playlist1");
-        playlistDatas.add("playlist2");
-        playlistDatas.add("playlist3");
-        playlistDatas.add("playlist4");
-        playlistDatas.add("playlist5");
-        playlistDatas.add("playlist6");
-        playlistDatas.add("playlist7");
-        playlistDatas.add("playlist8");
-        playlistDatas.add("playlist9");
-        playlistDatas.add("playlist10");
-
-        playlistAdapter = new PlaylistRecyclerViewAdapter(getContext(), playlistDatas);
-
-        rV_myPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
-        rV_followPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
-        rV_myPlaylist.setAdapter(playlistAdapter);
-        rV_followPlaylist.setAdapter(playlistAdapter);
-
-    }
-
     private void init_searchTab(View view) {
         recyclerView_horizon = (RecyclerView) view.findViewById(R.id.recyclerView_horizon);
         btn_search = (ImageButton) view.findViewById(R.id.imgbtn_search);
@@ -140,6 +111,36 @@ public class MainTabFragment extends Fragment {
                 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView_horizon.setLayoutManager(horizontalLayoutManager);
         recyclerView_horizon.setAdapter(horizontalAdapter);
+    }
+
+    private void init_playerTab(View view) {
+
+    }
+
+    private void init_playlistTab(View view) {
+        rV_myPlaylist = (RecyclerView) view.findViewById(R.id.rV_myPlaylist);
+        rV_followPlaylist = (RecyclerView) view.findViewById(R.id.rV_followPlaylist);
+
+        playlistDatas = new ArrayList<>();
+        playlistDatas.add("playlist1");
+        playlistDatas.add("playlist2");
+        playlistDatas.add("playlist3");
+        playlistDatas.add("playlist4");
+        playlistDatas.add("playlist5");
+        playlistDatas.add("playlist6");
+        playlistDatas.add("playlist7");
+        playlistDatas.add("playlist8");
+        playlistDatas.add("playlist9");
+        playlistDatas.add("playlist10");
+
+        myPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), playlistDatas, "my");
+        followPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), playlistDatas, "follow");
+
+        rV_myPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
+        rV_followPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
+        rV_myPlaylist.setAdapter(myPlaylistAdapter);
+        rV_followPlaylist.setAdapter(followPlaylistAdapter);
+
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {

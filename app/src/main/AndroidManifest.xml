@@ -18,13 +18,14 @@
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
-        <activity android:name=".MainActivity_"></activity>
-        <activity android:name=".SearchActivity_"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".MainActivity_">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".SearchActivity_"></activity>
+        <activity android:name=".LoginActivity">
         </activity>
         <activity android:name=".PlaylistDetailActivity_"></activity>
     </application>

@@ -46,9 +46,9 @@ public class SearchTabFragment extends Fragment {
 
         if (getArguments() != null) {
             mTabType = getArguments().getString(ARG_TAB_TYPE);
-            Log.i("Fragment", "000"+mTabType);
-
-            // TODO 각 TAB 별로 알맞는 소스추가
+            //Log.i("Fragment", "000"+mTabType);
+            // TODO 각 TAB 별로 알맞은 소스추가
+            // TODO 각 TAB 별로 알맞은 layout 으로 변경이 필요할 시 변경.(추후에 생각)
             switch (mTabType) {
                 case TYPE_PLAYLIST:
                     Log.i("Fragment", "111"+mTabType);
@@ -115,6 +115,8 @@ public class SearchTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search_tab, container, false);
+
+        // TODO Playlsit 인지 Track 인지 TAG 인지 Album 인지에 따라서 맞는 클릭 이벤트 추가
 
         RecyclerView recyclerView = (RecyclerView) view;
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));

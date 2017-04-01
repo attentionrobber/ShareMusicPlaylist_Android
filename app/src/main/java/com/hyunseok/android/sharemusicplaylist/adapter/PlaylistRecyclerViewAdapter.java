@@ -1,19 +1,25 @@
 package com.hyunseok.android.sharemusicplaylist.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
 
 import java.util.List;
 
 /**
  * Playlist Tab 의 RecyclerView Adapter
+ *
+ * Use by : MainTabFragment, PlaylistDetailActivity
  *
  * Created by Administrator on 2017-03-30.
  */
@@ -22,10 +28,12 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
 
     private Context context;
     private List<String> datas;
+    private String flag;
 
-    public PlaylistRecyclerViewAdapter(Context context, List<String> datas) {
+    public PlaylistRecyclerViewAdapter(Context context, List<String> datas, String flag) {
         this.context = context;
         this.datas = datas;
+        this.flag = flag;
     }
 
     @Override
@@ -58,25 +66,38 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         public int id;
         public String title;
 
+        RelativeLayout itemLayout;
         ImageView imageView_tabitem;
         TextView tv_title_tabitem, tv_artist_tabitem;
 
         public Holder(View view) {
             super(view);
 
+            itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
             imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabitem);
             tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
             tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
 
-//            box.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(context, PlayerActivity.class);
-//                    intent.putExtra(ListFragment.ARG_POSITION, position);
-//                    intent.putExtra(ListFragment.ARG_LIST_TYPE, flag);
-//                    context.startActivity(intent);
-//                }
-//            });
+            itemLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = null;
+                    switch (flag) {
+                        case "my":
+                            Toast.makeText(context, "my", Toast.LENGTH_SHORT).show();
+                            // TODO My Playlist 에서만 수정 가능하도록. Following Playlist에서는 수정 불가.
+                            intent = new Intent(context, PlaylistDetailActivity_.class);
+                            context.startActivity(intent);
+                            break;
+                        case "follow":
+                            Toast.makeText(context, "follow", Toast.LENGTH_SHORT).show();
+                            intent = new Intent(context, PlaylistDetailActivity_.class);
+                            context.startActivity(intent);
+                            break;
+                        default: break;
+                    }
+                }
+            });
         }
     }
 }
