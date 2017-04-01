@@ -3,6 +3,7 @@ package com.hyunseok.android.sharemusicplaylist;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,13 +27,24 @@ public class MainTabFragment extends Fragment {
     private String mTabType = "";
     private int layout;
 
-    RecyclerView recyclerView_horizon, rV_myPlaylist, rV_followPlaylist;
-    PlaylistRecyclerViewAdapter myPlaylistAdapter, followPlaylistAdapter;
+    // Search Tab
+    RecyclerView recyclerView_horizon;
     HorizontalAdapter horizontalAdapter;
+
     List<String> horizontalList;
-    List<String> playlistDatas;
 
     ImageButton btn_search;
+
+    // Player Tab
+
+    // Playlist Tab
+    RecyclerView rV_myPlaylist, rV_followPlaylist;
+    PlaylistRecyclerViewAdapter myPlaylistAdapter, followPlaylistAdapter;
+
+    List<String> playlistDatas;
+
+    FloatingActionButton btn_newList;
+
 
     public MainTabFragment() {
         // Required empty public constructor
@@ -121,6 +133,9 @@ public class MainTabFragment extends Fragment {
         rV_myPlaylist = (RecyclerView) view.findViewById(R.id.rV_myPlaylist);
         rV_followPlaylist = (RecyclerView) view.findViewById(R.id.rV_followPlaylist);
 
+        btn_newList = (FloatingActionButton) view.findViewById(R.id.btn_newList);
+        btn_newList.setOnClickListener(clickListener);
+
         playlistDatas = new ArrayList<>();
         playlistDatas.add("playlist1");
         playlistDatas.add("playlist2");
@@ -146,8 +161,18 @@ public class MainTabFragment extends Fragment {
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(getContext(), SearchActivity_.class);
-            startActivity(intent);
+            Intent intent = null;
+            switch (v.getId()) {
+                case R.id.imgbtn_search:
+                    intent = new Intent(getContext(), SearchActivity_.class);
+                    startActivity(intent);
+                    break;
+                case R.id.btn_newList:
+                    intent = new Intent(getContext(), PlaylistNewActivity_.class);
+                    startActivity(intent);
+                    break;
+                default: break;
+            }
         }
     };
 
