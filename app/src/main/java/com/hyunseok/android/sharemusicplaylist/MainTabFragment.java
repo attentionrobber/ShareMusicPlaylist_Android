@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
+import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter;
 
 import java.util.ArrayList;
@@ -36,6 +38,10 @@ public class MainTabFragment extends Fragment {
     ImageButton btn_search;
 
     // Player Tab
+    ViewPager viewPager_player;
+    PlayerAdapter playerAdapter;
+
+    List<String> cardDatas;
 
     // Playlist Tab
     RecyclerView rv_myPlaylist, rv_followPlaylist;
@@ -126,6 +132,22 @@ public class MainTabFragment extends Fragment {
     }
 
     private void init_playerTab(View view) {
+        viewPager_player = (ViewPager) view.findViewById(R.id.viewPager_player);
+
+        cardDatas = new ArrayList<>();
+        cardDatas.add("card1");
+        cardDatas.add("card2");
+        cardDatas.add("card3");
+        cardDatas.add("card4");
+        cardDatas.add("card5");
+        cardDatas.add("card6");
+        cardDatas.add("card7");
+        cardDatas.add("card8");
+        cardDatas.add("card9");
+        cardDatas.add("card10");
+
+        playerAdapter = new PlayerAdapter(cardDatas, getContext());
+        viewPager_player.setAdapter(playerAdapter);
 
     }
 
