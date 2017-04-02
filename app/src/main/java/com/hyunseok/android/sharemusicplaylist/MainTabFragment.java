@@ -38,7 +38,7 @@ public class MainTabFragment extends Fragment {
     // Player Tab
 
     // Playlist Tab
-    RecyclerView rV_myPlaylist, rV_followPlaylist;
+    RecyclerView rv_myPlaylist, rv_followPlaylist;
     PlaylistRecyclerViewAdapter myPlaylistAdapter, followPlaylistAdapter;
 
     List<String> playlistDatas;
@@ -130,8 +130,8 @@ public class MainTabFragment extends Fragment {
     }
 
     private void init_playlistTab(View view) {
-        rV_myPlaylist = (RecyclerView) view.findViewById(R.id.rV_myPlaylist);
-        rV_followPlaylist = (RecyclerView) view.findViewById(R.id.rV_followPlaylist);
+        rv_myPlaylist = (RecyclerView) view.findViewById(R.id.rv_myPlaylist);
+        rv_followPlaylist = (RecyclerView) view.findViewById(R.id.rv_followPlaylist);
 
         btn_newList = (FloatingActionButton) view.findViewById(R.id.btn_newList);
         btn_newList.setOnClickListener(clickListener);
@@ -151,10 +151,10 @@ public class MainTabFragment extends Fragment {
         myPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), playlistDatas, "my");
         followPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), playlistDatas, "follow");
 
-        rV_myPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
-        rV_followPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
-        rV_myPlaylist.setAdapter(myPlaylistAdapter);
-        rV_followPlaylist.setAdapter(followPlaylistAdapter);
+        rv_myPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv_followPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv_myPlaylist.setAdapter(myPlaylistAdapter);
+        rv_followPlaylist.setAdapter(followPlaylistAdapter);
 
     }
 

@@ -1,13 +1,17 @@
 package com.hyunseok.android.sharemusicplaylist.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
 
 import java.util.List;
@@ -44,21 +48,26 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
 
     public class Holder extends RecyclerView.ViewHolder {
 
+        LinearLayout linearLayout;
         ImageView imageView_recycler;
         TextView tv_recycler;
 
-        public Holder(View itemView) {
-            super(itemView);
-            imageView_recycler = (ImageView) itemView.findViewById(R.id.imageView_recycler);
-            tv_recycler = (TextView) itemView.findViewById(R.id.tv_recycler);
+        public Holder(View view) {
+            super(view);
+            linearLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
+            imageView_recycler = (ImageView) view.findViewById(R.id.imageView_recycler);
+            tv_recycler = (TextView) view.findViewById(R.id.tv_recycler);
 
-            tv_recycler.setOnClickListener(clickListener);
+            linearLayout.setOnClickListener(clickListener);
         }
 
         private View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // TODO go PlaylistDetail Activity
+                Intent intent = new Intent(context, PlaylistDetailActivity_.class);
+                context.startActivity(intent);
+                //Toast.makeText(context, "Horizontal Adapter Click Event", Toast.LENGTH_SHORT).show();
             }
         };
     }

@@ -48,7 +48,7 @@
             android:id="@+id/tv_playlist"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="input image of playlist (0)"
+            android:text="input playlist image (0)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher" />
@@ -56,7 +56,7 @@
             android:id="@+id/tv_track"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="input image of tracks (10)"
+            android:text="input tracks image (10)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher"/>
@@ -64,15 +64,16 @@
             android:id="@+id/tv_TAG"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="(5)"
+            android:text="input TAG image (5)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher"/>
+
         <TextView
             android:id="@+id/tv_album"
             android:layout_width="fill_parent"
             android:layout_height="60dp"
-            android:text="(1)"
+            android:text="input album image (1)"
             android:gravity="center"
             android:textAlignment="viewEnd"
             android:background="@mipmap/ic_launcher"/>
