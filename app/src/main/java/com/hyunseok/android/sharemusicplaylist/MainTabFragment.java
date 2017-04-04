@@ -158,6 +158,8 @@ public class MainTabFragment extends Fragment {
         btn_newList = (FloatingActionButton) view.findViewById(R.id.btn_newList);
         btn_newList.setOnClickListener(clickListener);
 
+        // TODO PlaylistNewActivity 에서 Playlist 를 추가(Local DB에 저장)하면 My Playlist 에 로드(Local DB에서 Load)되도록 하기.
+
         playlistDatas = new ArrayList<>();
         playlistDatas.add("playlist1");
         playlistDatas.add("playlist2");

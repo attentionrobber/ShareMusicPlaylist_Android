@@ -7,11 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.TabPagerAdapter;
+import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
+import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
@@ -23,9 +31,29 @@ public class MainActivity extends AppCompatActivity {
     @ViewById
     Button btn_back;
 
+    // Local DB 에 저장할 Playlist
+    private static List<Playlist> playlistData = new ArrayList<>();
+
     @AfterViews // Define Initialization Code
     protected void init() {
 
+        setLayout();
+
+        try {
+            loadData(); // Local DB 에서 Playlist 데이터 로드
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Click({R.id.btn_back})
+    public void goLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void setLayout() {
         // Tab 생성 및 타이틀 입력         //.setIcon(R.mipmap.ic_launcher) // icon 추가가능
         tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.tab_search)));
         tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.tab_player)));
@@ -46,10 +74,9 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
 
-    @Click({R.id.btn_back})
-    public void goLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
+    private void loadData() throws SQLException{
+        DBHelper dbHelper = OpenHelperManager.getHelper(this, DBHelper.class);
+        Dao<Playlist, Integer> playlistDao = dbHelper.getPlaylistDao();
+        playlistData = playlistDao.queryForAll();
     }
 }

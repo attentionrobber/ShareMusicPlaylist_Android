@@ -54,6 +54,9 @@ dependencies {
     compile 'org.androidannotations:androidannotations:4.1.0'
     compile rootProject.ext.facebook
 
+    compile rootProject.ext.ormlite
+    compile rootProject.ext.ormlite_core
+
     testCompile 'junit:junit:4.12'
 }
 
