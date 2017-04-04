@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
-import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
 
 import java.util.List;
 
@@ -25,13 +24,13 @@ import java.util.List;
  * Created by Administrator on 2017-03-30.
  */
 
-public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRecyclerViewAdapter.Holder> {
+public class PlaylistRecyclerViewAdapter_Sample extends RecyclerView.Adapter<PlaylistRecyclerViewAdapter_Sample.Holder> {
 
     private Context context;
-    private List<Playlist> datas;
+    private List<String> datas;
     private String flag;
 
-    public PlaylistRecyclerViewAdapter(Context context, List<Playlist> datas, String flag) {
+    public PlaylistRecyclerViewAdapter_Sample(Context context, List<String> datas, String flag) {
         this.context = context;
         this.datas = datas;
         this.flag = flag;
@@ -48,14 +47,11 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
     @Override
     public void onBindViewHolder(Holder holder, int position) {
 
-        // TODO Field 에 맞게 holder 추가하기.
-
-        final Playlist playlist = datas.get(position);
-        List<String> tracks = playlist.getTracks();
+        //final Playlist playlist = datas.get(position);
 
         holder.position = position; // 현재 위치 받아오기
-        holder.tv_title_tabitem.setText(playlist.getTitle());
-        holder.tv_artist_tabitem.setText(tracks.toString());
+        holder.tv_title_tabitem.setText(datas.get(position));
+        holder.tv_artist_tabitem.setText(datas.get(position));
 //        Glide.with(context).load(common.getImageUri())
 //                .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabitem);
     }

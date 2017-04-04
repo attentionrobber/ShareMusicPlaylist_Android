@@ -49,7 +49,6 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase database, ConnectionSource connectionSource, int oldVersion, int newVersion) {
         try {
-            // Bbs.class에 정의된 테이블 삭제하고
             TableUtils.dropTable(connectionSource, Playlist.class, false);
 
             // TODO 데이터를 보존해야될 필요성이 있으면 중간처리를 해줘야한다.

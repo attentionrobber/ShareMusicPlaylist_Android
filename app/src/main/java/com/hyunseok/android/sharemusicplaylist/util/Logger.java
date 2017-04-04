@@ -16,7 +16,7 @@ public class Logger {
      * @param str
      * @param className
      */
-    public static void print(String str, String className) {
+    public static void print(String className, String str) {
         if (DEBUG_MODE) {
             Log.d(className, str);
 

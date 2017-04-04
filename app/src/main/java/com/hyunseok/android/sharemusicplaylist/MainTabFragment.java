@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,7 +17,14 @@ import android.widget.ImageButton;
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter;
+import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
+import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
+import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
+import com.hyunseok.android.sharemusicplaylist.util.Logger;
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +53,9 @@ public class MainTabFragment extends Fragment {
 
     // Playlist Tab
     RecyclerView rv_myPlaylist, rv_followPlaylist;
-    PlaylistRecyclerViewAdapter myPlaylistAdapter, followPlaylistAdapter;
+    PlaylistRecyclerViewAdapter_Sample followPlaylistAdapter;
+    PlaylistRecyclerViewAdapter myPlaylistAdapter;
+    List<Playlist> myPlaylist = new ArrayList<>();
 
     List<String> playlistDatas;
 
@@ -67,7 +77,7 @@ public class MainTabFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Logger.print("MainTabFragment", "=================onCreate===================");
         if (getArguments() != null) {
             mTabType = getArguments().getString(ARG_TAB_TYPE);
 
@@ -90,6 +100,7 @@ public class MainTabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Logger.print("MainTabFragment", "=================onCreateView===================");
         View view = inflater.inflate(layout, container, false);
         switch(layout) {
             case R.layout.fragment_main_searchtab:
@@ -158,7 +169,11 @@ public class MainTabFragment extends Fragment {
         btn_newList = (FloatingActionButton) view.findViewById(R.id.btn_newList);
         btn_newList.setOnClickListener(clickListener);
 
-        // TODO PlaylistNewActivity 에서 Playlist 를 추가(Local DB에 저장)하면 My Playlist 에 로드(Local DB에서 Load)되도록 하기.
+        try {
+            loadPlaylist();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         playlistDatas = new ArrayList<>();
         playlistDatas.add("playlist1");
@@ -172,14 +187,19 @@ public class MainTabFragment extends Fragment {
         playlistDatas.add("playlist9");
         playlistDatas.add("playlist10");
 
-        myPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), playlistDatas, "my");
-        followPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), playlistDatas, "follow");
+        myPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), myPlaylist, "my");
+        followPlaylistAdapter = new PlaylistRecyclerViewAdapter_Sample(getContext(), playlistDatas, "follow");
 
         rv_myPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_followPlaylist.setLayoutManager(new LinearLayoutManager(getContext()));
         rv_myPlaylist.setAdapter(myPlaylistAdapter);
         rv_followPlaylist.setAdapter(followPlaylistAdapter);
+    }
 
+    private void loadPlaylist() throws SQLException {
+        DBHelper dbHelper = OpenHelperManager.getHelper(getContext(), DBHelper.class);
+        Dao<Playlist, Integer> playlistDao = dbHelper.getPlaylistDao();
+        myPlaylist = playlistDao.queryForAll();
     }
 
     View.OnClickListener clickListener = new View.OnClickListener() {
@@ -201,12 +221,31 @@ public class MainTabFragment extends Fragment {
     };
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        switch(layout) {
+            case R.layout.fragment_main_searchtab:
+                break;
+            case R.layout.fragment_main_playertab:
+                break;
+            case R.layout.fragment_main_playlisttab:
+                init_playlistTab(getView());
+                break;
+            default: break;
+        }
+        //Logger.print("MainTabFragment", "=================onResume===================");
+    }
+
+    @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        //Logger.print("MainTabFragment", "=================onAttach===================");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
+        //Logger.print("MainTabFragment", "=================onDetach===================");
     }
 }

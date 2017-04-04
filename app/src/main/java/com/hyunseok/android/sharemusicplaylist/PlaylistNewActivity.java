@@ -8,16 +8,16 @@ import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter;
+import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
 import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
@@ -54,7 +54,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
     Button btn_OK, btn_cancle, btn_addTrack;
     @ViewById
     RecyclerView recyclerView;
-    PlaylistRecyclerViewAdapter adapter;
+    PlaylistRecyclerViewAdapter_Sample adapter;
     private List<String> tracks = new ArrayList<>();; // Activity 하단의 RecyclerView 에 들어가는 Tracks
 
     // Image
@@ -64,7 +64,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
     @AfterViews
     protected void init() {
 
-        adapter = new PlaylistRecyclerViewAdapter(this, tracks, "");
+        adapter = new PlaylistRecyclerViewAdapter_Sample(this, tracks, "");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -92,25 +92,6 @@ public class PlaylistNewActivity extends AppCompatActivity {
         playlistDao.create(playlist);
     }
 
-    private void inputImageBy(String option) {
-        Intent intent = null;
-        if ("CAMERA".equals(option)) { // 카메라 촬영 후 미디어 컨텐트 Uri를 생성해서 외부저장소에 저장한다.
-            intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                ContentValues values = new ContentValues(1);
-                values.put(MediaStore.Images.Media.MIME_TYPE, "ShareMusic/jpg"); // 촬영한 사진을 저장한다.
-                imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-            }
-            startActivityForResult(intent, REQ_CAMERA);
-        } else if ("GALLERY".equals(option)) {
-            intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            intent.setType("image/*"); // 외부저장소에 있는 이미지만 가져오기위한 필터링.
-            startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQ_GALLERY); // createChooser로 타이틀을 붙여줄 수 있다.
-        }
-    }
-
     @Click({R.id.btn_OK, R.id.btn_cancle, R.id.btn_addTrack})
     public void buttonEvent(View v) {
         int cnt = 0; // TODO cnt 삭제 -> real Data로 바꾸기
@@ -127,6 +108,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                Toast.makeText(this, ""+playlist.getTitle(), Toast.LENGTH_SHORT).show();
                 finish();
                 break;
             case R.id.btn_cancle:
@@ -155,6 +137,25 @@ public class PlaylistNewActivity extends AppCompatActivity {
             }
         });
         alert_Imgbtn.show(); // 팝업창을 띄운다.
+    }
+
+    private void inputImageBy(String option) {
+        Intent intent = null;
+        if ("CAMERA".equals(option)) { // 카메라 촬영 후 미디어 컨텐트 Uri를 생성해서 외부저장소에 저장한다.
+            intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                ContentValues values = new ContentValues(1);
+                values.put(MediaStore.Images.Media.MIME_TYPE, "ShareMusic/jpg"); // 촬영한 사진을 저장한다.
+                imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+            }
+            startActivityForResult(intent, REQ_CAMERA);
+        } else if ("GALLERY".equals(option)) {
+            intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            intent.setType("image/*"); // 외부저장소에 있는 이미지만 가져오기위한 필터링.
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQ_GALLERY); // createChooser로 타이틀을 붙여줄 수 있다.
+        }
     }
 
     //startActivityForResult() 후에 실행되는 콜백 함수

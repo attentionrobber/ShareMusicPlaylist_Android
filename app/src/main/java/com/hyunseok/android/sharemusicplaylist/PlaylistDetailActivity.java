@@ -1,11 +1,11 @@
 package com.hyunseok.android.sharemusicplaylist;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter;
+import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
+import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -19,7 +19,7 @@ public class PlaylistDetailActivity extends AppCompatActivity {
 
     @ViewById
     RecyclerView recyclerView;
-    PlaylistRecyclerViewAdapter adapter;
+    PlaylistRecyclerViewAdapter_Sample adapter;
     List<String> playlist;
 
     @AfterViews
@@ -27,12 +27,12 @@ public class PlaylistDetailActivity extends AppCompatActivity {
 
         // TODO Adapter 바꿀까(?)
         playlist = new ArrayList<>();
-        playlist.add("Music1");playlist.add("Music2");
-        playlist.add("Music3");playlist.add("Music4");
-        playlist.add("Music5");playlist.add("Music6");
-        playlist.add("Music7");playlist.add("Music8");
-        playlist.add("Music9");playlist.add("Music10");
-        adapter = new PlaylistRecyclerViewAdapter(this, playlist, "");
+        playlist.add("Playlist1");playlist.add("Playlist2");
+        playlist.add("Playlist3");playlist.add("Playlist4");
+        playlist.add("Playlist5");playlist.add("Playlist6");
+        playlist.add("Playlist7");playlist.add("Playlist8");
+        playlist.add("Playlist9");playlist.add("Playlist10");
+        adapter = new PlaylistRecyclerViewAdapter_Sample(this, playlist, "");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

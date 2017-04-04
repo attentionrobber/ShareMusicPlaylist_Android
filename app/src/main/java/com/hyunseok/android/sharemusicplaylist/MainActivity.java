@@ -31,19 +31,20 @@ public class MainActivity extends AppCompatActivity {
     @ViewById
     Button btn_back;
 
+    TabPagerAdapter adapter;
     // Local DB 에 저장할 Playlist
-    private static List<Playlist> playlistData = new ArrayList<>();
+    //private static List<Playlist> playlistData = new ArrayList<>();
 
     @AfterViews // Define Initialization Code
     protected void init() {
 
         setLayout();
 
-        try {
-            loadData(); // Local DB 에서 Playlist 데이터 로드
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            loadData(); // Local DB 에서 Playlist 데이터 로드
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Click({R.id.btn_back})
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // ViewPager
-        TabPagerAdapter adapter = new TabPagerAdapter(getSupportFragmentManager());
+        adapter = new TabPagerAdapter(getSupportFragmentManager());
         // 프래그먼트 생성 및 어댑터에 추가 // 첫번째 인자는 열의 개수, 두 번째 인자는 Tab의 flag
         adapter.add(MainTabFragment.newInstance(MainTabFragment.TYPE_SEARCH)); // Search 보기 형식
         adapter.add(MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYER)); // Player 보기 형식
@@ -74,9 +75,14 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
 
-    private void loadData() throws SQLException{
-        DBHelper dbHelper = OpenHelperManager.getHelper(this, DBHelper.class);
-        Dao<Playlist, Integer> playlistDao = dbHelper.getPlaylistDao();
-        playlistData = playlistDao.queryForAll();
+//    private void loadData() throws SQLException{
+//        DBHelper dbHelper = OpenHelperManager.getHelper(this, DBHelper.class);
+//        Dao<Playlist, Integer> playlistDao = dbHelper.getPlaylistDao();
+//        playlistData = playlistDao.queryForAll();
+//    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }
