@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
@@ -24,6 +25,8 @@ import java.util.List;
  * Playlist, Tracks, TAG, Album 에서의
  * RecyclerView Adapter
  *
+ * be used in : SearchTabFragment
+ *
  * Created by Administrator on 2017-03-29.
  */
 
@@ -33,17 +36,17 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
 
     private Context context;
     private List<String> datas;
-    private String flag;
+    private String mTabType;
 
-    public SearchRecyclerViewAdapter(Context context, List<String> datas, String flag) {
+    public SearchRecyclerViewAdapter(Context context, List<String> datas, String mTabType) {
         this.context = context;
         this.datas = datas;
-        this.flag = flag;
+        this.mTabType = mTabType;
 
         // TODO layout 바꾸기. -> playlist tab, tracks tab, TAG tab, albums tab 따로. 아래 ViewHolder 에서도 바꿔줘야한다.
-        switch (flag) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
+        switch (mTabType) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
             case SearchTabFragment.TYPE_PLAYLIST:
-                layout = R.layout.fragment_search_tab_item;
+                layout = R.layout.search_playlist_tab_item;
                 break;
             case SearchTabFragment.TYPE_TRACK:
                 layout = R.layout.fragment_search_tab_item;
@@ -72,7 +75,13 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
 
         holder.position = position; // 현재 위치 받아오기
         holder.tv_title_tabitem.setText(datas.get(position));
-        holder.tv_artist_tabitem.setText(datas.get(position));
+
+        if(SearchTabFragment.TYPE_PLAYLIST.equals(mTabType)) {
+            holder.tv_nickname_tabitem.setText(datas.get(position));
+            holder.toggle_searchPlaylist.setChecked(false);
+        } else {
+            holder.tv_artist_tabitem.setText(datas.get(position));
+        }
 //        Glide.with(context).load(common.getImageUri())
 //                .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabitem);
     }
@@ -82,25 +91,26 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
         return datas.size();
     }
 
-    public class Holder extends RecyclerView.ViewHolder {
-        public int position;
-        public int id;
-        public String title;
+    class Holder extends RecyclerView.ViewHolder {
+        int position;
 
         RelativeLayout itemLayout;
         ImageView imageView_tabitem;
-        TextView tv_title_tabitem, tv_artist_tabitem;
+        TextView tv_title_tabitem, tv_artist_tabitem, tv_nickname_tabitem;
+        ToggleButton toggle_searchPlaylist;
 
-        public Holder(View view) {
+        Holder(View view) {
             super(view);
 
             itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
             imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabitem);
             tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
             tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
+            tv_nickname_tabitem = (TextView) view.findViewById(R.id.tv_nickname_tabitem);
+            toggle_searchPlaylist = (ToggleButton) view.findViewById(R.id.toggle_searchPlaylist);
 
             itemLayout.setOnClickListener(v -> {
-                switch (flag) { // MainActivity 에서 Adapter 를 호출할 때 View 를 바꿔줄 수 있다.
+                switch (mTabType) { // MainActivity 에서 Adapter 를 호출할 때 View 를 바꿔줄 수 있다.
                     case SearchTabFragment.TYPE_PLAYLIST:
                         action_playlist();
                         break;

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
@@ -27,6 +28,8 @@ public class PlaylistDetailActivity extends AppCompatActivity {
     @ViewById
     TextView tv_playlistTitle;
     @ViewById
+    ToggleButton toggle_playlistDetail;
+    @ViewById
     RecyclerView recyclerView;
     PlaylistRecyclerViewAdapter_Sample adapter;
     List<String> playlist = new ArrayList<>();
@@ -42,13 +45,16 @@ public class PlaylistDetailActivity extends AppCompatActivity {
         if(bundle != null) {
             position = bundle.getInt("position");
             String title = bundle.getString("title");
+            boolean isShare = bundle.getBoolean("isShare");
             String tracks = bundle.getString("tracks");
             String imgUri = bundle.getString("imgUri");
+
             if (imgUri != null) {
                 Glide.with(this).load(imgUri)
                         .placeholder(R.mipmap.default_album_image).into(imageView);
             }
             tv_playlistTitle.setText(title);
+            toggle_playlistDetail.setChecked(isShare);
             playlist.add(tracks); // TODO Tracks List<Tracks>로 받도록 바꾸기
         } else {
             // TODO Adapter 바꿀까(?)

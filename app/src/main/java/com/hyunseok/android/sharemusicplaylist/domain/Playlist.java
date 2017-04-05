@@ -22,6 +22,8 @@ public class Playlist {
     int id;
     @DatabaseField
     String title;
+    @DatabaseField
+    boolean isShare;
     @DatabaseField(persisterClass = SerializableCollectionsType.class)
     List<String> tracks;
     @DatabaseField
@@ -36,6 +38,7 @@ public class Playlist {
     // create 시 사용되는 생성자
     public Playlist(String title, List<String> tracks, String imgUri, Date curDate) {
         this.title = title;
+        this.isShare = false;
         this.tracks = tracks;
         this.imgUri = imgUri;
         this.curDate = curDate;
@@ -47,6 +50,10 @@ public class Playlist {
 
     public String getTitle() {
         return title;
+    }
+
+    public boolean getIsShare() {
+        return isShare;
     }
 
     public String getImgUri() {
@@ -67,6 +74,10 @@ public class Playlist {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public void setShare(boolean share) {
+        isShare = share;
     }
 
     public void setImgUri(String imgUri) {

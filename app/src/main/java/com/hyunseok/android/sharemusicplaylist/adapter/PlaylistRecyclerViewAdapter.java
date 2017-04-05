@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
@@ -31,7 +32,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
     private Context context;
     private List<Playlist> datas;
     private String flag;
-    Intent intent; // PlaylistDetail Activity
+    private Intent intent; // PlaylistDetail Activity
 
     public PlaylistRecyclerViewAdapter(Context context, List<Playlist> datas, String flag) {
         this.context = context;
@@ -59,6 +60,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         holder.position = position; // 현재 위치 받아오기
         holder.tv_title_tabitem.setText(playlist.getTitle());
         holder.tv_artist_tabitem.setText(tracks.toString());
+        holder.toggle_mainPlaylist.setChecked(playlist.getIsShare());
         holder.imgUri = playlist.getImgUri();
         Glide.with(context).load(holder.imgUri)
                 .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabitem);
@@ -69,39 +71,36 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         return datas.size();
     }
 
-    public class Holder extends RecyclerView.ViewHolder {
+    class Holder extends RecyclerView.ViewHolder {
 
-        public int position;
+        private int position;
 
-        public int id;
-        public String title;
-        public String imgUri;
+        String imgUri;
 
         RelativeLayout itemLayout;
         ImageView imageView_tabitem;
         TextView tv_title_tabitem, tv_artist_tabitem;
+        ToggleButton toggle_mainPlaylist;
 
-        public Holder(View view) {
+        Holder(View view) {
             super(view);
 
             itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
             imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabitem);
             tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
             tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
+            toggle_mainPlaylist = (ToggleButton) view.findViewById(R.id.toggle_mainPlaylist);
 
-            itemLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    switch (flag) {
-                        case "my":
-                            // TODO My Playlist 에서만 수정 가능하도록. Following Playlist에서는 수정 불가.
-                            goMyPlaylistDetail();
-                            break;
-                        case "follow":
-                            goFollowPlaylistDetail();
-                            break;
-                        default: break;
-                    }
+            itemLayout.setOnClickListener(v -> {
+                switch (flag) {
+                    case "my":
+                        // TODO My Playlist 에서만 수정 가능하도록. Following Playlist에서는 수정 불가.
+                        goMyPlaylistDetail();
+                        break;
+                    case "follow":
+                        goFollowPlaylistDetail();
+                        break;
+                    default: break;
                 }
             });
         }
@@ -110,6 +109,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
             intent.putExtra("position", position);
             intent.putExtra("title", tv_title_tabitem.getText().toString()); // Playlist Title
             intent.putExtra("tracks", tv_artist_tabitem.getText().toString()); // Playlist Tracks // TODO tv_artist_tabitem을 Track List로 바꾸기
+            intent.putExtra("isShare", toggle_mainPlaylist.isChecked());
             intent.putExtra("imgUri", imgUri); // Playlist 대표 이미지 Uri
             context.startActivity(intent);
         }

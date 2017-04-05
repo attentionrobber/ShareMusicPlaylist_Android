@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
@@ -20,7 +20,7 @@ import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapt
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
 import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
-import com.hyunseok.android.sharemusicplaylist.util.Logger;
+import com.hyunseok.android.sharemusicplaylist.util.Message;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
@@ -56,11 +56,9 @@ public class MainTabFragment extends Fragment {
     PlaylistRecyclerViewAdapter_Sample followPlaylistAdapter;
     PlaylistRecyclerViewAdapter myPlaylistAdapter;
     List<Playlist> myPlaylist = new ArrayList<>();
-
     List<String> playlistDatas;
 
-    FloatingActionButton btn_newList;
-
+    FloatingActionButton btn_newMyList, btn_newFollowList;
 
     public MainTabFragment() {
         // Required empty public constructor
@@ -81,18 +79,19 @@ public class MainTabFragment extends Fragment {
         if (getArguments() != null) {
             mTabType = getArguments().getString(ARG_TAB_TYPE);
 
-            switch (mTabType) {
-                case TYPE_SEARCH:
-                    layout = R.layout.fragment_main_searchtab;
-                    break;
-                case TYPE_PLAYER:
-                    layout = R.layout.fragment_main_playertab;
-                    break;
-                case TYPE_PLAYLIST:
-                    layout = R.layout.fragment_main_playlisttab;
-                    break;
-                default:
-                    break;
+            if (mTabType != null) {
+                switch (mTabType) {
+                    case TYPE_SEARCH:
+                        layout = R.layout.fragment_main_searchtab;
+                        break;
+                    case TYPE_PLAYER:
+                        layout = R.layout.fragment_main_playertab;
+                        break;
+                    case TYPE_PLAYLIST:
+                        layout = R.layout.fragment_main_playlisttab;
+                        break;
+                    default: break;
+                }
             }
         }
     }
@@ -165,8 +164,10 @@ public class MainTabFragment extends Fragment {
         rv_myPlaylist = (RecyclerView) view.findViewById(R.id.rv_myPlaylist);
         rv_followPlaylist = (RecyclerView) view.findViewById(R.id.rv_followPlaylist);
 
-        btn_newList = (FloatingActionButton) view.findViewById(R.id.btn_newList);
-        btn_newList.setOnClickListener(clickListener);
+        btn_newMyList = (FloatingActionButton) view.findViewById(R.id.btn_newMyList);
+        btn_newFollowList = (FloatingActionButton) view.findViewById(R.id.btn_newFollowList);
+        btn_newMyList.setOnClickListener(clickListener);
+        btn_newFollowList.setOnClickListener(clickListener);
 
         try {
             loadPlaylist();
@@ -176,7 +177,7 @@ public class MainTabFragment extends Fragment {
 
         playlistDatas = new ArrayList<>();
         playlistDatas.add("playlist1");
-        playlistDatas.add("playlist2");
+        playlistDatas.add("playlist");
         playlistDatas.add("playlist3");
         playlistDatas.add("playlist4");
         playlistDatas.add("playlist5");
@@ -201,28 +202,28 @@ public class MainTabFragment extends Fragment {
         myPlaylist = playlistDao.queryForAll();
     }
 
-    View.OnClickListener clickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent = null;
-            switch (v.getId()) {
-                case R.id.imgbtn_search:
-                    intent = new Intent(getContext(), SearchActivity_.class);
-                    startActivity(intent);
-                    break;
-                case R.id.btn_newList:
-                    intent = new Intent(getContext(), PlaylistNewActivity_.class);
-                    startActivity(intent);
-                    break;
-                default: break;
-            }
+    View.OnClickListener clickListener = v -> {
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.imgbtn_search:
+                intent = new Intent(getContext(), SearchActivity_.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_newMyList:
+                intent = new Intent(getContext(), PlaylistNewActivity_.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_newFollowList:
+                // TODO Follow Playlist 만들기 버튼 눌렀을 때 기능 추가
+                Toast.makeText(getContext(), "New Follow List", Toast.LENGTH_SHORT).show();
+                break;
+            default: break;
         }
     };
 
     @Override
     public void onResume() {
         super.onResume();
-
         switch(layout) {
             case R.layout.fragment_main_searchtab:
                 break;
@@ -233,18 +234,15 @@ public class MainTabFragment extends Fragment {
                 break;
             default: break;
         }
-        //Logger.print("MainTabFragment", "=================onResume===================");
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        //Logger.print("MainTabFragment", "=================onAttach===================");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        //Logger.print("MainTabFragment", "=================onDetach===================");
     }
 }

@@ -37,46 +37,60 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/tabLayout">
+        android:layout_below="@+id/tabLayout"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_playlist"
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="input playlist image (0)"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/ic_menu_sort_by_size"
             android:gravity="center"
+            android:text="(0)"
             android:textAlignment="viewEnd"
-            android:background="@mipmap/ic_launcher" />
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/tv_track"
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="input tracks image (10)"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/ic_media_play"
             android:gravity="center"
+            android:text="input tracks image (10)"
             android:textAlignment="viewEnd"
-            android:background="@mipmap/ic_launcher"/>
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="24sp" />
+
         <TextView
             android:id="@+id/tv_TAG"
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="input TAG image (5)"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/ic_launcher"
             android:gravity="center"
+            android:text="input TAG image (5)"
             android:textAlignment="viewEnd"
-            android:background="@mipmap/ic_launcher"/>
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/tv_album"
             android:layout_width="fill_parent"
-            android:layout_height="60dp"
-            android:text="input album image (1)"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@mipmap/default_album_image"
             android:gravity="center"
+            android:text="input album image (1)"
             android:textAlignment="viewEnd"
-            android:background="@mipmap/ic_launcher"/>
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -87,17 +101,16 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:visibility="visible"
-        android:layout_below="@+id/linearLayout">
+        android:layout_below="@+id/linearLayout"
+        android:visibility="gone">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true">
-        </android.support.v4.view.ViewPager>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"></android.support.v4.view.ViewPager>
     </RelativeLayout>
 
 </RelativeLayout>

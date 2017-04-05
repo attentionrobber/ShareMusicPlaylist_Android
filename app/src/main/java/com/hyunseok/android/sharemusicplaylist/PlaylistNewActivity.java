@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
@@ -51,6 +52,9 @@ public class PlaylistNewActivity extends AppCompatActivity {
     @ViewById
     Button btn_OK, btn_cancle, btn_addTrack;
     @ViewById
+    ToggleButton toggleButton;
+
+    @ViewById
     RecyclerView recyclerView;
     PlaylistRecyclerViewAdapter_Sample adapter;
     private List<String> tracks = new ArrayList<>(); // Activity 하단의 RecyclerView 에 들어가는 Tracks
@@ -72,6 +76,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
         String strUri;
 
         playlist.setTitle(et_playlistTitle.getText().toString());
+        playlist.setShare(toggleButton.isChecked());
         playlist.setTracks(tracks);
         if(imageUri != null) {
             strUri = imageUri.toString();
@@ -106,7 +111,6 @@ public class PlaylistNewActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Toast.makeText(this, ""+playlist.getTitle(), Toast.LENGTH_SHORT).show();
                 finish();
                 break;
             case R.id.btn_cancle:

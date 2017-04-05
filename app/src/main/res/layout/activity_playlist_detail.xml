@@ -105,11 +105,12 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintVertical_bias="0.0"
             android:background="@drawable/togglebutton_background"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
             android:text=""
             android:textOn=""
-            android:textOff=""/>
+            android:textOff=""
+            android:id="@+id/toggle_playlistDetail"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
     </android.support.constraint.ConstraintLayout>
 
     <RelativeLayout

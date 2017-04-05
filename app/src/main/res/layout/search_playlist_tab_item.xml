@@ -25,12 +25,24 @@
         android:layout_toEndOf="@+id/imageView_tabitem" />
 
     <TextView
-        android:id="@+id/tv_artist_tabitem"
+        android:id="@+id/tv_nickname_tabitem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="artist"
         android:layout_below="@+id/tv_title_tabitem"
+        android:layout_toEndOf="@+id/imageView_tabitem"
         android:layout_toRightOf="@+id/imageView_tabitem"
-        android:layout_toEndOf="@+id/imageView_tabitem" />
+        android:text="nickname" />
+
+    <ToggleButton
+        android:id="@+id/toggle_searchPlaylist"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/togglebutton_background"
+        android:text=""
+        android:textOff=""
+        android:textOn="" />
 
 </RelativeLayout>
