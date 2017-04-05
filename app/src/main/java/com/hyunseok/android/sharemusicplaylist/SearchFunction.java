@@ -83,6 +83,7 @@ public class SearchFunction {
                     searchResult_layout.setVisibility(View.GONE);
                 }else{
                     recommend_layout.setVisibility(View.GONE);
+
                     searchResult_layout.setVisibility(View.VISIBLE);
                     //TODO : RETROFIT & RECYCLERVIEW
                 }
