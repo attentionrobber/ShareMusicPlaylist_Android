@@ -38,8 +38,6 @@ import java.util.List;
  *  대표이미지 설정 버튼, 음악 추가 버튼, TAG 입력부분(?)
  */
 
-// TODO 확인(Confirm)버튼, 취소(Cancle)버튼 만들기(항목 다 작성 후 저장 or  나가기)
-
 @EActivity(R.layout.activity_playlist_new)
 public class PlaylistNewActivity extends AppCompatActivity {
 

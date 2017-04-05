@@ -32,19 +32,11 @@ public class MainActivity extends AppCompatActivity {
     Button btn_back;
 
     TabPagerAdapter adapter;
-    // Local DB 에 저장할 Playlist
-    //private static List<Playlist> playlistData = new ArrayList<>();
 
     @AfterViews // Define Initialization Code
     protected void init() {
 
         setLayout();
-
-//        try {
-//            loadData(); // Local DB 에서 Playlist 데이터 로드
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Click({R.id.btn_back})
@@ -73,16 +65,5 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         // 2. 탭이 변경되었을 때 페이지를 바꿔주는 리스너
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
-    }
-
-//    private void loadData() throws SQLException{
-//        DBHelper dbHelper = OpenHelperManager.getHelper(this, DBHelper.class);
-//        Dao<Playlist, Integer> playlistDao = dbHelper.getPlaylistDao();
-//        playlistData = playlistDao.queryForAll();
-//    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 }

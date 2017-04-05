@@ -77,7 +77,7 @@ public class MainTabFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Logger.print("MainTabFragment", "=================onCreate===================");
+
         if (getArguments() != null) {
             mTabType = getArguments().getString(ARG_TAB_TYPE);
 
@@ -100,7 +100,6 @@ public class MainTabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Logger.print("MainTabFragment", "=================onCreateView===================");
         View view = inflater.inflate(layout, container, false);
         switch(layout) {
             case R.layout.fragment_main_searchtab:

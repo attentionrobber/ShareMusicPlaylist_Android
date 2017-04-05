@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
@@ -30,11 +31,13 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
     private Context context;
     private List<Playlist> datas;
     private String flag;
+    Intent intent; // PlaylistDetail Activity
 
     public PlaylistRecyclerViewAdapter(Context context, List<Playlist> datas, String flag) {
         this.context = context;
         this.datas = datas;
         this.flag = flag;
+        intent = new Intent(context, PlaylistDetailActivity_.class);
     }
 
     @Override
@@ -56,8 +59,9 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         holder.position = position; // 현재 위치 받아오기
         holder.tv_title_tabitem.setText(playlist.getTitle());
         holder.tv_artist_tabitem.setText(tracks.toString());
-//        Glide.with(context).load(common.getImageUri())
-//                .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabitem);
+        holder.imgUri = playlist.getImgUri();
+        Glide.with(context).load(holder.imgUri)
+                .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabitem);
     }
 
     @Override
@@ -71,6 +75,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
 
         public int id;
         public String title;
+        public String imgUri;
 
         RelativeLayout itemLayout;
         ImageView imageView_tabitem;
@@ -87,23 +92,32 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
             itemLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = null;
                     switch (flag) {
                         case "my":
-                            Toast.makeText(context, "my", Toast.LENGTH_SHORT).show();
                             // TODO My Playlist 에서만 수정 가능하도록. Following Playlist에서는 수정 불가.
-                            intent = new Intent(context, PlaylistDetailActivity_.class);
-                            context.startActivity(intent);
+                            // TODO 클릭시 해당 PlaylistDetailActivity 띄우기
+                            goMyPlaylistDetail();
                             break;
                         case "follow":
-                            Toast.makeText(context, "follow", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(context, PlaylistDetailActivity_.class);
-                            context.startActivity(intent);
+                            goFollowPlaylistDetail();
                             break;
                         default: break;
                     }
                 }
             });
+        }
+
+        private void goMyPlaylistDetail() {
+            intent.putExtra("position", position);
+            intent.putExtra("title", tv_title_tabitem.getText().toString()); // Playlist Title
+            intent.putExtra("tracks", tv_artist_tabitem.getText().toString()); // Playlist Tracks // TODO tv_artist_tabitem을 Track List로 바꾸기
+            intent.putExtra("imgUri", imgUri); // Playlist 대표 이미지 Uri
+            context.startActivity(intent);
+        }
+
+        private void goFollowPlaylistDetail() {
+            intent = new Intent(context, PlaylistDetailActivity_.class);
+            context.startActivity(intent);
         }
     }
 }
