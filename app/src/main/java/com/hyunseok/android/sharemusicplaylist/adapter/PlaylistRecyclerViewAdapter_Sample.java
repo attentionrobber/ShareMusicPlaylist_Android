@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Playlist Tab 의 RecyclerView Adapter
  *
- * Use by : MainTabFragment, PlaylistDetailActivity
+ * Use by : PlaylistDetailActivity
  *
  * Created by Administrator on 2017-03-30.
  */

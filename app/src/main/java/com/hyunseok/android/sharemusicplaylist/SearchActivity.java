@@ -35,6 +35,12 @@ public class SearchActivity extends AppCompatActivity {
 
     @AfterViews
     protected void init() {
+
+        setLayout();
+
+    }
+
+    private void setLayout() {
         //toolbar.setTitle("ToolbarHAHA");
         //toolbar.setNavigationIcon(R.mipmap.ic_launcher);
         setSupportActionBar(toolbar);
@@ -77,19 +83,15 @@ public class SearchActivity extends AppCompatActivity {
         // TODO 각 TAB 별로 알맞는 소스추가
         switch (v.getId()) {
             case R.id.tv_playlist:
-                //Toast.makeText(this, "playlist", Toast.LENGTH_SHORT).show();
                 viewPager.setCurrentItem(0);
                 break;
             case R.id.tv_track:
-                //Toast.makeText(this, "track", Toast.LENGTH_SHORT).show();
                 viewPager.setCurrentItem(1);
                 break;
             case R.id.tv_TAG:
-                //Toast.makeText(this, "TAG", Toast.LENGTH_SHORT).show();
                 viewPager.setCurrentItem(2);
                 break;
             case R.id.tv_album:
-                //Toast.makeText(this, "album", Toast.LENGTH_SHORT).show();
                 viewPager.setCurrentItem(3);
                 break;
         }
@@ -101,14 +103,11 @@ public class SearchActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-
         if(linearLayout.getVisibility() == View.GONE) { // Linear 안보일 경우
             linearLayout.setVisibility(View.VISIBLE);
             relativeLayout.setVisibility(View.GONE);
             tabLayout.setVisibility(View.INVISIBLE);
-        }
-
-        else if(linearLayout.getVisibility() == View.VISIBLE) {
+        } else if(linearLayout.getVisibility() == View.VISIBLE) {
             if(relativeLayout.getVisibility() == View.GONE) {
                 super.onBackPressed();
             }

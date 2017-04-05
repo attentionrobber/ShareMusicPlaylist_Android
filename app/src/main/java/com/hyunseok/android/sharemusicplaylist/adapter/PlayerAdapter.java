@@ -14,7 +14,7 @@ import com.hyunseok.android.sharemusicplaylist.R;
 import java.util.List;
 
 /**
- * Created by HS on 2017-02-02.
+ * Created by HS on 2017-04-03.
  */
 
 public class PlayerAdapter extends PagerAdapter {

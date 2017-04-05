@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Playlist Tab 의 RecyclerView Adapter
  *
- * Use by : MainTabFragment, PlaylistDetailActivity
+ * Use by : MainTabFragment
  *
  * Created by Administrator on 2017-03-30.
  */
@@ -43,7 +43,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.fragment_search_tab_item, parent, false);
+                .inflate(R.layout.main_playlist_tab_item, parent, false);
         // TODO layout 새로 만들어서 R.layout.fragment_search_tab_item 바꾸기
         return new Holder(view);
     }
@@ -95,7 +95,6 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
                     switch (flag) {
                         case "my":
                             // TODO My Playlist 에서만 수정 가능하도록. Following Playlist에서는 수정 불가.
-                            // TODO 클릭시 해당 PlaylistDetailActivity 띄우기
                             goMyPlaylistDetail();
                             break;
                         case "follow":

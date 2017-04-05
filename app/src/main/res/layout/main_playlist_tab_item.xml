@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/itemLayout">
+
+    <ImageView
+        android:id="@+id/imageView_tabitem"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_title_tabitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TITLE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageView_tabitem"
+        android:layout_toEndOf="@+id/imageView_tabitem" />
+
+    <TextView
+        android:id="@+id/tv_artist_tabitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="artist"
+        android:layout_below="@+id/tv_title_tabitem"
+        android:layout_toRightOf="@+id/imageView_tabitem"
+        android:layout_toEndOf="@+id/imageView_tabitem" />
+
+    <ToggleButton
+        android:id="@+id/toggle_mainPlaylist"
+        android:text=""
+        android:textOn=""
+        android:textOff=""
+        android:layout_alignParentRight="true"
+        android:background="@drawable/togglebutton_background"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp" />
+
+</RelativeLayout>

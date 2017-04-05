@@ -53,11 +53,10 @@ public class PlaylistNewActivity extends AppCompatActivity {
     @ViewById
     RecyclerView recyclerView;
     PlaylistRecyclerViewAdapter_Sample adapter;
-    private List<String> tracks = new ArrayList<>();; // Activity 하단의 RecyclerView 에 들어가는 Tracks
+    private List<String> tracks = new ArrayList<>(); // Activity 하단의 RecyclerView 에 들어가는 Tracks
 
     // Image
     private Uri imageUri;
-    private String strUri;
 
     @AfterViews
     protected void init() {
@@ -70,6 +69,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
 
     private Playlist makePlaylist() {
         Playlist playlist = new Playlist();
+        String strUri;
 
         playlist.setTitle(et_playlistTitle.getText().toString());
         playlist.setTracks(tracks);
@@ -121,24 +121,21 @@ public class PlaylistNewActivity extends AppCompatActivity {
         AlertDialog.Builder alert_Imgbtn = new AlertDialog.Builder(PlaylistNewActivity.this);
         alert_Imgbtn.setTitle("Input Image");
         final CharSequence[] items_Imgbtn = {"Camera", "Gallery"};
-        alert_Imgbtn.setItems(items_Imgbtn, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case 0 : // Camera
-                        inputImageBy("CAMERA");
-                        break;
-                    case 1 : // Gallery
-                        inputImageBy("GALLERY");
-                        break;
-                }
+        alert_Imgbtn.setItems(items_Imgbtn, (dialog, which) -> {
+            switch (which) {
+                case 0 : // Camera
+                    inputImageBy("CAMERA");
+                    break;
+                case 1 : // Gallery
+                    inputImageBy("GALLERY");
+                    break;
             }
         });
         alert_Imgbtn.show(); // 팝업창을 띄운다.
     }
 
     private void inputImageBy(String option) {
-        Intent intent = null;
+        Intent intent;
         if ("CAMERA".equals(option)) { // 카메라 촬영 후 미디어 컨텐트 Uri를 생성해서 외부저장소에 저장한다.
             intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {

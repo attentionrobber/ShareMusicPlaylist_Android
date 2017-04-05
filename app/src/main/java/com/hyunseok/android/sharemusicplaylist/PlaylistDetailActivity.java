@@ -49,7 +49,7 @@ public class PlaylistDetailActivity extends AppCompatActivity {
                         .placeholder(R.mipmap.default_album_image).into(imageView);
             }
             tv_playlistTitle.setText(title);
-            playlist.add(tracks);
+            playlist.add(tracks); // TODO Tracks List<Tracks>로 받도록 바꾸기
         } else {
             // TODO Adapter 바꿀까(?)
             playlist.add("Playlist1");

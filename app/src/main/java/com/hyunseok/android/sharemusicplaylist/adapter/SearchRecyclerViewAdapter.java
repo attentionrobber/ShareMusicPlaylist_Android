@@ -29,7 +29,7 @@ import java.util.List;
 
 public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecyclerViewAdapter.Holder>{
 
-    private int item_layout_id;
+    private int layout;
 
     private Context context;
     private List<String> datas;
@@ -43,16 +43,16 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
         // TODO layout 바꾸기. -> playlist tab, tracks tab, TAG tab, albums tab 따로. 아래 ViewHolder 에서도 바꿔줘야한다.
         switch (flag) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
             case SearchTabFragment.TYPE_PLAYLIST:
-                item_layout_id = R.layout.fragment_search_tab_item;
+                layout = R.layout.fragment_search_tab_item;
                 break;
             case SearchTabFragment.TYPE_TRACK:
-                item_layout_id = R.layout.fragment_search_tab_item;
+                layout = R.layout.fragment_search_tab_item;
                 break;
             case SearchTabFragment.TYPE_TAG:
-                item_layout_id = R.layout.fragment_search_tab_item;
+                layout = R.layout.fragment_search_tab_item;
                 break;
             case SearchTabFragment.TYPE_ALBUM:
-                item_layout_id = R.layout.fragment_search_tab_item;
+                layout = R.layout.fragment_search_tab_item;
                 break;
         }
     }
@@ -60,7 +60,7 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context)
-                .inflate(R.layout.fragment_search_tab_item, parent, false);
+                .inflate(layout, parent, false);
 
         return new Holder(view);
     }
@@ -84,7 +84,6 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
 
     public class Holder extends RecyclerView.ViewHolder {
         public int position;
-
         public int id;
         public String title;
 
@@ -100,31 +99,27 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
             tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
             tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
 
-            itemLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // TODO my playlist 로 추가
-
-                    switch (flag) { // MainActivity에서 Adapter를 호출할 때 View를 바꿔줄 수 있다.
-                        case SearchTabFragment.TYPE_PLAYLIST:
-                            action_playlist();
-                            break;
-                        case SearchTabFragment.TYPE_TRACK:
-                            action_track();
-                            break;
-                        case SearchTabFragment.TYPE_TAG:
-                            action_TAG();
-                            break;
-                        case SearchTabFragment.TYPE_ALBUM:
-                            action_album();
-                            break;
-                    }
+            itemLayout.setOnClickListener(v -> {
+                switch (flag) { // MainActivity 에서 Adapter 를 호출할 때 View 를 바꿔줄 수 있다.
+                    case SearchTabFragment.TYPE_PLAYLIST:
+                        action_playlist();
+                        break;
+                    case SearchTabFragment.TYPE_TRACK:
+                        action_track();
+                        break;
+                    case SearchTabFragment.TYPE_TAG:
+                        action_TAG();
+                        break;
+                    case SearchTabFragment.TYPE_ALBUM:
+                        action_album();
+                        break;
                 }
             });
         }
     }
 
     private void action_playlist() {
+        // TODO my playlist 로 추가
         Intent intent = new Intent(context, PlaylistDetailActivity_.class);
         context.startActivity(intent);
     }
