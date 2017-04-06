@@ -62,7 +62,6 @@ public class MainTabFragment extends Fragment {
     List<String> playlistDatas;
 
     FloatingActionButton btn_newList;
-    FragmentManager fm;
 
     public MainTabFragment() {
         // Required empty public constructor
@@ -79,7 +78,6 @@ public class MainTabFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fm = getFragmentManager();
         if (getArguments() != null) {
             mTabType = getArguments().getString(ARG_TAB_TYPE);
 
