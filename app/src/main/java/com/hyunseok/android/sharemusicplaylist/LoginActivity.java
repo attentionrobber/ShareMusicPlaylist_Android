@@ -187,31 +187,6 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
-    public void onBackPressed() {
-        if(status == SIGNIN){
-            super.onBackPressed();
-        }else if(status == SIGNUP){
-            linearSignIn.setVisibility(View.VISIBLE);
-            linearSignUp.setVisibility(View.GONE);
-            status = SIGNIN;
-        }
-
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        //AppEventsLogger.activateApp(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        //AppEventsLogger.deactivateApp(this);
-
-    }
     private void setLoginFaceBook(){
         callbackManager = CallbackManager.Factory.create();
         LoginButton loginButton = (LoginButton)findViewById(R.id.facebook_login_button_In);
@@ -238,7 +213,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
     private void getUserInfo(){
-
         GraphRequest request = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {
@@ -336,6 +310,21 @@ public class LoginActivity extends AppCompatActivity {
 
         return valid;
     }
+
+    @Override
+    public void onBackPressed() {
+        if(status == SIGNIN){
+            super.onBackPressed();
+        }else if(status == SIGNUP){
+            linearSignIn.setVisibility(View.VISIBLE);
+            linearSignUp.setVisibility(View.GONE);
+            status = SIGNIN;
+        }
+
+    }
+
+
+
     public static final String getKeyHash(Context context) {
         try {
             PackageInfo info = context.getPackageManager().getPackageInfo(context.getPackageName(),

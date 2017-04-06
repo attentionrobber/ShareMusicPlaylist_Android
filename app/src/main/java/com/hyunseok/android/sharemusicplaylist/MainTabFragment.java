@@ -38,7 +38,8 @@ public class MainTabFragment extends Fragment {
     private int layout;
 
     // Search Tab
-    RecyclerView recyclerView_horizon;
+    RecyclerView recyclerView_horizon_Latest;
+    RecyclerView recyclerView_horizon_Best;
     HorizontalAdapter horizontalAdapter;
 
     List<String> horizontalList;
@@ -75,7 +76,6 @@ public class MainTabFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mTabType = getArguments().getString(ARG_TAB_TYPE);
 
@@ -117,27 +117,8 @@ public class MainTabFragment extends Fragment {
     }
 
     private void init_searchTab(View view) {
-        recyclerView_horizon = (RecyclerView) view.findViewById(R.id.recyclerView_horizon);
-        btn_search = (ImageButton) view.findViewById(R.id.imgbtn_search);
-        btn_search.setOnClickListener(clickListener);
-
-        horizontalList = new ArrayList<>();
-        horizontalList.add("horizontal 1");
-        horizontalList.add("horizontal 2");
-        horizontalList.add("horizontal 3");
-        horizontalList.add("horizontal 4");
-        horizontalList.add("horizontal 5");
-        horizontalList.add("horizontal 6");
-        horizontalList.add("horizontal 7");
-        horizontalList.add("horizontal 8");
-        horizontalList.add("horizontal 9");
-        horizontalList.add("horizontal 10");
-
-        horizontalAdapter = new HorizontalAdapter(getContext(), horizontalList);
-        LinearLayoutManager horizontalLayoutManager
-                = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerView_horizon.setLayoutManager(horizontalLayoutManager);
-        recyclerView_horizon.setAdapter(horizontalAdapter);
+        SearchFunction searchFunction = new SearchFunction(view, getContext());
+        searchFunction.init_searchTab();
     }
 
     private void init_playerTab(View view) {
@@ -245,4 +226,5 @@ public class MainTabFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
     }
+
 }
