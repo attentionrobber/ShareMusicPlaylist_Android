@@ -77,4 +77,40 @@ public class RetrofitDeezerUtil {
         });
         return datas;
     }
+    public List<Needs> searchAlbum(String value){
+        value = "album:\""+value+"\"";
+        Call<TrackData> result = service.getData(value);
+        final List<Needs> datas = new ArrayList<>();
+
+        result.enqueue(new Callback<TrackData>() {
+            @Override
+            public void onResponse(Call<TrackData> call, Response<TrackData> response) {
+                if(response.isSuccessful()) {
+                    TrackData trackData = response.body();
+                    //json = response.body().toString();
+                    for(Data data : trackData.getData()){
+                        Needs needs = new Needs();
+
+                        needs.setArtist(data.getArtist().getName());
+                        needs.setTitle(data.getTitle());
+                        needs.setAlbum(data.getAlbum().getTitle());
+                        needs.setImage(data.getAlbum().getCover());
+                        needs.setDuration(data.getDuration());
+                        needs.setPreview(data.getPreview());
+                        needs.setAlbumList(data.getAlbum().getTracklist());
+                        datas.add(needs);
+                    }
+                }else{
+                    Log.d("MainRetrofit",response.message());   //정상적이지 않을경우 message에 오류 내용이 담겨온다.
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TrackData> call, Throwable t) {
+                //통신 자체가 잘못됐을 경우 이쪽으로 넘어온다.
+                Log.d("MainRetrofit","Failure===========================================");   //정상적이지 않을경우 message에 오류 내용이 담겨온다.
+            }
+        });
+        return datas;
+    }
 }
