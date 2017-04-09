@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.SearchTabFragment;
@@ -103,8 +102,8 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
             super(view);
 
             itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
-            imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabitem);
-            tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
+            imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabItem);
+            tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabItem);
             tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
             tv_nickname_tabitem = (TextView) view.findViewById(R.id.tv_nickname_tabitem);
             toggle_searchPlaylist = (ToggleButton) view.findViewById(R.id.toggle_searchPlaylist);

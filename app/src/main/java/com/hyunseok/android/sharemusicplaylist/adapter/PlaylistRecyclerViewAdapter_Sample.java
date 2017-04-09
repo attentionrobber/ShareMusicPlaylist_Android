@@ -76,8 +76,8 @@ public class PlaylistRecyclerViewAdapter_Sample extends RecyclerView.Adapter<Pla
             super(view);
 
             itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
-            imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabitem);
-            tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
+            imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabItem);
+            tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabItem);
             tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
 
             itemLayout.setOnClickListener(new View.OnClickListener() {

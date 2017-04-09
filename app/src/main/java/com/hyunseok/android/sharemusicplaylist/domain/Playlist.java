@@ -19,27 +19,30 @@ import java.util.List;
 public class Playlist {
 
     @DatabaseField(generatedId = true)
-    int id;
+    private int id;
     @DatabaseField
-    String title;
+    private String title;
     @DatabaseField
-    boolean isShare;
+    private String nickName;
     @DatabaseField(persisterClass = SerializableCollectionsType.class)
-    List<String> tracks;
+    private List<String> tracks;
     @DatabaseField
-    String imgUri;
+    private boolean isShare;
     @DatabaseField
-    Date curDate;
+    private String imgUri;
+    @DatabaseField
+    private Date curDate;
 
     public Playlist() {
 
     }
 
     // create 시 사용되는 생성자
-    public Playlist(String title, List<String> tracks, String imgUri, Date curDate) {
+    public Playlist(String title, String nickName, List<String> tracks, String imgUri, Date curDate) {
         this.title = title;
-        this.isShare = false;
+        this.nickName = nickName;
         this.tracks = tracks;
+        this.isShare = false;
         this.imgUri = imgUri;
         this.curDate = curDate;
     }
@@ -50,6 +53,14 @@ public class Playlist {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public List<String> getTracks() {
+        return tracks;
     }
 
     public boolean getIsShare() {
@@ -64,16 +75,16 @@ public class Playlist {
         return curDate;
     }
 
-    public List<String> getTracks() {
-        return tracks;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public void setTracks(List<String> tracks) {
         this.tracks = tracks;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public void setShare(boolean share) {

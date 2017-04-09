@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
@@ -58,12 +57,12 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         List<String> tracks = playlist.getTracks();
 
         holder.position = position; // 현재 위치 받아오기
-        holder.tv_title_tabitem.setText(playlist.getTitle());
-        holder.tv_artist_tabitem.setText(tracks.toString());
+        holder.tv_title_tabItem.setText(playlist.getTitle());
+        holder.tv_nickname_tabItem.setText(tracks.toString());
         holder.toggle_mainPlaylist.setChecked(playlist.getIsShare());
         holder.imgUri = playlist.getImgUri();
         Glide.with(context).load(holder.imgUri)
-                .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabitem);
+                .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabItem);
     }
 
     @Override
@@ -78,17 +77,17 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         String imgUri;
 
         RelativeLayout itemLayout;
-        ImageView imageView_tabitem;
-        TextView tv_title_tabitem, tv_artist_tabitem;
+        ImageView imageView_tabItem;
+        TextView tv_title_tabItem, tv_nickname_tabItem;
         ToggleButton toggle_mainPlaylist;
 
         Holder(View view) {
             super(view);
 
             itemLayout = (RelativeLayout) view.findViewById(R.id.itemLayout);
-            imageView_tabitem = (ImageView) view.findViewById(R.id.imageView_tabitem);
-            tv_title_tabitem = (TextView) view.findViewById(R.id.tv_title_tabitem);
-            tv_artist_tabitem = (TextView) view.findViewById(R.id.tv_artist_tabitem);
+            imageView_tabItem = (ImageView) view.findViewById(R.id.imageView_tabItem);
+            tv_title_tabItem = (TextView) view.findViewById(R.id.tv_title_tabItem);
+            tv_nickname_tabItem = (TextView) view.findViewById(R.id.tv_nickname_tabItem);
             toggle_mainPlaylist = (ToggleButton) view.findViewById(R.id.toggle_mainPlaylist);
 
             itemLayout.setOnClickListener(v -> {
@@ -107,8 +106,8 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
 
         private void goMyPlaylistDetail() {
             intent.putExtra("position", position);
-            intent.putExtra("title", tv_title_tabitem.getText().toString()); // Playlist Title
-            intent.putExtra("tracks", tv_artist_tabitem.getText().toString()); // Playlist Tracks // TODO tv_artist_tabitem을 Track List로 바꾸기
+            intent.putExtra("title", tv_title_tabItem.getText().toString()); // Playlist Title
+            intent.putExtra("tracks", tv_nickname_tabItem.getText().toString()); // Playlist Tracks // TODO tv_artist_tabitem을 Track List로 바꾸기
             intent.putExtra("isShare", toggle_mainPlaylist.isChecked());
             intent.putExtra("imgUri", imgUri); // Playlist 대표 이미지 Uri
             context.startActivity(intent);
