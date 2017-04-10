@@ -20,6 +20,10 @@ import org.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Playlist Tab 에서 각 Playlist 를 클릭하면 뜨는 Playlist 상세보기 액티비티
+ */
+
 @EActivity(R.layout.activity_playlist_detail)
 public class PlaylistDetailActivity extends AppCompatActivity {
 

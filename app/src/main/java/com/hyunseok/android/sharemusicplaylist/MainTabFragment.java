@@ -28,6 +28,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * MainActivity 의 TabLayout 3가지의 Fragment
+ * Search Tab, Player Tab, Playlist Tab
+ */
 public class MainTabFragment extends Fragment {
 
     private static final String ARG_TAB_TYPE = "TAB-TYPE";

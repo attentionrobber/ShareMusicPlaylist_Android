@@ -15,6 +15,11 @@ import com.hyunseok.android.sharemusicplaylist.adapter.SearchRecyclerViewAdapter
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SearchActivity 의 TabLayout 4가지의 Fragment
+ * Playlist Tab, Tracks Tab, TAG Tab, Albums Tab
+ */
+
 public class SearchTabFragment extends Fragment {
 
     private static final String ARG_TAB_TYPE = "TAB-TYPE";

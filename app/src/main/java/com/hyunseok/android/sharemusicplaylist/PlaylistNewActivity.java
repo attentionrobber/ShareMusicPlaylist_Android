@@ -35,8 +35,10 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *  PlaylistDetail Activity 에 비교하여 더 있어야 될것들
- *  대표이미지 설정 버튼, 음악 추가 버튼, TAG 입력부분(?)
+ * Playlist Tab 에서 새 플레이리스트를 만들 때 뜨는 액티비티
+ *
+ * PlaylistDetail Activity 에 비교하여 더 있어야 될것들
+ * 대표이미지 설정 버튼, 음악 추가 버튼, TAG 입력부분(?)
  */
 
 @EActivity(R.layout.activity_playlist_new)
@@ -76,6 +78,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
         String strUri;
 
         playlist.setTitle(et_playlistTitle.getText().toString());
+        //playlist.setNickName(); // TODO
         playlist.setShare(toggleButton.isChecked());
         playlist.setTracks(tracks);
         if(imageUri != null) {

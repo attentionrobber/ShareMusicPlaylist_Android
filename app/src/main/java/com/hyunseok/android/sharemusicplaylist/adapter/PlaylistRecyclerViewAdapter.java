@@ -58,7 +58,8 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
 
         holder.position = position; // 현재 위치 받아오기
         holder.tv_title_tabItem.setText(playlist.getTitle());
-        holder.tv_nickname_tabItem.setText(tracks.toString());
+        holder.tv_nickname_tabItem.setText("nickname");
+        holder.tv_tracks_tabItem.setText(tracks.toString());
         holder.toggle_mainPlaylist.setChecked(playlist.getIsShare());
         holder.imgUri = playlist.getImgUri();
         Glide.with(context).load(holder.imgUri)
@@ -78,7 +79,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
 
         RelativeLayout itemLayout;
         ImageView imageView_tabItem;
-        TextView tv_title_tabItem, tv_nickname_tabItem;
+        TextView tv_title_tabItem, tv_nickname_tabItem, tv_tracks_tabItem;
         ToggleButton toggle_mainPlaylist;
 
         Holder(View view) {
@@ -88,6 +89,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
             imageView_tabItem = (ImageView) view.findViewById(R.id.imageView_tabItem);
             tv_title_tabItem = (TextView) view.findViewById(R.id.tv_title_tabItem);
             tv_nickname_tabItem = (TextView) view.findViewById(R.id.tv_nickname_tabItem);
+            tv_tracks_tabItem = (TextView) view.findViewById(R.id.tv_tracks_tabItem);
             toggle_mainPlaylist = (ToggleButton) view.findViewById(R.id.toggle_mainPlaylist);
 
             itemLayout.setOnClickListener(v -> {

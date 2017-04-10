@@ -17,6 +17,10 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+/**
+ * Search Tab 에서 검색했을 때 나오는 검색 결과를 상세히 보여주는 액티비티
+ */
+
 @EActivity(R.layout.activity_search)
 public class SearchActivity extends AppCompatActivity {
 
