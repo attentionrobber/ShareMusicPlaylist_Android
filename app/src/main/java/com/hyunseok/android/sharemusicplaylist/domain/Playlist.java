@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * Used in : PlaylistNewActivity
  * Created by Administrator on 2017-04-04.
  */
 
@@ -25,7 +26,7 @@ public class Playlist {
     @DatabaseField
     private String nickName;
     @DatabaseField(persisterClass = SerializableCollectionsType.class)
-    private List<String> tracks;
+    private List<String> tracks; // TODO List<Track> 으로 바꾸기
     @DatabaseField
     private boolean isShare;
     @DatabaseField

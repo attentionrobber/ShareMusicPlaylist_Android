@@ -4,20 +4,14 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.text.NoCopySpan;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
-import com.hyunseok.android.sharemusicplaylist.domain.Needs;
 import com.hyunseok.android.sharemusicplaylist.util.RetrofitDeezerUtil;
-
-import org.androidannotations.annotations.EFragment;
 
 import java.util.ArrayList;
 import java.util.List;

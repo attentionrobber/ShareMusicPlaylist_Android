@@ -4,7 +4,7 @@ package com.hyunseok.android.sharemusicplaylist.domain;
  * Created by kang on 2017-04-05.
  */
 
-public class album {
+public class Album {
     private int id;
     private String title;
     private String cover;

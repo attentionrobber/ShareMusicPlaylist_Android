@@ -126,22 +126,11 @@ public class MainTabFragment extends Fragment {
     }
 
     private void init_playerTab(View view) {
-        viewPager_player = (ViewPager) view.findViewById(R.id.viewPager_player);
 
-        cardDatas = new ArrayList<>();
-        cardDatas.add("card1");
-        cardDatas.add("card2");
-        cardDatas.add("card3");
-        cardDatas.add("card4");
-        cardDatas.add("card5");
-        cardDatas.add("card6");
-        cardDatas.add("card7");
-        cardDatas.add("card8");
-        cardDatas.add("card9");
-        cardDatas.add("card10");
-
-        playerAdapter = new PlayerAdapter(cardDatas, getContext());
-        viewPager_player.setAdapter(playerAdapter);
+//        Player player = new Player(view, getContext());
+//        player.init();
+        Player player = Player.getInstance();
+        player.init(view, getContext());
 
     }
 

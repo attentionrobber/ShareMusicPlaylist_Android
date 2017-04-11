@@ -16,6 +16,7 @@ import com.hyunseok.android.sharemusicplaylist.R;
 import java.util.List;
 
 /**
+ * Used in : SearchFunction
  * Created by Administrator on 2017-03-28.
  */
 public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Holder> {

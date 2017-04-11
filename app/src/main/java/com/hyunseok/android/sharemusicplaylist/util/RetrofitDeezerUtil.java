@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.hyunseok.android.sharemusicplaylist.RecyclerViewAdpt;
 import com.hyunseok.android.sharemusicplaylist.domain.API_URL;
 import com.hyunseok.android.sharemusicplaylist.domain.Data;
-import com.hyunseok.android.sharemusicplaylist.domain.Needs;
+import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.domain.TrackData;
 import com.hyunseok.android.sharemusicplaylist.retrofit_interface.DeezerApiService;
 
@@ -31,7 +31,7 @@ public class RetrofitDeezerUtil {
 
     Retrofit retrofit;
     DeezerApiService service;
-    List<Needs> needs_Datas;
+    List<Track> needs_Datas;
     Context context;
     RecyclerView recyclerView_track,recyclerView_album;
     TextView txtAlbum,txtTrack;
@@ -69,7 +69,7 @@ public class RetrofitDeezerUtil {
                     TrackData trackData = response.body();
                     //json = response.body().toString();
                     for(Data data : trackData.getData()){
-                        Needs needs = new Needs();
+                        Track needs = new Track();
 
                         setting_Needs(data,needs);
                         needs_Datas.add(needs);
@@ -97,7 +97,7 @@ public class RetrofitDeezerUtil {
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapater);
     }
-    public Needs setting_Needs(Data data,Needs needs){
+    public Track setting_Needs(Data data, Track needs){
         needs.setArtist(data.getArtist().getName());
         needs.setTitle(data.getTitle());
         needs.setAlbum(data.getAlbum().getTitle());
@@ -107,10 +107,10 @@ public class RetrofitDeezerUtil {
         needs.setAlbumList(data.getAlbum().getTracklist());
         return needs;
     }
-    public List<Needs> searchAlbum(String value){
-        value = "album:\""+value+"\"";
+    public List<Track> searchAlbum(String value){
+        value = "Album:\""+value+"\"";
         Call<TrackData> result = service.getData(value);
-        final List<Needs> datas = new ArrayList<>();
+        final List<Track> datas = new ArrayList<>();
 
         result.enqueue(new Callback<TrackData>() {
             @Override
@@ -120,7 +120,7 @@ public class RetrofitDeezerUtil {
                     TrackData trackData = response.body();
                     //json = response.body().toString();
                     for(Data data : trackData.getData()){
-                        Needs needs = new Needs();
+                        Track needs = new Track();
 
                         setting_Needs(data,needs);
                         needs_Datas.add(needs);

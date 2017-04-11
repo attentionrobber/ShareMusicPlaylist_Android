@@ -16,8 +16,8 @@ public class Data {
     private boolean explicit_lyrics;
     private String preview;
 
-    private artist artist;
-    private album album;
+    private Artist artist;
+    private Album album;
 
     private String type;
 
@@ -101,19 +101,19 @@ public class Data {
         this.preview = preview;
     }
 
-    public artist getArtist() {
+    public Artist getArtist() {
         return artist;
     }
 
-    public void setArtist(artist artist) {
+    public void setArtist(Artist artist) {
         this.artist = artist;
     }
 
-    public album getAlbum() {
+    public Album getAlbum() {
         return album;
     }
 
-    public void setAlbum(album album) {
+    public void setAlbum(Album album) {
         this.album = album;
     }
 

@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.hyunseok.android.sharemusicplaylist.domain.Needs;
+import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
 import java.util.List;
 
@@ -22,8 +22,8 @@ import java.util.List;
 
 public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Holder>{
     Context context;
-    List<Needs> datas;
-    public RecyclerViewAdpt(Context context, List<Needs> datas){
+    List<Track> datas;
+    public RecyclerViewAdpt(Context context, List<Track> datas){
         this.context = context;
         this.datas = datas;
     }
