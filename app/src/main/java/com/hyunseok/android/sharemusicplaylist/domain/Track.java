@@ -1,6 +1,7 @@
 package com.hyunseok.android.sharemusicplaylist.domain;
 
 /**
+ * Used in : PlayerService
  * Created by kang on 2017-04-06.
  */
 
@@ -10,7 +11,7 @@ public class Track {
     private String album;
     private String image;
     private int duration;
-    private String preview;
+    public String preview;
     private String albumList;
 
     public String getArtist() {

@@ -7,19 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.TabPagerAdapter;
-import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
-import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
-import com.j256.ormlite.android.apptools.OpenHelperManager;
-import com.j256.ormlite.dao.Dao;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @ViewById
     TabLayout tabLayout;
     @ViewById
+    static
     ViewPager viewPager;
     @ViewById
     Button btn_back;
@@ -65,5 +58,15 @@ public class MainActivity extends AppCompatActivity {
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         // 2. 탭이 변경되었을 때 페이지를 바꿔주는 리스너
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+    }
+
+    public static void changeTab(String tab) {
+        if ("SEARCH".equals(tab)) {
+            viewPager.setCurrentItem(0);
+        } else if ("PLAYER".equals(tab)) {
+            viewPager.setCurrentItem(1);
+        } else if ("PLAYLIST".equals(tab)) {
+            viewPager.setCurrentItem(2);
+        }
     }
 }

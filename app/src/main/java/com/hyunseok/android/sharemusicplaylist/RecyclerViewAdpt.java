@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
+import com.hyunseok.android.sharemusicplaylist.player.Player;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ import java.util.List;
 
 public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Holder>{
     Context context;
-    List<Track> datas;
+    private List<Track> datas;
     public RecyclerViewAdpt(Context context, List<Track> datas){
         this.context = context;
         this.datas = datas;
@@ -39,12 +40,15 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
         holder.txtTitle.setText(datas.get(position).getTitle());
         holder.txtArtist.setText(datas.get(position).getArtist());
         holder.txtAlbum.setText(datas.get(position).getAlbum());
+        holder.position = position;
     }
 
     @Override
     public int getItemCount() {return datas.size();}
 
     public class Holder extends RecyclerView.ViewHolder {
+        private int position;
+
         ImageView cover_image;
         ImageButton btnPlay,btnMore;
         TextView txtTitle, txtArtist, txtAlbum;
@@ -70,6 +74,8 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
                 switch (v.getId()){
                     case R.id.btnPlay:
                         Toast.makeText(context, "Click Play Button", Toast.LENGTH_SHORT).show();
+                        // TODO PLAY 되게
+                        MainActivity.changeTab("PLAYER");
                         break;
                     case R.id.btnMore:
                         Toast.makeText(context, "Click More Button", Toast.LENGTH_SHORT).show();

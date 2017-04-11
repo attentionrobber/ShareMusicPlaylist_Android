@@ -10,19 +10,20 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.R;
+import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
 import java.util.List;
 
 /**
- * Created by HS on 2017-04-03.
+ * Created by KHS on 2017-04-03.
  */
 
 public class PlayerAdapter extends PagerAdapter {
 
-    List<String> datas;
-    Context context;
+    private List<String> datas;
+    private Context context;
 
-    LayoutInflater inflater;
+    private LayoutInflater inflater;
 
     public PlayerAdapter(List<String> datas, Context context) {
         this.datas = datas;
@@ -30,13 +31,11 @@ public class PlayerAdapter extends PagerAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    // 데이터 총 개수
     @Override
     public int getCount() {
         return datas.size();
     }
 
-    // ListView의 getView와 같은 역할. 화면 하나하나를 만들어준다.
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         //return super.instantiateItem(container, position);

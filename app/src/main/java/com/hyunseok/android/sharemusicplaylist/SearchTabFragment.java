@@ -19,7 +19,6 @@ import java.util.List;
  * SearchActivity 의 TabLayout 4가지의 Fragment
  * Playlist Tab, Tracks Tab, TAG Tab, Albums Tab
  */
-
 public class SearchTabFragment extends Fragment {
 
     private static final String ARG_TAB_TYPE = "TAB-TYPE";
@@ -57,59 +56,36 @@ public class SearchTabFragment extends Fragment {
             switch (mTabType) {
                 case TYPE_PLAYLIST:
                     Log.i("Fragment", "111"+mTabType);
-                    //Toast.makeText(getContext(), "Playlist"+TYPE_PLAYLIST, Toast.LENGTH_SHORT).show();
-                    datas.add("rv_playlist1");
-                    datas.add("rv_playlist2");
-                    datas.add("rv_playlist3");
-                    datas.add("rv_playlist4");
-                    datas.add("rv_playlist5");
-                    datas.add("rv_playlist6");
-                    datas.add("rv_playlist7");
-                    datas.add("rv_playlist8");
-                    datas.add("rv_playlist9");
-                    datas.add("rv_playlist10");
+                    datas.add("rv_playlist1");datas.add("rv_playlist2");
+                    datas.add("rv_playlist3");datas.add("rv_playlist4");
+                    datas.add("rv_playlist5");datas.add("rv_playlist6");
+                    datas.add("rv_playlist7");datas.add("rv_playlist8");
+                    datas.add("rv_playlist9");datas.add("rv_playlist10");
+
                     break;
                 case TYPE_TRACK:
                     Log.i("Fragment", "222"+mTabType);
-                    //Toast.makeText(getContext(), "Tracks"+TYPE_TRACK, Toast.LENGTH_SHORT).show();
-                    datas.add("rv_track1");
-                    datas.add("rv_track2");
-                    datas.add("rv_track3");
-                    datas.add("rv_track4");
-                    datas.add("rv_track5");
-                    datas.add("rv_track6");
-                    datas.add("rv_track7");
-                    datas.add("rv_track8");
-                    datas.add("rv_track9");
-                    datas.add("rv_track10");
+                    datas.add("rv_track1");datas.add("rv_track2");
+                    datas.add("rv_track3");datas.add("rv_track4");
+                    datas.add("rv_track5");datas.add("rv_track6");
+                    datas.add("rv_track7");datas.add("rv_track8");
+                    datas.add("rv_track9");datas.add("rv_track10");
                     break;
                 case TYPE_TAG:
                     Log.i("Fragment", "333"+mTabType);
-                    //Toast.makeText(getContext(), "TAG"+TYPE_TAG, Toast.LENGTH_SHORT).show();
-                    datas.add("rv_TAG1");
-                    datas.add("rv_TAG2");
-                    datas.add("rv_TAG3");
-                    datas.add("rv_TAG4");
-                    datas.add("rv_TAG5");
-                    datas.add("rv_TAG6");
-                    datas.add("rv_TAG7");
-                    datas.add("rv_TAG8");
-                    datas.add("rv_TAG9");
-                    datas.add("rv_TAG10");
+                    datas.add("rv_TAG1");datas.add("rv_TAG2");
+                    datas.add("rv_TAG3");datas.add("rv_TAG4");
+                    datas.add("rv_TAG5");datas.add("rv_TAG6");
+                    datas.add("rv_TAG7");datas.add("rv_TAG8");
+                    datas.add("rv_TAG9");datas.add("rv_TAG10");
                     break;
                 case TYPE_ALBUM:
                     Log.i("Fragment", "444"+mTabType);
-                    //Toast.makeText(getContext(), "Albums"+TYPE_ALBUM, Toast.LENGTH_SHORT).show();
-                    datas.add("rv_album1");
-                    datas.add("rv_album2");
-                    datas.add("rv_album3");
-                    datas.add("rv_album4");
-                    datas.add("rv_album5");
-                    datas.add("rv_album6");
-                    datas.add("rv_album7");
-                    datas.add("rv_album8");
-                    datas.add("rv_album9");
-                    datas.add("rv_album10");
+                    datas.add("rv_album1");datas.add("rv_album2");
+                    datas.add("rv_album3");datas.add("rv_album4");
+                    datas.add("rv_album5");datas.add("rv_album6");
+                    datas.add("rv_album7");datas.add("rv_album8");
+                    datas.add("rv_album9");datas.add("rv_album10");
                     break;
                 default: break;
             }

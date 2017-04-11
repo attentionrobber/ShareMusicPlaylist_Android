@@ -14,13 +14,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.hyunseok.android.sharemusicplaylist.player.Player;
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
 import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
-import com.hyunseok.android.sharemusicplaylist.util.Message;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
@@ -32,6 +32,7 @@ import java.util.List;
  * MainActivity 의 TabLayout 3가지의 Fragment
  * Search Tab, Player Tab, Playlist Tab
  */
+
 public class MainTabFragment extends Fragment {
 
     private static final String ARG_TAB_TYPE = "TAB-TYPE";
@@ -126,12 +127,10 @@ public class MainTabFragment extends Fragment {
     }
 
     private void init_playerTab(View view) {
-
-//        Player player = new Player(view, getContext());
-//        player.init();
-        Player player = Player.getInstance();
-        player.init(view, getContext());
-
+//        Player player = Player.getInstance();
+//        player.execute(view, getContext());
+        Player player = new Player(view, getContext());
+        player.execute();
     }
 
     private void init_playlistTab(View view) {
@@ -150,16 +149,11 @@ public class MainTabFragment extends Fragment {
         }
 
         playlistDatas = new ArrayList<>();
-        playlistDatas.add("playlist1");
-        playlistDatas.add("playlist");
-        playlistDatas.add("playlist3");
-        playlistDatas.add("playlist4");
-        playlistDatas.add("playlist5");
-        playlistDatas.add("playlist6");
-        playlistDatas.add("playlist7");
-        playlistDatas.add("playlist8");
-        playlistDatas.add("playlist9");
-        playlistDatas.add("playlist10");
+        playlistDatas.add("playlist1");playlistDatas.add("playlist2");
+        playlistDatas.add("playlist3");playlistDatas.add("playlist4");
+        playlistDatas.add("playlist5");playlistDatas.add("playlist6");
+        playlistDatas.add("playlist7");playlistDatas.add("playlist8");
+        playlistDatas.add("playlist9");playlistDatas.add("playlist10");
 
         myPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), myPlaylist, "my");
         followPlaylistAdapter = new PlaylistRecyclerViewAdapter_Sample(getContext(), playlistDatas, "follow");

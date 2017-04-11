@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017-02-27.
+ * Used in : MainActivity, SearchActivity
+ * Created by KHS on 2017-02-27.
  */
 
 public class TabPagerAdapter extends FragmentStatePagerAdapter {
