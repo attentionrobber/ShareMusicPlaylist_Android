@@ -18,14 +18,14 @@ import java.util.List;
  * Created by KHS on 2017-04-03.
  */
 
-public class PlayerAdapter extends PagerAdapter {
+public class PlayerAdapter_sample extends PagerAdapter {
 
-    private List<Track> datas;
+    private List<String> datas;
     private Context context;
 
     private LayoutInflater inflater;
 
-    public PlayerAdapter(List<Track> datas, Context context) {
+    public PlayerAdapter_sample(List<String> datas, Context context) {
         this.datas = datas;
         this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -47,10 +47,10 @@ public class PlayerAdapter extends PagerAdapter {
         TextView tv_artist = (TextView) view.findViewById(R.id.tv_artist);
 
         // 데이터 가져오기
-        Track track = datas.get(position);
+        //Music music = datas.get(position);
 
-        tv_title.setText(track.getTitle());
-        tv_artist.setText(track.getArtist());
+        tv_title.setText(datas.get(position));
+        tv_artist.setText(datas.get(position));
 
         Glide.with(context).load(R.mipmap.default_album_image).placeholder(R.mipmap.default_album_image).into(imageView); // placeholder()는 디폴트 이미지를 지정해줄 수 있다.
 

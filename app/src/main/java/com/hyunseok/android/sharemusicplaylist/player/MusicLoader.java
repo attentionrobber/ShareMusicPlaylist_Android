@@ -27,62 +27,79 @@ public class MusicLoader {
 
     private Retrofit retrofit;
     private DeezerApiService service;
-    private List<Track> tracks;
+    public List<Track> tracks = new ArrayList<>();
 
-    public void loadMusic() {
+//    public void loadMusic(List<Track> tracks) {
+//        this.tracks = tracks;
+//    }
 
-        setRetrofit();
-        loadTrack();
+//    public MusicLoader(List<Track> tracks) {
+//        this.tracks = tracks;
+//    }
+
+    public List<Track> getTracks() {
+        Log.i("MusicLoader", ""+tracks);
+        return tracks;
     }
 
-    private void setRetrofit() {
-        retrofit = new Retrofit.Builder()
-                .baseUrl(API_URL.deezer_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        service = retrofit.create(DeezerApiService.class); //사용할 인터페이스를 설정한다
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
     }
 
-    private void loadTrack(){
-        String value = "";
-        value = "track:\""+value+"\"";
-        Call<TrackData> result = service.getData(value);
-        tracks = new ArrayList<>();
-
-        result.enqueue(new Callback<TrackData>() {
-            @Override
-            public void onResponse(Call<TrackData> call, Response<TrackData> response) {
-                if(response.isSuccessful()) {
-                    TrackData trackData = response.body();
-                    for(Data data : trackData.getData()){
-                        Track needs = new Track();
-
-                        setting_Needs(data,needs);
-                        tracks.add(needs);
-                    }
-                }else{
-                    Log.d("MainRetrofit",response.message());   // 정상적이지 않을경우 message 에 오류 내용이 담겨온다.
-                }
-            }
-
-            @Override
-            public void onFailure(Call<TrackData> call, Throwable t) {
-                //통신 자체가 잘못됐을 경우 이쪽으로 넘어온다.
-                Log.d("MainRetrofit","Failure==========================================="); //정상적이지 않을경우 message 에 오류 내용이 담겨온다.
-            }
-        });
-
-    }
-
-    private Track setting_Needs(Data data, Track needs){
-        needs.setArtist(data.getArtist().getName());
-        needs.setTitle(data.getTitle());
-        needs.setAlbum(data.getAlbum().getTitle());
-        needs.setImage(data.getAlbum().getCover());
-        needs.setDuration(data.getDuration());
-        needs.setPreview(data.getPreview());
-        needs.setAlbumList(data.getAlbum().getTracklist());
-        return needs;
-    }
+    //    public void loadMusic() {
+//
+//        setRetrofit();
+//        loadTrack();
+//    }
+//
+//    private void setRetrofit() {
+//        retrofit = new Retrofit.Builder()
+//                .baseUrl(API_URL.deezer_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+//
+//        service = retrofit.create(DeezerApiService.class); //사용할 인터페이스를 설정한다
+//    }
+//
+//    private void loadTrack(){
+//        String value = "";
+//        value = "track:\""+value+"\"";
+//        Call<TrackData> result = service.getData(value);
+//        tracks = new ArrayList<>();
+//
+//        result.enqueue(new Callback<TrackData>() {
+//            @Override
+//            public void onResponse(Call<TrackData> call, Response<TrackData> response) {
+//                if(response.isSuccessful()) {
+//                    TrackData trackData = response.body();
+//                    for(Data data : trackData.getData()){
+//                        Track needs = new Track();
+//
+//                        setting_Needs(data,needs);
+//                        tracks.add(needs);
+//                    }
+//                }else{
+//                    Log.d("MainRetrofit",response.message());   // 정상적이지 않을경우 message 에 오류 내용이 담겨온다.
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<TrackData> call, Throwable t) {
+//                //통신 자체가 잘못됐을 경우 이쪽으로 넘어온다.
+//                Log.d("MainRetrofit","Failure==========================================="); //정상적이지 않을경우 message 에 오류 내용이 담겨온다.
+//            }
+//        });
+//
+//    }
+//
+//    private Track setting_Needs(Data data, Track needs){
+//        needs.setArtist(data.getArtist().getName());
+//        needs.setTitle(data.getTitle());
+//        needs.setAlbum(data.getAlbum().getTitle());
+//        needs.setImage(data.getAlbum().getCover());
+//        needs.setDuration(data.getDuration());
+//        needs.setPreview(data.getPreview());
+//        needs.setAlbumList(data.getAlbum().getTracklist());
+//        return needs;
+//    }
 }

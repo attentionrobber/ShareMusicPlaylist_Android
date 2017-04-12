@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.player.Player;
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
-import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
+import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter_sample;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
 import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
@@ -53,7 +53,7 @@ public class MainTabFragment extends Fragment {
 
     // Player Tab
     ViewPager viewPager_player;
-    PlayerAdapter playerAdapter;
+    PlayerAdapter_sample playerAdapter;
 
     List<String> cardDatas;
 

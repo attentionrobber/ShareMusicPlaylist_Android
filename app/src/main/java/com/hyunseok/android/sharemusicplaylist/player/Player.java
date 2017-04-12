@@ -1,12 +1,13 @@
 package com.hyunseok.android.sharemusicplaylist.player;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
+import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter_sample;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class Player {
 
     private ViewPager viewPager_player;
     private PlayerAdapter playerAdapter;
+    private PlayerAdapter_sample playerAdapter_sample;
 
     private List<Track> tracks;
     private List<String> dummy;
@@ -60,17 +62,27 @@ public class Player {
     private void initWidget(View view, Context context) {
         viewPager_player = (ViewPager) view.findViewById(R.id.viewPager_player);
 
-        dummy = new ArrayList<>();
-        dummy.add("Music1");dummy.add("Music2");dummy.add("Music3");
+//        dummy = new ArrayList<>();
+//        dummy.add("Music1");dummy.add("Music2");dummy.add("Music3");
+//        playerAdapter_sample = new PlayerAdapter_sample(dummy, context);
+        getTrack();
 
-        playerAdapter = new PlayerAdapter(dummy, context);
+        playerAdapter = new PlayerAdapter(tracks, context);
         viewPager_player.setAdapter(playerAdapter);
     }
+
+    private void getTrack() {
+        MusicLoader musicLoader = new MusicLoader();
+        tracks = musicLoader.getTracks();
+        Log.i("PlayerRRR", ""+tracks);
+    }
+
     // 음악을 서비스로 실행시킨다.
     private void play(Context context) {
 //        Intent intent = new Intent(context, PlayerService.class);
 //        intent.setAction(PlayerService.ACTION_PLAY);
 //        intent.putExtra("position", position);
 //        context.startService(intent);
+
     }
 }

@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
+import com.hyunseok.android.sharemusicplaylist.player.MusicLoader;
 import com.hyunseok.android.sharemusicplaylist.player.Player;
 
 import java.util.List;
@@ -76,6 +77,10 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
                         Toast.makeText(context, "Click Play Button", Toast.LENGTH_SHORT).show();
                         // TODO PLAY 되게
                         MainActivity.changeTab("PLAYER");
+                        //Player.setTrack(datas);
+                        MusicLoader musicLoader = new MusicLoader();
+                        musicLoader.setTracks(datas);
+                        //musicLoader.loadMusic(datas);
                         break;
                     case R.id.btnMore:
                         Toast.makeText(context, "Click More Button", Toast.LENGTH_SHORT).show();
