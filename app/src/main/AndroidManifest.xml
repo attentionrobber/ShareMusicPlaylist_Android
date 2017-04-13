@@ -35,6 +35,10 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".PlaylistDetailActivity_" />
         <activity android:name=".PlaylistNewActivity_"></activity>
+        <service
+            android:name=".player.PlayerService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

@@ -89,8 +89,8 @@ public class PlayerService extends Service implements ControlInterface {
 
 
         // 음원 Uri 가져오기
+        // Local Uri : "content://media/external/audio/media/967"
         //Uri music_uri = tracks.get(position).music_uri;
-        Toast.makeText(this, ""+Track_Extracted.preview, Toast.LENGTH_SHORT).show();
         Uri music_uri = Uri.parse(Track_Extracted.preview);
 
         mMediaPlayer = MediaPlayer.create(this, music_uri); // MediaPlayer를 사용하기 위해선 당연히 시스템자원이 필요하므로 this는 필수
