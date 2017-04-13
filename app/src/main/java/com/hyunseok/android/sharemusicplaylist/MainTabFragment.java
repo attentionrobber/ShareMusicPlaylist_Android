@@ -3,17 +3,20 @@ package com.hyunseok.android.sharemusicplaylist;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcel;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.player.Player;
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter_sample;
@@ -41,6 +44,8 @@ public class MainTabFragment extends Fragment {
     public static final String TYPE_SEARCH = "SEARCH";
     private String mTabType = "";
     private int layout;
+
+    private List<Track> tracks = new ArrayList<>(); // Music Data
 
     // Search Tab
     RecyclerView recyclerView_horizon_Latest;
@@ -107,12 +112,15 @@ public class MainTabFragment extends Fragment {
         View view = inflater.inflate(layout, container, false);
         switch(layout) {
             case R.layout.fragment_main_searchtab:
+                Log.i("MainTabFragment", "onCreate Search=================================");
                 init_searchTab(view);
                 break;
             case R.layout.fragment_main_playertab:
-                init_playerTab(view);
+                Log.i("MainTabFragment", "onCreate Player=================================");
+                //init_playerTab(view);
                 break;
             case R.layout.fragment_main_playlisttab:
+                Log.i("MainTabFragment", "onCreate Playlist=================================");
                 init_playlistTab(view);
                 break;
             default: break;
@@ -129,6 +137,8 @@ public class MainTabFragment extends Fragment {
     private void init_playerTab(View view) {
 //        Player player = Player.getInstance();
 //        player.execute(view, getContext());
+        //Toast.makeText(getContext(), "List<Track>:"+tracks, Toast.LENGTH_SHORT).show();
+        Log.i("PlayingTest", "initPlayerTab");
         Player player = new Player(view, getContext());
         player.execute();
     }
@@ -196,8 +206,11 @@ public class MainTabFragment extends Fragment {
             case R.layout.fragment_main_searchtab:
                 break;
             case R.layout.fragment_main_playertab:
+                Log.i("MainTabFragment", "onResume Player=================================");
+                init_playerTab(getView());
                 break;
             case R.layout.fragment_main_playlisttab:
+                Log.i("MainTabFragment", "onResume Playlist=================================");
                 init_playlistTab(getView());
                 break;
             default: break;

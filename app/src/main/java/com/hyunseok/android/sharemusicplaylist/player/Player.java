@@ -1,14 +1,18 @@
 package com.hyunseok.android.sharemusicplaylist.player;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
+import android.test.RenamingDelegatingContext;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter_sample;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
+import com.hyunseok.android.sharemusicplaylist.domain.Track_Extracted;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +36,6 @@ public class Player {
     private PlayerAdapter_sample playerAdapter_sample;
 
     private List<Track> tracks;
-    private List<String> dummy;
 
     public Player(View view, Context context) {
         this.view = view;
@@ -54,35 +57,31 @@ public class Player {
 //    }
 
     public void execute() {
+
+
         initWidget(view, context);
 
-        //play(context);
+        if(Track_Extracted.title != null) {
+            Log.i("PlayingTest", "execute()");
+            play(context);
+        }
     }
 
     private void initWidget(View view, Context context) {
         viewPager_player = (ViewPager) view.findViewById(R.id.viewPager_player);
 
-//        dummy = new ArrayList<>();
-//        dummy.add("Music1");dummy.add("Music2");dummy.add("Music3");
-//        playerAdapter_sample = new PlayerAdapter_sample(dummy, context);
-        getTrack();
+
+        Toast.makeText(context, ""+Track_Extracted.title, Toast.LENGTH_SHORT).show();
 
         playerAdapter = new PlayerAdapter(tracks, context);
         viewPager_player.setAdapter(playerAdapter);
     }
 
-    private void getTrack() {
-        MusicLoader musicLoader = new MusicLoader();
-        tracks = musicLoader.getTracks();
-        Log.i("PlayerRRR", ""+tracks);
-    }
-
     // 음악을 서비스로 실행시킨다.
     private void play(Context context) {
-//        Intent intent = new Intent(context, PlayerService.class);
-//        intent.setAction(PlayerService.ACTION_PLAY);
-//        intent.putExtra("position", position);
-//        context.startService(intent);
-
+        Intent intent = new Intent(context, PlayerService.class);
+        intent.setAction(PlayerService.ACTION_PLAY);
+        //intent.putExtra("position", position);
+        context.startService(intent);
     }
 }

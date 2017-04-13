@@ -11,7 +11,7 @@ public class Track {
     private String album;
     private String image;
     private int duration;
-    public String preview;
+    private String preview;
     private String albumList;
 
     public String getArtist() {

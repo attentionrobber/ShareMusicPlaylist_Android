@@ -2,6 +2,7 @@ package com.hyunseok.android.sharemusicplaylist.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
  * Created by KHS on 2017-02-27.
  */
 
-public class TabPagerAdapter extends FragmentStatePagerAdapter {
+public class TabPagerAdapter extends FragmentPagerAdapter {
 
     List<Fragment> fragments;
     //private int tabCount;
@@ -58,5 +59,10 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getItemPosition(Object object) {
         return super.getItemPosition(object);
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
     }
 }

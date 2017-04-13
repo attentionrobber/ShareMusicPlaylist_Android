@@ -27,6 +27,9 @@ import java.util.List;
 @EActivity(R.layout.activity_playlist_detail)
 public class PlaylistDetailActivity extends AppCompatActivity {
 
+
+    MyApplication myApp;
+
     @ViewById
     ImageView imageView;
     @ViewById
@@ -43,6 +46,7 @@ public class PlaylistDetailActivity extends AppCompatActivity {
 
     @AfterViews
     protected void init() {
+
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

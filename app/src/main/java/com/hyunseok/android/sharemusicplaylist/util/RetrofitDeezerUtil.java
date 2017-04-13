@@ -1,6 +1,7 @@
 package com.hyunseok.android.sharemusicplaylist.util;
 
 import android.content.Context;
+import android.os.Parcel;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -31,7 +32,7 @@ public class RetrofitDeezerUtil {
 
     Retrofit retrofit;
     DeezerApiService service;
-    List<Track> needs_Datas;
+    ArrayList<Track> needs_Datas;
     Context context;
     RecyclerView recyclerView_track,recyclerView_album;
     TextView txtAlbum,txtTrack;

@@ -1,5 +1,6 @@
 package com.hyunseok.android.sharemusicplaylist;
 
+import android.support.v4.app.FragmentTransaction;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -13,10 +14,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
-import com.hyunseok.android.sharemusicplaylist.player.MusicLoader;
-import com.hyunseok.android.sharemusicplaylist.player.Player;
+import com.hyunseok.android.sharemusicplaylist.domain.Track_Extracted;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Created by kang on 2017-04-06.
@@ -24,8 +24,8 @@ import java.util.List;
 
 public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Holder>{
     Context context;
-    private List<Track> datas;
-    public RecyclerViewAdpt(Context context, List<Track> datas){
+    private ArrayList<Track> datas;
+    public RecyclerViewAdpt(Context context, ArrayList<Track> datas){
         this.context = context;
         this.datas = datas;
     }
@@ -74,13 +74,10 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.btnPlay:
-                        Toast.makeText(context, "Click Play Button", Toast.LENGTH_SHORT).show();
                         // TODO PLAY 되게
+                        Track_Extracted.putTrack(datas.get(position)); // 해당 position 의 Track 하나를 저장한다.
+                        //Track_Extracted extractedTrack = new Track_Extracted(datas.get(position));
                         MainActivity.changeTab("PLAYER");
-                        //Player.setTrack(datas);
-                        MusicLoader musicLoader = new MusicLoader();
-                        musicLoader.setTracks(datas);
-                        //musicLoader.loadMusic(datas);
                         break;
                     case R.id.btnMore:
                         Toast.makeText(context, "Click More Button", Toast.LENGTH_SHORT).show();

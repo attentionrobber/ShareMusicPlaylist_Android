@@ -42,16 +42,16 @@ public class MainActivity extends AppCompatActivity {
     private void setLayout() {
         // Tab 생성 및 타이틀 입력         //.setIcon(R.mipmap.ic_launcher) // icon 추가가능
         tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.tab_search)));
-        tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.tab_player)));
         tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.tab_playlist_main)));
+        tabLayout.addTab(tabLayout.newTab().setText(getResources().getString(R.string.tab_player)));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         // ViewPager
         adapter = new TabPagerAdapter(getSupportFragmentManager());
         // 프래그먼트 생성 및 어댑터에 추가 // 첫번째 인자는 열의 개수, 두 번째 인자는 Tab의 flag
         adapter.add(MainTabFragment.newInstance(MainTabFragment.TYPE_SEARCH)); // Search 보기 형식
-        adapter.add(MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYER)); // Player 보기 형식
         adapter.add(MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYLIST)); // Playlist 곡 보기 형식
+        adapter.add(MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYER)); // Player 보기 형식
 
         viewPager.setAdapter(adapter);
         // 1. 페이저가 변경되었을 때 탭을 바꿔주는 리스너(Pager Listener)
@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
         if ("SEARCH".equals(tab)) {
             viewPager.setCurrentItem(0);
         } else if ("PLAYER".equals(tab)) {
-            viewPager.setCurrentItem(1);
-        } else if ("PLAYLIST".equals(tab)) {
             viewPager.setCurrentItem(2);
+        } else if ("PLAYLIST".equals(tab)) {
+            viewPager.setCurrentItem(1);
         }
     }
 }
