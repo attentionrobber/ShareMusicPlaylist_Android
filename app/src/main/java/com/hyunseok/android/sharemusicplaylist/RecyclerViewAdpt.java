@@ -15,8 +15,10 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.domain.Track_Extracted;
+import com.hyunseok.android.sharemusicplaylist.player.Player;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kang on 2017-04-06.
@@ -74,9 +76,10 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
             public void onClick(View v) {
                 switch (v.getId()){
                     case R.id.btnPlay:
-                        // TODO PLAY 되게
-                        Track_Extracted.putTrack(datas.get(position)); // 해당 position 의 Track 하나를 저장한다.
-                        //Track_Extracted extractedTrack = new Track_Extracted(datas.get(position));
+                        // TODO Play Button 한번 더 눌렀을 때 동작. 새로 추가하기 or 현재 Playlist 에 추가하기 둘중 생각해보기
+                        Track_Extracted.tracks.add(datas.get(position)); // 해당 position 의 Track 하나를 추출한다.
+                        Track_Extracted.position = position; // 해당 Track 의 위치를 추출한다.
+                        Player.play(context);
                         MainActivity.changeTab("PLAYER");
                         break;
                     case R.id.btnMore:

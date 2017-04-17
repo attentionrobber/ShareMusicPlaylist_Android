@@ -20,6 +20,8 @@ import java.util.List;
  * Created by kang on 2017-04-05.
  */
 
+// TODO 현재 영문일 경우 어절 단위로 검색이 됨. => alphabet 단위로 검색으로 수정하기.
+
 public class SearchFunction {
     private LinearLayout recommend_layout,searchResult_layout;
     private RecyclerView recyclerView_horizon_Latest,recyclerView_horizon_Best;

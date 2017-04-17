@@ -66,15 +66,14 @@ public class PlayerService extends Service implements ControlInterface {
         if(intent != null) {
             if(intent.getExtras() != null) {
                 //listType = intent.getExtras().getString(ListFragment.ARG_LIST_TYPE);
-
+                position = intent.getExtras().getInt("position");
                 if(mMediaPlayer == null) {
-                    //initMedia();
+                    initMedia();
                 }
             }
         }
 
         Log.i("PlayingTest", "onStartCommand");
-        initMedia();
         handleAction(intent);
 
         return super.onStartCommand(intent, flags, startId);
@@ -83,17 +82,17 @@ public class PlayerService extends Service implements ControlInterface {
     // 1. Media Player 기본값 설정
     private void initMedia() {
 
-//        if(tracks.size() < 1) {
-//            tracks = MusicLoader.getMusic(getBaseContext());
-//        }
-
+        if(Track_Extracted.tracks.size() < 1) {
+            //tracks = MusicLoader.getMusic(getBaseContext());
+        }
 
         // 음원 Uri 가져오기
         // Local Uri : "content://media/external/audio/media/967"
         //Uri music_uri = tracks.get(position).music_uri;
-        Uri music_uri = Uri.parse(Track_Extracted.preview);
+        //Uri music_uri = Uri.parse(Track_Extracted.preview);
+        Uri music_uri = Uri.parse(Track_Extracted.tracks.get(position).getPreview());
 
-        mMediaPlayer = MediaPlayer.create(this, music_uri); // MediaPlayer를 사용하기 위해선 당연히 시스템자원이 필요하므로 this는 필수
+        mMediaPlayer = MediaPlayer.create(this, music_uri);
         mMediaPlayer.setLooping(false); // 반복 여부
 
         // 미디어 플레이어에 완료 체크 리스너를 등록한다.
@@ -105,7 +104,7 @@ public class PlayerService extends Service implements ControlInterface {
 
     // 2. 명령어 실행.
     // Intent Action 에 넘어온 명령어를 분기시키는 함수
-    private void handleAction( Intent intent ) {
+    private void handleAction(Intent intent) {
         if( intent == null || intent.getAction() == null )
             return;
 

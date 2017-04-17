@@ -117,7 +117,7 @@ public class MainTabFragment extends Fragment {
                 break;
             case R.layout.fragment_main_playertab:
                 Log.i("MainTabFragment", "onCreate Player=================================");
-                //init_playerTab(view);
+                init_playerTab(view);
                 break;
             case R.layout.fragment_main_playlisttab:
                 Log.i("MainTabFragment", "onCreate Playlist=================================");
@@ -129,21 +129,21 @@ public class MainTabFragment extends Fragment {
         return view;
     }
 
-    private void init_searchTab(View view) {
+    public void init_searchTab(View view) {
         SearchFunction searchFunction = new SearchFunction(view, getContext());
         searchFunction.init_searchTab();
     }
 
-    private void init_playerTab(View view) {
-//        Player player = Player.getInstance();
-//        player.execute(view, getContext());
+    public void init_playerTab(View view) {
+        Player player = Player.getInstance();
+        player.execute(view, getContext());
         //Toast.makeText(getContext(), "List<Track>:"+tracks, Toast.LENGTH_SHORT).show();
         Log.i("PlayingTest", "initPlayerTab");
-        Player player = new Player(view, getContext());
-        player.execute();
+//        Player player = new Player(view, getContext());
+//        player.execute();
     }
 
-    private void init_playlistTab(View view) {
+    public void init_playlistTab(View view) {
         rv_myPlaylist = (RecyclerView) view.findViewById(R.id.rv_myPlaylist);
         rv_followPlaylist = (RecyclerView) view.findViewById(R.id.rv_followPlaylist);
 
@@ -202,19 +202,19 @@ public class MainTabFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        switch(layout) {
-            case R.layout.fragment_main_searchtab:
-                break;
-            case R.layout.fragment_main_playertab:
-                Log.i("MainTabFragment", "onResume Player=================================");
-                init_playerTab(getView());
-                break;
-            case R.layout.fragment_main_playlisttab:
-                Log.i("MainTabFragment", "onResume Playlist=================================");
-                init_playlistTab(getView());
-                break;
-            default: break;
-        }
+//        switch(layout) {
+//            case R.layout.fragment_main_searchtab:
+//                break;
+//            case R.layout.fragment_main_playertab:
+//                Log.i("MainTabFragment", "onResume Player=================================");
+//                init_playerTab(getView());
+//                break;
+//            case R.layout.fragment_main_playlisttab:
+//                Log.i("MainTabFragment", "onResume Playlist=================================");
+//                init_playlistTab(getView());
+//                break;
+//            default: break;
+//        }
     }
 
     @Override

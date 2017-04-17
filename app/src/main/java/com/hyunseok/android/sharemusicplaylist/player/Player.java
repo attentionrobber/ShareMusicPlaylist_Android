@@ -27,7 +27,7 @@ import java.util.List;
 
 public class Player {
 
-//    private volatile static Player instance = null;
+    private volatile static Player instance = null;
     private Context context;
     private View view;
 
@@ -37,51 +37,47 @@ public class Player {
 
     private List<Track> tracks;
 
-    public Player(View view, Context context) {
-        this.view = view;
-        this.context = context;
+//    public Player(View view, Context context) {
+//        this.view = view;
+//        this.context = context;
+//
+//        tracks = new ArrayList<>();
+//    }
+    private Player() { }
+
+    public static Player getInstance() {
+        if (instance == null) {
+            synchronized (Player.class) {
+                if (instance == null) {
+                    instance = new Player();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public void execute(View view, Context context) {
 
         tracks = new ArrayList<>();
-    }
-//    private Player() { }
-//
-//    public static Player getInstance() {
-//        if (instance == null) {
-//            synchronized (Player.class) {
-//                if (instance == null) {
-//                    instance = new Player();
-//                }
-//            }
-//        }
-//        return instance;
-//    }
-
-    public void execute() {
-
-
         initWidget(view, context);
 
-        if(Track_Extracted.title != null) {
-            Log.i("PlayingTest", "execute()");
-            play(context);
-        }
+        Log.i("PlayingTest", "execute()");
     }
 
     private void initWidget(View view, Context context) {
         viewPager_player = (ViewPager) view.findViewById(R.id.viewPager_player);
 
-
-        Toast.makeText(context, ""+Track_Extracted.title, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, ""+Track_Extracted.title, Toast.LENGTH_SHORT).show();
 
         playerAdapter = new PlayerAdapter(tracks, context);
         viewPager_player.setAdapter(playerAdapter);
     }
 
     // 음악을 서비스로 실행시킨다.
-    private void play(Context context) {
+    public static void play(Context context) {
         Intent intent = new Intent(context, PlayerService.class);
         intent.setAction(PlayerService.ACTION_PLAY);
-        //intent.putExtra("position", position);
+        intent.putExtra("position", Track_Extracted.position);
         context.startService(intent);
     }
 }

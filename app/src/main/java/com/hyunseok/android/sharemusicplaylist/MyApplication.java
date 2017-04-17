@@ -16,7 +16,7 @@ import java.util.List;
 public class MyApplication extends Application {
 
     private List<Track> tracks;
-    
+
 
     public MyApplication() {
         tracks = new ArrayList<>();
