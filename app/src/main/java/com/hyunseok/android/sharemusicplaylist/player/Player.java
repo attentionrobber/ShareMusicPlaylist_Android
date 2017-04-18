@@ -62,6 +62,7 @@ public class Player {
     public void execute(View view, Context context) {
 
         tracks = new ArrayList<>();
+        tracks = Track_Extracted.tracks;
         initWidget(view, context);
 
         Log.i("PlayingTest", "execute()");

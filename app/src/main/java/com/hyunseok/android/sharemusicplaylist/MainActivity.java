@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         if ("SEARCH".equals(tab)) {
             viewPager.setCurrentItem(0);
         } else if ("PLAYER".equals(tab)) {
+            player.init_playerTab(player.getView());
             player.onResume();
             viewPager.setCurrentItem(1);
         } else if ("PLAYLIST".equals(tab)) {

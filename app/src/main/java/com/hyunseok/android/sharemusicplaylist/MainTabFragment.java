@@ -138,7 +138,7 @@ public class MainTabFragment extends Fragment {
         Player player = Player.getInstance();
         player.execute(view, getContext());
         //Toast.makeText(getContext(), "List<Track>:"+tracks, Toast.LENGTH_SHORT).show();
-        Log.i("PlayingTest", "initPlayerTab");
+        Log.i("MainTabFragment", "init_PlayerTab");
 //        Player player = new Player(view, getContext());
 //        player.execute();
     }
