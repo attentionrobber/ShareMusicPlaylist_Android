@@ -11,5 +11,5 @@ import java.util.List;
 
 public class Track_Extracted {
     public static List<Track> tracks = new ArrayList<>();
-    public static int position = -1;
+    //public static int position = -1;
 }

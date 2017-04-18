@@ -78,7 +78,7 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
                     case R.id.btnPlay:
                         // TODO Play Button 한번 더 눌렀을 때 동작. 새로 추가하기 or 현재 Playlist 에 추가하기 둘중 생각해보기
                         Track_Extracted.tracks.add(datas.get(position)); // 해당 position 의 Track 하나를 추출한다.
-                        Track_Extracted.position = position; // 해당 Track 의 위치를 추출한다.
+                        //Track_Extracted.position = position; // 해당 Track 의 위치를 추출한다.
                         Player.play(context);
                         MainActivity.changeTab("PLAYER");
                         break;

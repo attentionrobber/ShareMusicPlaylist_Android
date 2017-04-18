@@ -28,6 +28,9 @@ import java.util.List;
 public class Player {
 
     private volatile static Player instance = null;
+
+    public static Intent intent = null;
+
     private Context context;
     private View view;
 
@@ -75,9 +78,11 @@ public class Player {
 
     // 음악을 서비스로 실행시킨다.
     public static void play(Context context) {
-        Intent intent = new Intent(context, PlayerService.class);
-        intent.setAction(PlayerService.ACTION_PLAY);
-        intent.putExtra("position", Track_Extracted.position);
-        context.startService(intent);
+        if (intent == null) {
+            Intent intent = new Intent(context, PlayerService.class);
+            intent.setAction(PlayerService.ACTION_PLAY);
+            //intent.putExtra("position", Track_Extracted.position);
+            context.startService(intent);
+        }
     }
 }

@@ -47,7 +47,7 @@ public class PlayerService extends Service implements ControlInterface {
 
     List<Track> tracks = new ArrayList<>();
 
-    Controller controller;
+    private Controller controller;
 
     public PlayerService(){
         controller = Controller.getInstance();
@@ -64,13 +64,13 @@ public class PlayerService extends Service implements ControlInterface {
 
         // Player 에서 play(
         if(intent != null) {
-            if(intent.getExtras() != null) {
+            //if(intent.getExtras() != null) {
                 //listType = intent.getExtras().getString(ListFragment.ARG_LIST_TYPE);
-                position = intent.getExtras().getInt("position");
+                //position = intent.getExtras().getInt("position");
                 if(mMediaPlayer == null) {
                     initMedia();
                 }
-            }
+            //}
         }
 
         Log.i("PlayingTest", "onStartCommand");
@@ -90,7 +90,7 @@ public class PlayerService extends Service implements ControlInterface {
         // Local Uri : "content://media/external/audio/media/967"
         //Uri music_uri = tracks.get(position).music_uri;
         //Uri music_uri = Uri.parse(Track_Extracted.preview);
-        Uri music_uri = Uri.parse(Track_Extracted.tracks.get(position).getPreview());
+        Uri music_uri = Uri.parse(Track_Extracted.tracks.get(0).getPreview());
 
         mMediaPlayer = MediaPlayer.create(this, music_uri);
         mMediaPlayer.setLooping(false); // 반복 여부
