@@ -82,15 +82,16 @@ public class PlayerService extends Service implements ControlInterface {
     // 1. Media Player 기본값 설정
     private void initMedia() {
 
-        if(Track_Extracted.tracks.size() < 1) {
+        if(Track_Extracted.tracks.size() > 0) {
             //tracks = MusicLoader.getMusic(getBaseContext());
+            tracks = Track_Extracted.tracks;
         }
 
         // 음원 Uri 가져오기
         // Local Uri : "content://media/external/audio/media/967"
         //Uri music_uri = tracks.get(position).music_uri;
         //Uri music_uri = Uri.parse(Track_Extracted.preview);
-        Uri music_uri = Uri.parse(Track_Extracted.tracks.get(0).getPreview());
+        Uri music_uri = Uri.parse(tracks.get(0).getPreview());
 
         mMediaPlayer = MediaPlayer.create(this, music_uri);
         mMediaPlayer.setLooping(false); // 반복 여부

@@ -88,6 +88,36 @@
             android:layout_toRightOf="@+id/imgbtn_play"
             android:layout_toEndOf="@+id/imgbtn_play"/>
 
+        <ImageButton
+            android:id="@+id/imgbtn_playlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+            android:scaleType="fitXY"
+            android:layout_alignTop="@+id/imgbtn_prev"
+            android:layout_alignLeft="@+id/tv_current"
+            android:layout_alignStart="@+id/tv_current" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_playlist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relativeLayout2"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_listViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ListView Title" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv_listViewTitle"/>
     </RelativeLayout>
 
     <android.support.v4.view.ViewPager
