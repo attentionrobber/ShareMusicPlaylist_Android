@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.domain.Track_Extracted;
 import com.hyunseok.android.sharemusicplaylist.player.Player;
+import com.hyunseok.android.sharemusicplaylist.player.PlayerService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,10 +79,10 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
                     case R.id.btnPlay:
                         // TODO Play Button 한번 더 눌렀을 때 동작. 새로 추가하기 or 현재 Playlist 에 추가하기 둘중 생각해보기
                         Track_Extracted.tracks.add(datas.get(position)); // 해당 position 의 Track 하나를 추출한다.
+                        PlayerService.position = Track_Extracted.tracks.size()-1;
                         // TODO 같은 음악일 경우 add 안되도록
-                        //Track_Extracted.position = position; // 해당 Track 의 위치를 추출한다.
                         Player.play(context);
-                        MainActivity.changeTab("PLAYER");
+                        MainActivity.changeTab("PLAYER"); // PLAYER Tab 으로 변경하고 view 도 refresh 해준다.
                         break;
                     case R.id.btnMore:
                         Toast.makeText(context, "Click More Button", Toast.LENGTH_SHORT).show();

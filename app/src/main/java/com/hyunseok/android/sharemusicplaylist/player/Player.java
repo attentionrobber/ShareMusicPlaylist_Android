@@ -3,6 +3,8 @@ package com.hyunseok.android.sharemusicplaylist.player;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.test.RenamingDelegatingContext;
 import android.util.Log;
 import android.view.View;
@@ -44,7 +46,7 @@ public class Player {
     private PlayerAdapter_sample playerAdapter_sample;
 
     private RelativeLayout relative_playlist;
-    private ListView listView;
+    private RecyclerView rv_playlist;
     private Player_PlaylistAdapter playlistAdapter;
 
     private ImageButton imgbtn_play, imgbtn_prev, imgbtn_next, imgbtn_playlist;
@@ -96,12 +98,13 @@ public class Player {
         viewPager_player = (ViewPager) view.findViewById(R.id.viewPager_player);
         playerAdapter = new PlayerAdapter(tracks, context);
         viewPager_player.setAdapter(playerAdapter);
-
+        viewPager_player.setCurrentItem(Track_Extracted.tracks.size()-1); // TODO 바꿀필요있음. 문제점 : 임의의 트랙을 선택 재생했을 때 size-1로 화면 전환하는게 맞지 않음.
 
         // 플레이어의 현재 재생목록(Playlist) 적용 부분
         playlistAdapter = new Player_PlaylistAdapter(tracks, context);
-        listView = (ListView) view.findViewById(R.id.listView);
-        listView.setAdapter(playlistAdapter);
+        rv_playlist = (RecyclerView) view.findViewById(R.id.rv_playlist);
+        rv_playlist.setLayoutManager(new LinearLayoutManager(context));
+        rv_playlist.setAdapter(playlistAdapter);
     }
 
     // 음악을 서비스로 실행시킨다.
@@ -125,7 +128,6 @@ public class Player {
                 case R.id.imgbtn_next:
                     break;
                 case R.id.imgbtn_playlist:
-                    Log.i("PlayerTest", "clickEvent");
                     if (relative_playlist.getVisibility() == View.GONE) {
                         relative_playlist.setVisibility(View.VISIBLE);
                     } else if (relative_playlist.getVisibility() == View.VISIBLE) {

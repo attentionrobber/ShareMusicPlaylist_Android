@@ -54,7 +54,6 @@ public class PlayerAdapter extends PagerAdapter {
         tv_title.setText(track.getTitle());
         tv_artist.setText(track.getArtist());
 
-
         Glide.with(context).load(track.getImage()).placeholder(R.mipmap.default_album_image).into(imageView); // placeholder()는 디폴트 이미지를 지정해줄 수 있다.
 
         container.addView(view); // 생성한 뷰를 컨테이너에 담아준다. 컨테이너 = 뷰페이저를 생성한 최외곽 레이아웃 개념

@@ -120,16 +120,16 @@
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/tv_listViewTitle"
+            android:id="@+id/tv_rvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ListView Title" />
+            android:text="현재 재생목록" />
 
-        <ListView
-            android:id="@+id/listView"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_playlist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tv_listViewTitle" />
+            android:layout_below="@+id/tv_rvTitle" />
     </RelativeLayout>
 
 </RelativeLayout>

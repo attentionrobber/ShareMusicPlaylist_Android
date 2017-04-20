@@ -42,8 +42,7 @@ public class PlayerService extends Service implements ControlInterface {
 
     // 1. 미디어플레이어 사용 API 세팅
     public static MediaPlayer mMediaPlayer = null;
-    public static String listType = "";
-    public static int position = -1;
+    public static int position = 0;
 
     List<Track> tracks = new ArrayList<>();
 
@@ -68,12 +67,13 @@ public class PlayerService extends Service implements ControlInterface {
                 //listType = intent.getExtras().getString(ListFragment.ARG_LIST_TYPE);
                 //position = intent.getExtras().getInt("position");
                 if(mMediaPlayer == null) {
-                    initMedia();
+
                 }
             //}
         }
 
-        Log.i("PlayingTest", "onStartCommand");
+        Log.i("PlayerService!!", "onStartCommand");
+        initMedia();
         handleAction(intent);
 
         return super.onStartCommand(intent, flags, startId);
@@ -82,24 +82,21 @@ public class PlayerService extends Service implements ControlInterface {
     // 1. Media Player 기본값 설정
     private void initMedia() {
 
-        if(Track_Extracted.tracks.size() > 0) {
-            //tracks = MusicLoader.getMusic(getBaseContext());
-            tracks = Track_Extracted.tracks;
-        }
+        tracks = Track_Extracted.tracks;
+        //position = Track_Extracted.tracks.size() - 1;
 
-        // 음원 Uri 가져오기
+        if(mMediaPlayer != null)
+            mMediaPlayer.release();
+
         // Local Uri : "content://media/external/audio/media/967"
-        //Uri music_uri = tracks.get(position).music_uri;
-        //Uri music_uri = Uri.parse(Track_Extracted.preview);
-        Uri music_uri = Uri.parse(tracks.get(0).getPreview());
+        Uri music_uri = Uri.parse(tracks.get(position).getPreview());
 
         mMediaPlayer = MediaPlayer.create(this, music_uri);
         mMediaPlayer.setLooping(false); // 반복 여부
 
-        // 미디어 플레이어에 완료 체크 리스너를 등록한다.
-        // 음악이 끝까지 재생됐을 경우임.
-        mMediaPlayer.setOnCompletionListener(mp -> {
+        mMediaPlayer.setOnCompletionListener(mp -> { // 미디어 플레이어에 완료 체크 리스너를 등록한다. 음악이 끝까지 재생됐을 경우임.
             // TODO next();
+            buildNotification( generateAction( android.R.drawable.ic_media_play, "Play", ACTION_PLAY ), ACTION_PLAY );
         });
     }
 
@@ -199,8 +196,8 @@ public class PlayerService extends Service implements ControlInterface {
         }
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel( NOTIFICATION_ID ); // 인자는 notification 닫을 때 id값이 들어간다.
-        Intent intent = new Intent( getApplicationContext(), PlayerService.class );
-        stopService( intent );
+        Intent intent = new Intent(getApplicationContext(), PlayerService.class);
+        stopService(intent);
     }
 
     @Override
