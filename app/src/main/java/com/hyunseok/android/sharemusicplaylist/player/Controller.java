@@ -28,18 +28,30 @@ public class Controller {
     }
 
     public void play(){
-        for(ControlInterface target : targets){
+        for(ControlInterface target : targets) {
             target.startPlayer();
         }
     }
 
     public void pause(){
-        for(ControlInterface target : targets){
+        for(ControlInterface target : targets) {
             target.pausePlayer();
         }
     }
 
-    public void remove(ControlInterface target){
+    public void prev() {
+        for(ControlInterface target : targets) {
+            target.prevPlayer();
+        }
+    }
+
+    public void next() {
+        for(ControlInterface target : targets) {
+            target.nextPlayer();
+        }
+    }
+
+    public void remove(ControlInterface target) {
         targets.remove(target);
     }
 }

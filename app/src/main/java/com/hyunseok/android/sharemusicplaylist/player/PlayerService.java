@@ -32,6 +32,7 @@ public class PlayerService extends Service implements ControlInterface {
     private static final int NOTIFICATION_ID = 1;
 
     //
+    public static final String ACTION_INIT = "action_init";
     public static final String ACTION_PLAY = "action_play";
     public static final String ACTION_PAUSE = "action_pause";
     public static final String ACTION_NEXT = "action_next";
@@ -67,28 +68,28 @@ public class PlayerService extends Service implements ControlInterface {
                 //listType = intent.getExtras().getString(ListFragment.ARG_LIST_TYPE);
                 //position = intent.getExtras().getInt("position");
                 if(mMediaPlayer == null) {
-
+                    initPlayer();
+                    initController();
                 }
             //}
         }
 
-        Log.i("PlayerService!!", "onStartCommand");
-        initMedia();
+        Log.i("PS11", "onStartCommand");
         handleAction(intent);
 
         return super.onStartCommand(intent, flags, startId);
     }
 
     // 1. Media Player 기본값 설정
-    private void initMedia() {
+    private void initPlayer() {
 
         tracks = Track_Extracted.tracks;
-        //position = Track_Extracted.tracks.size() - 1;
 
         if(mMediaPlayer != null)
             mMediaPlayer.release();
 
         // Local Uri : "content://media/external/audio/media/967"
+        Log.i("PS11initMedia", "position : "+position);
         Uri music_uri = Uri.parse(tracks.get(position).getPreview());
 
         mMediaPlayer = MediaPlayer.create(this, music_uri);
@@ -96,29 +97,33 @@ public class PlayerService extends Service implements ControlInterface {
 
         mMediaPlayer.setOnCompletionListener(mp -> { // 미디어 플레이어에 완료 체크 리스너를 등록한다. 음악이 끝까지 재생됐을 경우임.
             // TODO next();
-            buildNotification( generateAction( android.R.drawable.ic_media_play, "Play", ACTION_PLAY ), ACTION_PLAY );
+            //buildNotification(generateAction(android.R.drawable.ic_media_play, "Play", ACTION_PLAY), ACTION_PLAY);
         });
+    }
+    private void initController() {
+//        seekBar.setMax(player.getDuration()); // seekBar의 최대 길이 설정
+//        seekBar.setProgress(0);
     }
 
     // 2. 명령어 실행.
     // Intent Action 에 넘어온 명령어를 분기시키는 함수
     private void handleAction(Intent intent) {
-        if( intent == null || intent.getAction() == null )
+        if(intent == null || intent.getAction() == null)
             return;
 
         String action = intent.getAction();
-        if( action.equalsIgnoreCase( ACTION_PLAY ) ) {
-            //buildNotification(); // notification bar 생성
-            //playerStart(); // 음원 처리
+        if(action.equalsIgnoreCase(ACTION_INIT)) {
+            initPlayer();
             controller.play();
-        } else if( action.equalsIgnoreCase( ACTION_PAUSE ) ) {
-            //playerPause();
+        } else if(action.equalsIgnoreCase(ACTION_PLAY)) {
+            controller.play();
+        } else if(action.equalsIgnoreCase(ACTION_PAUSE)) {
             controller.pause();
-        } else if( action.equalsIgnoreCase( ACTION_PREVIOUS ) ) {
-
-        } else if( action.equalsIgnoreCase( ACTION_NEXT ) ) {
-
-        } else if( action.equalsIgnoreCase( ACTION_STOP ) ) {
+        } else if(action.equalsIgnoreCase(ACTION_PREVIOUS)) {
+            controller.prev();
+        } else if(action.equalsIgnoreCase(ACTION_NEXT)) {
+            controller.next();
+        } else if(action.equalsIgnoreCase(ACTION_STOP)) {
             playerStop();
         }
         //else if( action.equalsIgnoreCase( ACTION_FAST_FORWARD ) ) {
@@ -129,18 +134,18 @@ public class PlayerService extends Service implements ControlInterface {
         //}
     }
 
-    // Activity에서의 클릭 버튼 생성
-    private NotificationCompat.Action generateAction(int icon, String title, String intentAction ) {
-        Intent intent = new Intent( getApplicationContext(), PlayerService.class );
-        intent.setAction( intentAction );
+    // Activity 에서의 클릭 버튼 생성
+    private NotificationCompat.Action generateAction(int icon, String title, String intentAction) {
+        Intent intent = new Intent(getApplicationContext(), PlayerService.class);
+        intent.setAction(intentAction);
         // PendingIntent : 실행 대상이 되는 인텐트를 지연시키는 역할
         PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 1, intent, 0);
 
         return new NotificationCompat.Action.Builder(icon, title, pendingIntent).build();
     }
 
-    // Notification Bar를 생성하는 함수
-    private void buildNotification(NotificationCompat.Action action, String action_flag ) {
+    // Notification Bar 를 생성하는 함수
+    private void buildNotification(NotificationCompat.Action action, String action_flag) {
         // 노티바 모양
         //Notification.MediaStyle style = new Notification.MediaStyle();
 
@@ -150,42 +155,41 @@ public class PlayerService extends Service implements ControlInterface {
 //        PendingIntent mainIntent = PendingIntent.getActivity(getApplicationContext(), 1, intentMain, 0);
 
         // STOP intent
-        Intent intentStop = new Intent( getApplicationContext(), PlayerService.class );
-        intentStop.setAction( ACTION_STOP );
+        Intent intentStop = new Intent(getApplicationContext(), PlayerService.class);
+        intentStop.setAction(ACTION_STOP);
         PendingIntent stopIntent = PendingIntent.getService(getApplicationContext(), 1, intentStop, 0);
 
         // 노티바 생성
         //Notification.Builder builder = new Notification.Builder( this );
-        NotificationCompat.Builder builder = new NotificationCompat.Builder( this ); // Compat은 버전처리를 자체적으로 해준다.
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this); // Compat은 버전처리를 자체적으로 해준다.
 
         builder.setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle( "Media Title" )
-                .setContentText( "Media Artist" );
+                .setContentTitle(tracks.get(position).getTitle())
+                .setContentText(tracks.get(position).getArtist());
 
         // Pause일 경우만 노티 삭제 가능
         //if(ACTION_PAUSE.equals(action_flag)) {
-            builder.setDeleteIntent(stopIntent); // 노티바가 delete 될 때 stopIntent가 실행.
+            builder.setDeleteIntent(stopIntent); // 노티바가 delete 될 때 stopIntent 가 실행.
             builder.setOngoing(false);
         //}
 
         //builder.setStyle(style);
 
-        builder.addAction(generateAction(android.R.drawable.ic_media_previous, "Prev", ACTION_PREVIOUS));
+        builder.addAction(generateAction(android.R.drawable.ic_media_previous, "", ACTION_PREVIOUS));
         builder.addAction(action);
-        builder.addAction(generateAction(android.R.drawable.ic_media_next, "Next", ACTION_NEXT));
+        builder.addAction(generateAction(android.R.drawable.ic_media_next, "", ACTION_NEXT));
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService( Context.NOTIFICATION_SERVICE );
-        // 노티바를 화면에 보여준다.
-        notificationManager.notify( NOTIFICATION_ID, builder.build() ); // 첫번째 인자는 notification 닫을 때 id값이 들어간다.
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(NOTIFICATION_ID, builder.build()); // 노티바를 화면에 보여준다. 첫번째 인자는 notification 닫을 때 id값이 들어간다.
     }
 
     private void playerStart() {
-        buildNotification( generateAction( android.R.drawable.ic_media_pause, "Pause", ACTION_PAUSE ), ACTION_PAUSE );
+        buildNotification(generateAction(android.R.drawable.ic_media_pause, "", ACTION_PAUSE), ACTION_PAUSE);
         mMediaPlayer.start();
     }
 
     private void playerPause() {
-        buildNotification( generateAction( android.R.drawable.ic_media_play, "Play", ACTION_PLAY ), ACTION_PLAY );
+        buildNotification(generateAction(android.R.drawable.ic_media_play, "", ACTION_PLAY), ACTION_PLAY);
         mMediaPlayer.pause();
     }
 
@@ -200,6 +204,22 @@ public class PlayerService extends Service implements ControlInterface {
         stopService(intent);
     }
 
+    private void playerPrev() {
+        if(position > 0) { // 10곡 있으면 size:10 idx, position은 0~9
+            position--;
+            initPlayer();
+            playerStart();
+        }
+    }
+
+    private void playerNext() {
+        if(position < Track_Extracted.tracks.size()-1) {
+            position++;
+            initPlayer();
+            playerStart();
+        }
+    }
+
     @Override
     public void startPlayer() {
         playerStart();
@@ -208,6 +228,16 @@ public class PlayerService extends Service implements ControlInterface {
     @Override
     public void pausePlayer() {
         playerPause();
+    }
+
+    @Override
+    public void prevPlayer() {
+        playerPrev();
+    }
+
+    @Override
+    public void nextPlayer() {
+        playerNext();
     }
 
     @Override

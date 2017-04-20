@@ -5,13 +5,10 @@ import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.test.RenamingDelegatingContext;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
@@ -31,7 +28,7 @@ import java.util.List;
  * Created by KHS on 2017-04-11.
  */
 
-public class Player {
+public class Player implements ControlInterface{
 
     private volatile static Player instance = null;
 
@@ -108,7 +105,7 @@ public class Player {
     }
 
     // 음악을 서비스로 실행시킨다.
-    public static void play(Context context) {
+    public void play(Context context) {
         if (intent == null) {
             Intent intent = new Intent(context, PlayerService.class);
             intent.setAction(PlayerService.ACTION_PLAY);
@@ -122,10 +119,13 @@ public class Player {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.imgbtn_prev:
+                    prevPlayer();
                     break;
                 case R.id.imgbtn_play:
+                    //play(context);
                     break;
                 case R.id.imgbtn_next:
+                    nextPlayer();
                     break;
                 case R.id.imgbtn_playlist:
                     if (relative_playlist.getVisibility() == View.GONE) {
@@ -138,4 +138,24 @@ public class Player {
             }
         }
     };
+
+    @Override
+    public void startPlayer() {
+        imgbtn_play.setImageResource(android.R.drawable.ic_media_pause);
+    }
+
+    @Override
+    public void pausePlayer() {
+        imgbtn_play.setImageResource(android.R.drawable.ic_media_play);
+    }
+
+    @Override
+    public void prevPlayer() {
+
+    }
+
+    @Override
+    public void nextPlayer() {
+
+    }
 }
