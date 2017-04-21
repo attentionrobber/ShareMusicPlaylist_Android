@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Used in : PlayerService
+ * Used in : Player, PlayerService
  * Created by KHS on 2017-04-12.
  */
 

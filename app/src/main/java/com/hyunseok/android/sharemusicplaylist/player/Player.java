@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlayerAdapter;
@@ -51,6 +52,8 @@ public class Player implements ControlInterface{
     // Data
     private List<Track> tracks;
 
+    private Controller controller;
+
     //    public Player(View view, Context context) {
 //        this.view = view;
 //        this.context = context;
@@ -71,12 +74,15 @@ public class Player implements ControlInterface{
     }
 
     public void execute(View view, Context context) {
+        this.context = context;
+
+        controller = Controller.getInstance();
+        controller.addObserver(this); // 옵저버패턴 적용
 
         tracks = new ArrayList<>();
         tracks = Track_Extracted.tracks;
-        initWidget(view, context);
 
-        Log.i("PlayingTest", "execute()");
+        initWidget(view, context);
     }
 
     private void initWidget(View view, Context context) {
@@ -105,16 +111,16 @@ public class Player implements ControlInterface{
     }
 
     // 음악을 서비스로 실행시킨다.
-    public void play(Context context) {
-        if (intent == null) {
+    private void play(Context context) {
+        //if (intent == null) {
             Intent intent = new Intent(context, PlayerService.class);
             intent.setAction(PlayerService.ACTION_PLAY);
             //intent.putExtra("position", Track_Extracted.position);
             context.startService(intent);
-        }
+        //}
     }
 
-    View.OnClickListener clickListener = new View.OnClickListener() {
+    private View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
@@ -122,7 +128,7 @@ public class Player implements ControlInterface{
                     prevPlayer();
                     break;
                 case R.id.imgbtn_play:
-                    //play(context);
+                    play(context);
                     break;
                 case R.id.imgbtn_next:
                     nextPlayer();
@@ -141,11 +147,13 @@ public class Player implements ControlInterface{
 
     @Override
     public void startPlayer() {
+        Toast.makeText(context, "AA", Toast.LENGTH_SHORT).show();
         imgbtn_play.setImageResource(android.R.drawable.ic_media_pause);
     }
 
     @Override
     public void pausePlayer() {
+        Toast.makeText(context, "BB", Toast.LENGTH_SHORT).show();
         imgbtn_play.setImageResource(android.R.drawable.ic_media_play);
     }
 
