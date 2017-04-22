@@ -1,15 +1,16 @@
 package com.hyunseok.android.sharemusicplaylist.util;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.hyunseok.android.sharemusicplaylist.R;
-
 import com.hyunseok.android.sharemusicplaylist.RecyclerViewAdpt;
 import com.hyunseok.android.sharemusicplaylist.domain.API_URL;
 
