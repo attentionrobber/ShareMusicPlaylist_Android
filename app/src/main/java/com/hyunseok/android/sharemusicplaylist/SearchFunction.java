@@ -7,10 +7,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
+import com.hyunseok.android.sharemusicplaylist.domain.Track_Data;
+import com.hyunseok.android.sharemusicplaylist.util.Logger;
 import com.hyunseok.android.sharemusicplaylist.util.RetrofitDeezerUtil;
 
 import java.util.ArrayList;
@@ -28,9 +31,11 @@ public class SearchFunction {
     private RecyclerView rcy_Search_Track, rcy_Search_Album;
     private EditText et_search;
     private TextView txtTrack, txtAlbum;
+    private ImageButton btnSearch;
     View view;
     private Context context;
     private int status = View.GONE;
+    private List<Track_Data> track_Datas;
     RetrofitDeezerUtil deezerUtil;
 
     public SearchFunction(View view,Context context){
@@ -38,6 +43,7 @@ public class SearchFunction {
         this.context = context;
     }
     public void init_widget(){
+        btnSearch = (ImageButton)view.findViewById(R.id.imgbtn_search);
         txtTrack = (TextView)view.findViewById(R.id.txtTrack);
         txtAlbum= (TextView)view.findViewById(R.id.txtAlbum);
         et_search = (EditText)view.findViewById(R.id.et_search);
@@ -45,9 +51,10 @@ public class SearchFunction {
         recyclerView_horizon_Best = (RecyclerView)view.findViewById(R.id.recyclerView_horizon_best);
         recommend_layout = (LinearLayout)view.findViewById(R.id.recommend_layout);
         searchResult_layout= (LinearLayout)view.findViewById(R.id.result_layout);
-
         rcy_Search_Track = (RecyclerView)view.findViewById(R.id.rcy_Search_Track);
         rcy_Search_Album = (RecyclerView)view.findViewById(R.id.rcy_Search_Album);
+
+        btnSearch.setOnClickListener(clickListener);
 
 
     }
@@ -81,26 +88,18 @@ public class SearchFunction {
     public void init_searchTab() {
         init_widget();
         recyclerView_inittest();
-        deezerUtil = new RetrofitDeezerUtil(context,rcy_Search_Track,rcy_Search_Album,txtAlbum,txtTrack);
+        deezerUtil = new RetrofitDeezerUtil(context,view);
         deezerUtil.setRetrofit();
-
         et_search.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(et_search.getText().toString().equals("")){
+                if (et_search.getText().toString().equals("")) {
                     recommend_layout.setVisibility(View.VISIBLE);
                     searchResult_layout.setVisibility(View.GONE);
-                }else{
+                } else {
                     recommend_layout.setVisibility(View.GONE);
                     searchResult_layout.setVisibility(View.VISIBLE);
-                    //TODO : RETROFIT & RECYCLERVIEW
-
-                    deezerUtil.searchTrack(et_search.getText().toString());
-                    //deezerUtil.searchAlbum(et_search.getText().toString());
-
-
                 }
-
             }
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -115,13 +114,14 @@ public class SearchFunction {
     }
 
     View.OnClickListener clickListener = v -> {
+        switch (v.getId()){
+            case R.id.imgbtn_search:
+                deezerUtil.searchTrack(et_search.getText().toString());
+                //deezerUtil.searchList(et_search.getText().toString());
+                //Logger.print("SearchFucntion", "search Track Title ==========================" + et_search.getText().toString());
+                break;
 
-        if(status == View.GONE)
-            status = View.VISIBLE;
-        else
-            status = View.GONE;
-
-        recommend_layout.setVisibility(status);
+        }
     };
 
 }

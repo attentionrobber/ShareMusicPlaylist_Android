@@ -5,5 +5,5 @@ package com.hyunseok.android.sharemusicplaylist.domain;
  */
 
 public class API_URL {
-    public static final String deezer_URL = "http://api.deezer.com/";
+    public static final String backend_URL = "http://ec2-52-79-218-125.ap-northeast-2.compute.amazonaws.com/";
 }
