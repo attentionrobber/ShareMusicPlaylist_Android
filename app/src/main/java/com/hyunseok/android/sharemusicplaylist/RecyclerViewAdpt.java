@@ -89,6 +89,7 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
                         MainActivity.changeTab("PLAYER"); // PLAYER Tab 으로 변경하고 view 도 refresh 해준다.
                         break;
                     case R.id.btnMore:
+                        // TODO Playlist 에 추가
                         Toast.makeText(context, "Click More Button", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.cardView:
