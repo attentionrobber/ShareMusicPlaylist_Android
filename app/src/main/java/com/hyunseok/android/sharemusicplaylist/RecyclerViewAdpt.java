@@ -82,10 +82,10 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
                         Track_Extracted.tracks.add(datas.get(position)); // 해당 position 의 Track 하나를 추출한다.
                         PlayerService.position = Track_Extracted.tracks.size()-1;
                         // TODO 같은 음악일 경우 add 안되도록
-                        //Player.play(context);
-                        Intent intent = new Intent(context, PlayerService.class);
-                        intent.setAction(PlayerService.ACTION_INIT);
-                        context.startService(intent);
+                        Player.play(context, PlayerService.ACTION_INIT);
+//                        Intent intent = new Intent(context, PlayerService.class);
+//                        intent.setAction(PlayerService.ACTION_INIT);
+//                        context.startService(intent);
                         MainActivity.changeTab("PLAYER"); // PLAYER Tab 으로 변경하고 view 도 refresh 해준다.
                         break;
                     case R.id.btnMore:
