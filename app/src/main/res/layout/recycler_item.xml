@@ -56,7 +56,7 @@
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/btnPlay"
+                android:id="@+id/btnPlayInfo"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.07"

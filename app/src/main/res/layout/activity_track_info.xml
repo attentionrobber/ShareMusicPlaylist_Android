@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hyunseok.android.sharemusicplaylist.TrackInfoActivity">
+
+    <ImageView
+        android:id="@+id/imgAlbumInfo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        app:srcCompat="@android:drawable/btn_dialog" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TITLE :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/imgAlbumInfo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALBUM :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:layout_below="@+id/txtTitleInfo"
+        android:layout_alignLeft="@+id/txtTitleInfo"
+        android:layout_alignStart="@+id/txtTitleInfo" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ARTIST :"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        android:layout_below="@+id/txtAlbumInfo"
+        android:layout_alignLeft="@+id/txtAlbumInfo"
+        android:layout_alignStart="@+id/txtAlbumInfo" />
+
+    <TextView
+        android:id="@+id/txtTitleInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/textView3"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/txtAlbumInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/textView4"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/txtArtistInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_below="@+id/textView5"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcyAlbumTracks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imgAlbumInfo"
+        android:layout_marginTop="22dp" />
+
+    <ImageButton
+        android:id="@+id/btnPlayInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/playbutton32"
+        android:background="#ffffff"
+        android:layout_above="@+id/rcyAlbumTracks"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5" />
+
+    <ImageButton
+        android:id="@+id/btnMoreInfo"
+        android:background="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnPlayInfo"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:layout_toEndOf="@+id/btnPlayInfo"
+        android:layout_toRightOf="@+id/btnPlayInfo"
+        app:srcCompat="@drawable/moredot" />
+
+    <TextView
+        android:id="@+id/txtArtistInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_alignStart="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:text="TextView" />
+</RelativeLayout>

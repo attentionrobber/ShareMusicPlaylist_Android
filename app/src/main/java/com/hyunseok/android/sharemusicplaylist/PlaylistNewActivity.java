@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
 import com.hyunseok.android.sharemusicplaylist.data.DBHelper;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
+import com.hyunseok.android.sharemusicplaylist.util.Logger;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 
@@ -96,6 +97,8 @@ public class PlaylistNewActivity extends AppCompatActivity {
         DBHelper dbHelper = OpenHelperManager.getHelper(this, DBHelper.class);
         Dao<Playlist, Integer> playlistDao = dbHelper.getPlaylistDao();
         playlistDao.create(playlist);
+        List<Playlist> playlistTest = playlistDao.queryForAll();
+        Logger.print("PlaylistNewActivity","Save To DB===========================" + playlistTest.size());
     }
 
     @Click({R.id.btn_OK, R.id.btn_cancle, R.id.btn_addTrack})

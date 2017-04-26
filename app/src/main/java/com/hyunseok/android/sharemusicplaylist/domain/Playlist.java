@@ -26,7 +26,7 @@ public class Playlist {
     @DatabaseField
     private String nickName;
     @DatabaseField(persisterClass = SerializableCollectionsType.class)
-    private List<String> tracks; // TODO List<Track> 으로 바꾸기
+    private List<Track> tracks; // TODO List<Track> 으로 바꾸기
     @DatabaseField
     private boolean isShare;
     @DatabaseField
@@ -39,7 +39,7 @@ public class Playlist {
     }
 
     // create 시 사용되는 생성자
-    public Playlist(String title, String nickName, List<String> tracks, String imgUri, Date curDate) {
+    public Playlist(String title, String nickName, List<Track> tracks, String imgUri, Date curDate) {
         this.title = title;
         this.nickName = nickName;
         this.tracks = tracks;
@@ -60,7 +60,7 @@ public class Playlist {
         return nickName;
     }
 
-    public List<String> getTracks() {
+    public List<Track> getTracks() {
         return tracks;
     }
 
@@ -84,7 +84,7 @@ public class Playlist {
         this.nickName = nickName;
     }
 
-    public void setTracks(List<String> tracks) {
+    public void setTracks(List<Track> tracks) {
         this.tracks = tracks;
     }
 

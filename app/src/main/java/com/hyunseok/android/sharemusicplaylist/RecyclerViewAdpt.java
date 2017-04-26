@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.domain.Track_Extracted;
-import com.hyunseok.android.sharemusicplaylist.player.Player;
 import com.hyunseok.android.sharemusicplaylist.player.PlayerService;
 
 import java.util.List;
@@ -60,7 +59,7 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
         public Holder(View view) {
             super(view);
             cover_image = (ImageView)view.findViewById(R.id.imageView);
-            btnPlay = (ImageButton)view.findViewById(R.id.btnPlay);
+            btnPlay = (ImageButton)view.findViewById(R.id.btnPlayInfo);
             btnMore = (ImageButton)view.findViewById(R.id.btnMore);
             txtTitle = (TextView)view.findViewById(R.id.txtTitle);
             txtArtist= (TextView)view.findViewById(R.id.txtArtist);
@@ -76,7 +75,7 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
             @Override
             public void onClick(View v) {
                 switch (v.getId()){
-                    case R.id.btnPlay:
+                    case R.id.btnPlayInfo:
                         //TODO Play Button 한번 더 눌렀을 때 동작. 새로 추가하기 or 현재 Playlist 에 추가하기 둘중 생각해보기
                         Track_Extracted.tracks.add(datas.get(position)); // 해당 position 의 Track 하나를 추출한다.
                         PlayerService.position = Track_Extracted.tracks.size()-1;
