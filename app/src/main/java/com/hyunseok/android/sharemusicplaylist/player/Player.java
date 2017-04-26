@@ -192,7 +192,7 @@ public class Player implements ControlInterface{
 
     @Override
     public void prevPlayer() {
-
+    
     }
 
     @Override

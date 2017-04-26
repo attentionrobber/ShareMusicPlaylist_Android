@@ -115,6 +115,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finish();
+                MainActivity.changeTab("PLAYLIST"); // Playlist Tab Refresh
                 break;
             case R.id.btn_cancle:
                 PlaylistNewActivity.super.onBackPressed();
