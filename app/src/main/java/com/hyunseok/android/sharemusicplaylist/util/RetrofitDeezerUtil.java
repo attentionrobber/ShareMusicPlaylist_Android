@@ -17,7 +17,8 @@ import com.hyunseok.android.sharemusicplaylist.domain.API_URL;
 import com.hyunseok.android.sharemusicplaylist.domain.Result;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.domain.TrackData;
-import com.hyunseok.android.sharemusicplaylist.retrofit_interface.BackEndApiService;
+import com.hyunseok.android.sharemusicplaylist.retrofit_interface.BackEnd_ApiService;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitDeezerUtil {
 
     private Retrofit retrofit;
-    private BackEndApiService service;
+    private BackEnd_ApiService service;
     private List<Track> track_Datas, search_Datas;
 
     private Context context;
@@ -62,7 +63,7 @@ public class RetrofitDeezerUtil {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         //사용할 인터페이스를 설정한다
-        service = retrofit.create(BackEndApiService.class);
+        service = retrofit.create(BackEnd_ApiService.class);
         //데이터를 가져온다
 
     }
