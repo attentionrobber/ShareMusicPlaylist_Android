@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
+import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
 import java.util.List;
 
@@ -27,10 +28,10 @@ import java.util.List;
 public class PlaylistRecyclerViewAdapter_Sample extends RecyclerView.Adapter<PlaylistRecyclerViewAdapter_Sample.Holder> {
 
     private Context context;
-    private List<String> datas;
+    private List<Track> datas;
     private String flag;
 
-    public PlaylistRecyclerViewAdapter_Sample(Context context, List<String> datas, String flag) {
+    public PlaylistRecyclerViewAdapter_Sample(Context context, List<Track> datas, String flag) {
         this.context = context;
         this.datas = datas;
         this.flag = flag;
@@ -50,8 +51,8 @@ public class PlaylistRecyclerViewAdapter_Sample extends RecyclerView.Adapter<Pla
         //final Playlist playlist = datas.get(position);
 
         holder.position = position; // 현재 위치 받아오기
-        holder.tv_title_tabitem.setText(datas.get(position));
-        holder.tv_artist_tabitem.setText(datas.get(position));
+        holder.tv_title_tabitem.setText(datas.get(position).getTitle());
+        holder.tv_artist_tabitem.setText(datas.get(position).getArtist());
 //        Glide.with(context).load(common.getImageUri())
 //                .placeholder(R.mipmap.default_album_image).into(holder.imageView_tabitem);
     }

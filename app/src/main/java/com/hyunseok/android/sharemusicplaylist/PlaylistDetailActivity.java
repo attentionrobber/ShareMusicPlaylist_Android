@@ -12,6 +12,7 @@ import android.widget.ToggleButton;
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
+import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
@@ -39,22 +40,22 @@ public class PlaylistDetailActivity extends AppCompatActivity {
     @ViewById
     RecyclerView recyclerView;
     PlaylistRecyclerViewAdapter_Sample adapter;
-    List<String> playlist = new ArrayList<>();
+    List<Track> playlist = new ArrayList<>();
 
     // Bundle
     private int position = 0;
 
     @AfterViews
     protected void init() {
-
-
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
+        Track track = new Track();
         if(bundle != null) {
             position = bundle.getInt("position");
             String title = bundle.getString("title");
             boolean isShare = bundle.getBoolean("isShare");
-            String tracks = bundle.getString("tracks");
+            //String tracks = bundle.getString("tracks");
+            track.setTitle(bundle.getString("tracks"));
             String imgUri = bundle.getString("imgUri");
 
             if (imgUri != null) {
@@ -63,19 +64,29 @@ public class PlaylistDetailActivity extends AppCompatActivity {
             }
             tv_playlistTitle.setText(title);
             toggle_playlistDetail.setChecked(isShare);
-            playlist.add(tracks); // TODO Tracks List<Tracks>로 받도록 바꾸기
+            playlist.add(track); // TODO Tracks List<Tracks>로 받도록 바꾸기
         } else {
             // TODO Adapter 바꿀까(?)
-            playlist.add("Playlist1");
-            playlist.add("Playlist2");
-            playlist.add("Playlist3");
-            playlist.add("Playlist4");
-            playlist.add("Playlist5");
-            playlist.add("Playlist6");
-            playlist.add("Playlist7");
-            playlist.add("Playlist8");
-            playlist.add("Playlist9");
-            playlist.add("Playlist10");
+            track.setTitle("Playlist1");
+            playlist.add(track);
+            track.setTitle("Playlist2");
+            playlist.add(track);
+            track.setTitle("Playlist3");
+            playlist.add(track);
+            track.setTitle("Playlist4");
+            playlist.add(track);
+            track.setTitle("Playlist5");
+            playlist.add(track);
+            track.setTitle("Playlist6");
+            playlist.add(track);
+            track.setTitle("Playlist7");
+            playlist.add(track);
+            track.setTitle("Playlist8");
+            playlist.add(track);
+            track.setTitle("Playlist9");
+            playlist.add(track);
+            track.setTitle("Playlist10");
+            playlist.add(track);
         }
 
         adapter = new PlaylistRecyclerViewAdapter_Sample(this, playlist, "");

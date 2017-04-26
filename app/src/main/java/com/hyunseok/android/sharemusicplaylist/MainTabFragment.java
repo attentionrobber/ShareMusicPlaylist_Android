@@ -67,7 +67,7 @@ public class MainTabFragment extends Fragment {
     PlaylistRecyclerViewAdapter_Sample followPlaylistAdapter;
     PlaylistRecyclerViewAdapter myPlaylistAdapter;
     List<Playlist> myPlaylist = new ArrayList<>();
-    List<String> playlistDatas;
+    List<Track> playlistDatas;
 
     FloatingActionButton btn_newMyList, btn_newFollowList;
 
@@ -160,11 +160,6 @@ public class MainTabFragment extends Fragment {
         }
 
         playlistDatas = new ArrayList<>();
-        playlistDatas.add("playlist1");playlistDatas.add("playlist2");
-        playlistDatas.add("playlist3");playlistDatas.add("playlist4");
-        playlistDatas.add("playlist5");playlistDatas.add("playlist6");
-        playlistDatas.add("playlist7");playlistDatas.add("playlist8");
-        playlistDatas.add("playlist9");playlistDatas.add("playlist10");
 
         myPlaylistAdapter = new PlaylistRecyclerViewAdapter(getContext(), myPlaylist, "my");
         followPlaylistAdapter = new PlaylistRecyclerViewAdapter_Sample(getContext(), playlistDatas, "follow");

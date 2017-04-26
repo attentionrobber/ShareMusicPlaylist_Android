@@ -62,7 +62,7 @@ public class TrackInfoActivity extends AppCompatActivity {
                     MainActivity.changeTab("PLAYER"); // PLAYER Tab 으로 변경하고 view 도 refresh 해준다.
                     break;
                 case R.id.btnMoreInfo :
-                    intent = new Intent(TrackInfoActivity.this, PopUpActivity.class);
+                    intent = new Intent(TrackInfoActivity.this, PopUp_Activity.class);
                     intent.putExtra("TrackInfo",track);
                     startActivity(intent);
                     break;

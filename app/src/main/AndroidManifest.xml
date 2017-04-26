@@ -44,7 +44,8 @@
         <activity
             android:name=".PopUpActivity"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".TrackInfoActivity"></activity>
+        <activity android:name=".TrackInfoActivity" />
+        <activity android:name=".PopUp_Activity"></activity>
     </application>
 
 </manifest>

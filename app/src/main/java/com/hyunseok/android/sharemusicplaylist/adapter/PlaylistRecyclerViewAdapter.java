@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
+import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         // TODO Field 에 맞게 holder 추가하기.
 
         final Playlist playlist = datas.get(position);
-        List<String> tracks = playlist.getTracks();
+        List<Track> tracks = playlist.getTracks();
 
         holder.position = position; // 현재 위치 받아오기
         holder.tv_title_tabItem.setText(playlist.getTitle());

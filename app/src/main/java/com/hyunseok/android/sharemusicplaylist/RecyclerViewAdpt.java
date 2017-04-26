@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.domain.Track_Extracted;
+import com.hyunseok.android.sharemusicplaylist.player.Player;
 import com.hyunseok.android.sharemusicplaylist.player.PlayerService;
 
 import java.util.List;
@@ -95,7 +96,7 @@ public class RecyclerViewAdpt extends RecyclerView.Adapter<RecyclerViewAdpt.Hold
                         TODO : 3. 새로운 리스트 작성 후 추가 :  리스트 생성 activity 실행, intent로 곡정보 넘겨줄 예정
                         TODO : 4. 곡정보 : 앨범커버, 아티스트, 곡리스트.
                         */
-                        intent = new Intent(context, PopUpActivity.class);
+                        intent = new Intent(context, PopUp_Activity.class);
                         intent.putExtra("TrackInfo",datas.get(position));
                         context.startActivity(intent);
                         break;
