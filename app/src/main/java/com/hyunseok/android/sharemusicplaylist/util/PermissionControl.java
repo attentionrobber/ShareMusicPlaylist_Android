@@ -19,7 +19,11 @@ public class PermissionControl {
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.CAMERA,
             Manifest.permission.ACCESS_FINE_LOCATION,
-            Manifest.permission.ACCESS_COARSE_LOCATION
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.MEDIA_CONTENT_CONTROL,
+            Manifest.permission.GET_ACCOUNTS,
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.INTERNET
     };
 
 
@@ -57,6 +61,4 @@ public class PermissionControl {
         }
         return checkResult;
     }
-
-
 }

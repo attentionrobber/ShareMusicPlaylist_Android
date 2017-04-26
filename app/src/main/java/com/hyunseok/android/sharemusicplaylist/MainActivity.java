@@ -8,11 +8,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.TabPagerAdapter;
+import com.hyunseok.android.sharemusicplaylist.util.Logger;
+import com.hyunseok.android.sharemusicplaylist.util.PermissionControl;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
+
+import java.security.Permission;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
@@ -29,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
     public static MainTabFragment playlist;
     public static MainTabFragment player;
     TabPagerAdapter pagerAdapter; // ViewPager Adapter
-
+    private static int REQ = 100;
 
     @AfterViews // Define Initialization Code
     protected void init() {
+        PermissionControl.checkPermission(this, REQ);
         search = MainTabFragment.newInstance(MainTabFragment.TYPE_SEARCH);
         player = MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYER);
         playlist = MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYLIST);
