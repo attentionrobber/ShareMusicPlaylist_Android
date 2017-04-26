@@ -26,7 +26,7 @@ public class Playlist {
     @DatabaseField
     private String nickName;
     @DatabaseField(persisterClass = SerializableCollectionsType.class)
-    private List<Track> tracks; // TODO List<Track> 으로 바꾸기
+    private List<Track> tracks;
     @DatabaseField
     private boolean isShare;
     @DatabaseField

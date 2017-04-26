@@ -117,6 +117,7 @@ public class PlaylistNewActivity extends AppCompatActivity {
             case R.id.btn_OK:
                 Playlist playlist = makePlaylist();
                 try {
+                    Logger.print("PlaylistNewActivity","btn_OK click====================================");
                     saveToDB(playlist);
                 } catch (Exception e) {
                     e.printStackTrace();

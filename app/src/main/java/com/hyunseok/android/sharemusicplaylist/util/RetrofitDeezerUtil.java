@@ -14,9 +14,9 @@ import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.RecyclerViewAdpt;
 import com.hyunseok.android.sharemusicplaylist.domain.API_URL;
 
-import com.hyunseok.android.sharemusicplaylist.domain.Results;
+import com.hyunseok.android.sharemusicplaylist.domain.Result;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
-import com.hyunseok.android.sharemusicplaylist.domain.Track_Data;
+import com.hyunseok.android.sharemusicplaylist.domain.TrackData;
 import com.hyunseok.android.sharemusicplaylist.retrofit_interface.BackEndApiService;
 
 import java.util.ArrayList;
@@ -68,15 +68,15 @@ public class RetrofitDeezerUtil {
     }
 
     public void searchTrack(String value){
-        Call<Track_Data> result = service.getData(value);
-        result.enqueue(new Callback<Track_Data>() {
+        Call<TrackData> result = service.getData(value);
+        result.enqueue(new Callback<TrackData>() {
             @Override
-            public void onResponse(Call<Track_Data> call, Response<Track_Data> response) {
+            public void onResponse(Call<TrackData> call, Response<TrackData> response) {
                 if(response.isSuccessful()) {
                     track_Datas = new ArrayList<>();
-                    Track_Data trackData = response.body();
+                    TrackData trackData = response.body();
                     //json = response.body().toString();
-                    for(Results result: trackData.getResults()){
+                    for(Result result: trackData.getResults()){
                         Track tracks= new Track();
                         setting_Needs(result,tracks);
                         track_Datas.add(tracks);
@@ -89,7 +89,7 @@ public class RetrofitDeezerUtil {
             }
 
             @Override
-            public void onFailure(Call<Track_Data> call, Throwable t) {
+            public void onFailure(Call<TrackData> call, Throwable t) {
                 //통신 자체가 잘못됐을 경우 이쪽으로 넘어온다.
                 Logger.print("MainRetrofit","Failure===========================================");   //정상적이지 않을경우 message에 오류 내용이 담겨온다.
             }
@@ -107,7 +107,7 @@ public class RetrofitDeezerUtil {
         recyclerView_track.setLayoutManager(manager);
         recyclerView_track.setAdapter(adapter);
     }
-    public Track setting_Needs(Results result, Track track){
+    public Track setting_Needs(Result result, Track track){
         track.setArtist(result.getArtist());
         track.setTitle(result.getTitle());
         track.setAlbum(result.getAlbum_title());
@@ -121,15 +121,15 @@ public class RetrofitDeezerUtil {
     public void searchList(String value){
 
         Logger.print("SearchFucntion", "search Track Title ==========================" +value);
-        Call<Track_Data> result = service.getData(value);
-        result.enqueue(new Callback<Track_Data>() {
+        Call<TrackData> result = service.getData(value);
+        result.enqueue(new Callback<TrackData>() {
             @Override
-            public void onResponse(Call<Track_Data> call, Response<Track_Data> response) {
+            public void onResponse(Call<TrackData> call, Response<TrackData> response) {
                 if(response.isSuccessful()) {
                     track_Datas = new ArrayList<>();
-                    Track_Data trackData = response.body();
+                    TrackData trackData = response.body();
                     //json = response.body().toString();
-                    for(Results result: trackData.getResults()){
+                    for(Result result: trackData.getResults()){
                         Track tracks= new Track();
                         setting_Needs(result,tracks);
                         track_Datas.add(tracks);
@@ -143,7 +143,7 @@ public class RetrofitDeezerUtil {
             }
 
             @Override
-            public void onFailure(Call<Track_Data> call, Throwable t) {
+            public void onFailure(Call<TrackData> call, Throwable t) {
                 //통신 자체가 잘못됐을 경우 이쪽으로 넘어온다.
                 Logger.print("MainRetrofit","Failure===========================================");   //정상적이지 않을경우 message에 오류 내용이 담겨온다.
             }

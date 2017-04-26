@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.HorizontalAdapter;
-import com.hyunseok.android.sharemusicplaylist.domain.Track_Data;
+import com.hyunseok.android.sharemusicplaylist.domain.TrackData;
 import com.hyunseok.android.sharemusicplaylist.util.Logger;
 import com.hyunseok.android.sharemusicplaylist.util.RetrofitDeezerUtil;
 
@@ -35,7 +35,7 @@ public class SearchFunction {
     View view;
     private Context context;
     private int status = View.GONE;
-    private List<Track_Data> track_Datas;
+    private List<TrackData> track_Datas;
     RetrofitDeezerUtil deezerUtil;
 
     public SearchFunction(View view,Context context){
