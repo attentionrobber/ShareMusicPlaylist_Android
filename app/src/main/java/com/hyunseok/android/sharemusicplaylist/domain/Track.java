@@ -1,11 +1,13 @@
 package com.hyunseok.android.sharemusicplaylist.domain;
 
+import java.io.Serializable;
+
 /**
  * Used in : PlayerService
  * Created by kang on 2017-04-06.
  */
 
-public class Track {
+public class Track implements Serializable {
     private String artist;
     private String title;
     private String album;
@@ -13,6 +15,15 @@ public class Track {
     private int duration;
     private String preview;
     private String albumList;
+    private String album_id;
+
+    public String getAlbum_id() {
+        return album_id;
+    }
+
+    public void setAlbum_id(String album_id) {
+        this.album_id = album_id;
+    }
 
     public String getArtist() {
         return artist;
