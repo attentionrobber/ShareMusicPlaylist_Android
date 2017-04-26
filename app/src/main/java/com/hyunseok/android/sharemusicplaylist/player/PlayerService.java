@@ -213,7 +213,7 @@ public class PlayerService extends Service implements ControlInterface {
     }
 
     private void playerNext() {
-        if(position < Track_Extracted.tracks.size()-1) {
+        if(position < Track_Extracted.tracks.size()) {
             position++;
             initPlayer();
             playerStart();

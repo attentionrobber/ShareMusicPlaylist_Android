@@ -67,10 +67,10 @@ public class Player_PlaylistAdapter extends RecyclerView.Adapter<Player_Playlist
             linearLayout.setOnClickListener(v -> {
                 // TODO 선택부분 재생
                 PlayerService.position = position;
-                //Player.play(context);
-                Intent intent = new Intent(context, PlayerService.class);
-                intent.setAction(PlayerService.ACTION_INIT);
-                context.startService(intent);
+                Player.play(context, PlayerService.ACTION_INIT);
+//                Intent intent = new Intent(context, PlayerService.class);
+//                intent.setAction(PlayerService.ACTION_INIT);
+//                context.startService(intent);
             });
         }
     }

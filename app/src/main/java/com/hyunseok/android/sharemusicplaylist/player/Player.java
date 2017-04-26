@@ -127,17 +127,14 @@ public class Player implements ControlInterface{
     // 음악을 서비스로 실행시킨다.
     public static void play(Context context, String action) {
         //if (intent == null) {
-            Intent intent = new Intent(context, PlayerService.class);
-            //intent.setAction(PlayerService.ACTION_PLAY);
-            intent.setAction(action);
-            //intent.putExtra("position", Track_Extracted.position);
-            context.startService(intent);
+        Intent intent = new Intent(context, PlayerService.class);
+        intent.setAction(action);
+        context.startService(intent);
 
         controllerInit();
 
         Thread t = new TimerThread();
         t.start();
-
         //}
     }
 
@@ -157,13 +154,21 @@ public class Player implements ControlInterface{
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.imgbtn_prev:
-                    prevPlayer();
+                    controller.prev();
                     break;
                 case R.id.imgbtn_play:
-                    play(context, PlayerService.ACTION_PLAY);
+                    if(mMediaPlayer == null) {
+                        play(context, PlayerService.ACTION_INIT);
+                    } else {
+                        if(mMediaPlayer.isPlaying()) {
+                            controller.pause();
+                        } else {
+                            controller.play();
+                        }
+                    }
                     break;
                 case R.id.imgbtn_next:
-                    nextPlayer();
+                    controller.next();
                     break;
                 case R.id.imgbtn_playlist:
                     if (relative_playlist.getVisibility() == View.GONE) {
@@ -179,24 +184,22 @@ public class Player implements ControlInterface{
 
     @Override
     public void startPlayer() {
-        Toast.makeText(context, "AA", Toast.LENGTH_SHORT).show();
         imgbtn_play.setImageResource(android.R.drawable.ic_media_pause);
     }
 
     @Override
     public void pausePlayer() {
-        Toast.makeText(context, "BB", Toast.LENGTH_SHORT).show();
         imgbtn_play.setImageResource(android.R.drawable.ic_media_play);
     }
 
     @Override
     public void prevPlayer() {
-    
+        viewPager_player.setCurrentItem(position);
     }
 
     @Override
     public void nextPlayer() {
-
+        viewPager_player.setCurrentItem(position);
     }
 
     /**
@@ -208,7 +211,7 @@ public class Player implements ControlInterface{
             while(true) {
                 if(mMediaPlayer != null) {
                     activity.runOnUiThread(() -> {
-                        int sec = mMediaPlayer.getCurrentPosition() / 1000;
+                        int sec = mMediaPlayer.getCurrentPosition() / 1000; // TODO 예외처리(서비스를 종료하면 getCurrentPosition 에서 NullPointerException 뜬다.)
                         int min = sec / 60;
                         String str_m = String.format("%02d", min);
                         String str_s = String.format("%02d", sec);
@@ -218,6 +221,8 @@ public class Player implements ControlInterface{
                             tv_current.setText(str_m + ":" + str_s);
                         } catch (Exception e) { e.printStackTrace(); }
                     });
+                } else {
+                    break;
                 }
                 try {
                     Thread.sleep(500);

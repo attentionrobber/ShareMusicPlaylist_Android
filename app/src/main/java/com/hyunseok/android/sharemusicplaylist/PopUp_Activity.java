@@ -31,7 +31,7 @@ public class PopUp_Activity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pop_up);
+        setContentView(R.layout.activity_pop_up_);
         initWidget();
         track = (Track)getIntent().getSerializableExtra("TrackInfo");
         txtTrackTitle.setText(track.getTitle());

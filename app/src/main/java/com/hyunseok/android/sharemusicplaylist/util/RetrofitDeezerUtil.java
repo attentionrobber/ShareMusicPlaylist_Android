@@ -100,7 +100,7 @@ public class RetrofitDeezerUtil {
     }
     public void setting_recyclerView(){
         search_Datas = new ArrayList<>();
-        for(int i = 0 ; i < 10 ; i ++){
+        for(int i = 0 ; i < track_Datas.size() ; i ++){
             search_Datas.add(track_Datas.get(i));
         }
         RecyclerViewAdpt adapter = new RecyclerViewAdpt(context, search_Datas);
