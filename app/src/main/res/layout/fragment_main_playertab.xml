@@ -74,16 +74,16 @@
             android:layout_alignTop="@+id/imgbtn_play"
             android:layout_toLeftOf="@+id/imgbtn_play"
             android:layout_toStartOf="@+id/imgbtn_play"
-            android:layout_marginRight="25dp"
-            android:layout_marginEnd="25dp"/>
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp"/>
 
         <ImageButton
             android:id="@+id/imgbtn_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/ic_media_next"
-            android:layout_marginLeft="26dp"
-            android:layout_marginStart="26dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_alignTop="@+id/imgbtn_play"
             android:layout_toRightOf="@+id/imgbtn_play"
             android:layout_toEndOf="@+id/imgbtn_play"/>

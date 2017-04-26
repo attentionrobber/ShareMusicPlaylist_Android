@@ -136,7 +136,8 @@ public class MainTabFragment extends Fragment {
 
     public void init_playerTab(View view) {
         Player player = Player.getInstance();
-        player.execute(view, getContext());
+        player.execute(view, getActivity(), getContext());
+
         //Toast.makeText(getContext(), "List<Track>:"+tracks, Toast.LENGTH_SHORT).show();
         Log.i("MainTabFragment", "init_PlayerTab");
 //        Player player = new Player(view, getContext());

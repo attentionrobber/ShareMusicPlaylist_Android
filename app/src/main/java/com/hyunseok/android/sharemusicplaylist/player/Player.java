@@ -1,13 +1,17 @@
 package com.hyunseok.android.sharemusicplaylist.player;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.R;
@@ -19,6 +23,10 @@ import com.hyunseok.android.sharemusicplaylist.domain.Track_Extracted;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.hyunseok.android.sharemusicplaylist.R.id.seekBar;
+import static com.hyunseok.android.sharemusicplaylist.player.PlayerService.mMediaPlayer;
+import static com.hyunseok.android.sharemusicplaylist.player.PlayerService.position;
 
 /**
  * MainActivity 에서
@@ -34,6 +42,7 @@ public class Player implements ControlInterface{
 
     public static Intent intent = null;
 
+    private static Activity activity;
     private Context context;
     private View view;
 
@@ -47,6 +56,8 @@ public class Player implements ControlInterface{
     private Player_PlaylistAdapter playlistAdapter;
 
     private ImageButton imgbtn_play, imgbtn_prev, imgbtn_next, imgbtn_playlist;
+    public static SeekBar seekBar;
+    public static TextView tv_current, tv_duration;
 
     // Data
     private List<Track> tracks;
@@ -72,7 +83,8 @@ public class Player implements ControlInterface{
         return instance;
     }
 
-    public void execute(View view, Context context) {
+    public void execute(View view, Activity activity, Context context) {
+        this.activity = activity;
         this.context = context;
 
         controller = Controller.getInstance();
@@ -86,6 +98,9 @@ public class Player implements ControlInterface{
 
     private void initWidget(View view, Context context) {
 
+        seekBar = (SeekBar) view.findViewById(R.id.seekBar);
+        tv_current = (TextView) view.findViewById(R.id.tv_current);
+        tv_duration = (TextView) view.findViewById(R.id.tv_duration);
         relative_playlist = (RelativeLayout) view.findViewById(R.id.relative_playlist);
         imgbtn_prev = (ImageButton) view.findViewById(R.id.imgbtn_prev);
         imgbtn_play = (ImageButton) view.findViewById(R.id.imgbtn_play);
@@ -110,13 +125,31 @@ public class Player implements ControlInterface{
     }
 
     // 음악을 서비스로 실행시킨다.
-    private void play(Context context) {
+    public static void play(Context context, String action) {
         //if (intent == null) {
             Intent intent = new Intent(context, PlayerService.class);
-            intent.setAction(PlayerService.ACTION_PLAY);
+            //intent.setAction(PlayerService.ACTION_PLAY);
+            intent.setAction(action);
             //intent.putExtra("position", Track_Extracted.position);
             context.startService(intent);
+
+        controllerInit();
+
+        Thread t = new TimerThread();
+        t.start();
+
         //}
+    }
+
+    private static void controllerInit() {
+        int duration = Track_Extracted.tracks.get(position).getDuration();
+        int min = duration / 60;
+        int sec = duration % 60;
+        String str_m = String.format("%02d", min);
+        String str_s = String.format("%02d", sec);
+
+        tv_duration.setText(str_m + ":" +str_s);
+        seekBar.setMax(duration);
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener() {
@@ -127,7 +160,7 @@ public class Player implements ControlInterface{
                     prevPlayer();
                     break;
                 case R.id.imgbtn_play:
-                    play(context);
+                    play(context, PlayerService.ACTION_PLAY);
                     break;
                 case R.id.imgbtn_next:
                     nextPlayer();
@@ -158,11 +191,38 @@ public class Player implements ControlInterface{
 
     @Override
     public void prevPlayer() {
-
+    
     }
 
     @Override
     public void nextPlayer() {
 
+    }
+
+    /**
+     * SeekBar와 남은시간(TextView)을 실행하는 쓰레드
+     */
+    static class TimerThread extends Thread {
+        @Override
+        public void run() {
+            while(true) {
+                if(mMediaPlayer != null) {
+                    activity.runOnUiThread(() -> {
+                        int sec = mMediaPlayer.getCurrentPosition() / 1000;
+                        int min = sec / 60;
+                        String str_m = String.format("%02d", min);
+                        String str_s = String.format("%02d", sec);
+
+                        try {
+                            seekBar.setProgress(mMediaPlayer.getCurrentPosition() / 1000); // 프로그레스바 진행 표시
+                            tv_current.setText(str_m + ":" + str_s);
+                        } catch (Exception e) { e.printStackTrace(); }
+                    });
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) { e.printStackTrace(); }
+            }
+        }
     }
 }

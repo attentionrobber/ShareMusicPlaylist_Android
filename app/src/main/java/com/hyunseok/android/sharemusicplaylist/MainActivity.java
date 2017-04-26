@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
             player.onResume();
             viewPager.setCurrentItem(1);
         } else if ("PLAYLIST".equals(tab)) {
+            playlist.init_playlistTab(playlist.getView());
+            playlist.onResume();
             viewPager.setCurrentItem(2);
         }
     }

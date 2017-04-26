@@ -112,7 +112,7 @@ public class PlayerService extends Service implements ControlInterface {
             return;
 
         String action = intent.getAction();
-        if(action.equalsIgnoreCase(ACTION_INIT)) {
+        if(action.equalsIgnoreCase(ACTION_INIT)) { // 플레이어 초기화 후 재생
             initPlayer();
             controller.play();
         } else if(action.equalsIgnoreCase(ACTION_PLAY)) {
