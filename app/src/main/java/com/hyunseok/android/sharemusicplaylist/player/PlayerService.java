@@ -64,17 +64,12 @@ public class PlayerService extends Service implements ControlInterface {
 
         // Player 에서 play(
         if(intent != null) {
-            //if(intent.getExtras() != null) {
-                //listType = intent.getExtras().getString(ListFragment.ARG_LIST_TYPE);
-                //position = intent.getExtras().getInt("position");
-                if(mMediaPlayer == null) {
-                    initPlayer();
-                    initController();
-                }
-            //}
+            if(mMediaPlayer == null) {
+                initPlayer();
+                initController();
+            }
         }
 
-        Log.i("PS11", "onStartCommand");
         handleAction(intent);
 
         return super.onStartCommand(intent, flags, startId);
@@ -89,7 +84,6 @@ public class PlayerService extends Service implements ControlInterface {
             mMediaPlayer.release();
 
         // Local Uri : "content://media/external/audio/media/967"
-        Log.i("PS11initMedia", "position : "+position);
         Uri music_uri = Uri.parse(tracks.get(position).getPreview());
 
         mMediaPlayer = MediaPlayer.create(this, music_uri);
