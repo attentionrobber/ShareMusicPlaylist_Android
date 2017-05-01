@@ -47,21 +47,6 @@ public class MainTabFragment extends Fragment {
 
     private List<Track> tracks = new ArrayList<>(); // Music Data
 
-    // Search Tab
-    RecyclerView recyclerView_horizon_Latest;
-    RecyclerView recyclerView_horizon_Best;
-    HorizontalAdapter horizontalAdapter;
-
-    List<String> horizontalList;
-
-    ImageButton btn_search;
-
-    // Player Tab
-    ViewPager viewPager_player;
-    PlayerAdapter_sample playerAdapter;
-
-    List<String> cardDatas;
-
     // Playlist Tab
     RecyclerView rv_myPlaylist, rv_followPlaylist;
     PlaylistRecyclerViewAdapter_Sample followPlaylistAdapter;
@@ -138,8 +123,6 @@ public class MainTabFragment extends Fragment {
         Player player = Player.getInstance();
         player.execute(view, getActivity(), getContext());
 
-        //Toast.makeText(getContext(), "List<Track>:"+tracks, Toast.LENGTH_SHORT).show();
-        Log.i("MainTabFragment", "init_PlayerTab");
 //        Player player = new Player(view, getContext());
 //        player.execute();
     }

@@ -65,7 +65,6 @@ public class Player_PlaylistAdapter extends RecyclerView.Adapter<Player_Playlist
             tv_title_playlist = (TextView) view.findViewById(R.id.tv_title_playlist);
             tv_artist_playlist = (TextView) view.findViewById(R.id.tv_artist_playlist);
             linearLayout.setOnClickListener(v -> {
-                // TODO 선택부분 재생
                 PlayerService.position = position;
                 Player.play(context, PlayerService.ACTION_INIT);
 //                Intent intent = new Intent(context, PlayerService.class);

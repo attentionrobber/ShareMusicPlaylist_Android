@@ -211,7 +211,7 @@ public class Player implements ControlInterface{
             while(true) {
                 if(mMediaPlayer != null) {
                     activity.runOnUiThread(() -> {
-                        int sec = mMediaPlayer.getCurrentPosition() / 1000; // TODO 예외처리(서비스를 종료하면 getCurrentPosition 에서 NullPointerException 뜬다.)
+                        int sec = mMediaPlayer.getCurrentPosition() / 1000;
                         int min = sec / 60;
                         String str_m = String.format("%02d", min);
                         String str_s = String.format("%02d", sec);
