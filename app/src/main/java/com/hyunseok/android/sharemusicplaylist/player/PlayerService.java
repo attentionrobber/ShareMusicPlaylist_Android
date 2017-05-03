@@ -91,7 +91,6 @@ public class PlayerService extends Service implements ControlInterface {
 
         mMediaPlayer.setOnCompletionListener(mp -> { // 미디어 플레이어에 완료 체크 리스너를 등록한다. 음악이 끝까지 재생됐을 경우임.
             // TODO next();
-            //buildNotification(generateAction(android.R.drawable.ic_media_play, "Play", ACTION_PLAY), ACTION_PLAY);
         });
     }
     private void initController() {
