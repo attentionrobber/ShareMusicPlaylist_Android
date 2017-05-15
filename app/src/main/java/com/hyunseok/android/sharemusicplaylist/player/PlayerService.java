@@ -62,7 +62,7 @@ public class PlayerService extends Service implements ControlInterface {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
-        // Player 에서 play(
+        // Player 에서 play()
         if(intent != null) {
             if(mMediaPlayer == null) {
                 initPlayer();

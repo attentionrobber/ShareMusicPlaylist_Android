@@ -205,7 +205,7 @@ public class Player implements ControlInterface{
     /**
      * SeekBar와 남은시간(TextView)을 실행하는 쓰레드
      */
-    static class TimerThread extends Thread {
+    private static class TimerThread extends Thread {
         @Override
         public void run() {
             while(true) {
