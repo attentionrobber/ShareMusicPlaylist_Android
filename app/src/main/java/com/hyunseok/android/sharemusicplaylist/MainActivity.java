@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Click({R.id.btn_back})
     public void goLogin() {
+        // TODO 버튼 없애기
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
