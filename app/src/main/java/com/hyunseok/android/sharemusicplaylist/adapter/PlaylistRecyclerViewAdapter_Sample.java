@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
@@ -89,12 +89,12 @@ public class PlaylistRecyclerViewAdapter_Sample extends RecyclerView.Adapter<Pla
                         case "my":
                             Toast.makeText(context, "my", Toast.LENGTH_SHORT).show();
                             // TODO My Playlist 에서만 수정 가능하도록. Following Playlist에서는 수정 불가.
-                            intent = new Intent(context, PlaylistDetailActivity_.class);
+                            intent = new Intent(context, PlaylistDetailActivity.class);
                             context.startActivity(intent);
                             break;
                         case "follow":
                             Toast.makeText(context, "follow", Toast.LENGTH_SHORT).show();
-                            intent = new Intent(context, PlaylistDetailActivity_.class);
+                            intent = new Intent(context, PlaylistDetailActivity.class);
                             context.startActivity(intent);
                             break;
                         default: break;

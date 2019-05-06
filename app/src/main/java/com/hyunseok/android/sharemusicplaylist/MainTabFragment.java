@@ -163,11 +163,11 @@ public class MainTabFragment extends Fragment {
         Intent intent = null;
         switch (v.getId()) {
             case R.id.imgbtn_search:
-                intent = new Intent(getContext(), SearchActivity_.class);
+                intent = new Intent(getContext(), SearchActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_newMyList:
-                intent = new Intent(getContext(), PlaylistNewActivity_.class);
+                intent = new Intent(getContext(), PlaylistNewActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_newFollowList:

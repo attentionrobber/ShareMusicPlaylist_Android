@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.R;
 
 import java.util.List;
@@ -65,7 +65,7 @@ public class HorizontalAdapter extends RecyclerView.Adapter<HorizontalAdapter.Ho
             @Override
             public void onClick(View v) {
                 // TODO go PlaylistDetail Activity
-                Intent intent = new Intent(context, PlaylistDetailActivity_.class);
+                Intent intent = new Intent(context, PlaylistDetailActivity.class);
                 context.startActivity(intent);
                 //Toast.makeText(context, "Horizontal Adapter Click Event", Toast.LENGTH_SHORT).show();
             }

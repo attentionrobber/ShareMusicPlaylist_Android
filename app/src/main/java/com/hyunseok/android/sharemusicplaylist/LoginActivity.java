@@ -164,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
             singIn_user.setName("Master");
             singIn_user.setEmail("master@master.com");
 
-            intent = new Intent(LoginActivity.this, MainActivity_.class);
+            intent = new Intent(LoginActivity.this, MainActivity.class);
             intent.putExtra("user", singIn_user);
             login_Success();
 
@@ -222,7 +222,7 @@ public class LoginActivity extends AppCompatActivity {
                     user.setName(object.getString("name") );
                     user.setGender(object.getString("gender"));
 
-                    intent = new Intent(LoginActivity.this, MainActivity_.class);
+                    intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("user", user);
                     //finish();
                     startActivity(intent);

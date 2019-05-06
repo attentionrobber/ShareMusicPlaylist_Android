@@ -11,12 +11,8 @@ import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
 import com.hyunseok.android.sharemusicplaylist.adapter.PlaylistRecyclerViewAdapter_Sample;
-import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,20 +20,14 @@ import java.util.List;
 /**
  * Playlist Tab 에서 각 Playlist 를 클릭하면 뜨는 Playlist 상세보기 액티비티
  */
-
-@EActivity(R.layout.activity_playlist_detail)
 public class PlaylistDetailActivity extends AppCompatActivity {
 
 
     MyApplication myApp;
 
-    @ViewById
     ImageView imageView;
-    @ViewById
     TextView tv_playlistTitle;
-    @ViewById
     ToggleButton toggle_playlistDetail;
-    @ViewById
     RecyclerView recyclerView;
     PlaylistRecyclerViewAdapter_Sample adapter;
     List<Track> playlist = new ArrayList<>();
@@ -45,7 +35,22 @@ public class PlaylistDetailActivity extends AppCompatActivity {
     // Bundle
     private int position = 0;
 
-    @AfterViews
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_playlist_detail);
+
+        setWidget();
+        init();
+    }
+
+    private void setWidget() {
+        imageView = findViewById(R.id.imageView);
+        tv_playlistTitle = findViewById(R.id.tv_playlistTitle);
+        toggle_playlistDetail = findViewById(R.id.toggle_playlistDetail);
+        recyclerView = findViewById(R.id.recyclerView);
+    }
+
     protected void init() {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();

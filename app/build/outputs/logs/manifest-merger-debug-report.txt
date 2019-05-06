@@ -1,190 +1,330 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:2:1-50:12
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\517ff2df4aca61d9dec8d3432f1d544e\AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\31febcc4013032731e420e33cf03127f\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-login:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\71c917cac5d2b3866f837e19fdd4718c\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-share:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\b1c403853198a0a42a3776e343c305e4\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:21:1-37:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\98cc4d3b583eba800f9f0abbe64679d3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\34ae4f536e725c0e74c950f842fe9ca0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\91b9005897d8d69a08c506801001134a\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cb2f8b1d4050953fd254c3b6f8d7e899\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\db246e633270744d3d68d37ed4bd5af1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\52b871e80c2ded025ad4c61ea758e833\AndroidManifest.xml:2:1-12:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\37e4a61d7197824e2cdab3abf1603201\AndroidManifest.xml:15:1-21:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2a4b562144968053746ab604bd412960\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cc2dede99340fd47d766bf17ab0120ed\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cb006a40735cf1985d1d249d86d13fa4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.android:facebook-places:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\3c4e1710a8fb0f6bd7bbccef53490570\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-applinks:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\059ba8fce9086098bebf5ec284cf5b5f\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-messenger:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\fb9244e59beafb77dcd98464c1abfdd1\AndroidManifest.xml:21:1-31:12
+MERGED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:21:1-53:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\bf3d18d0312fd4704974c15940639d9b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f0198758c7b17872b879047fa8e72c19\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\017e5f264c253b4bcec9222a8de3042b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\a5ea6a7b9b17c3f7743be467f8365d5d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\ec1ca2e26cb436c37c27743f3aa3d1c8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\75b35892cd0a96a6605cd4807b38992d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\1529a0498af22cfdef6213b9fed0059e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\98d07ab11e756b2886cbfd16fdeb81d5\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\dc1db4f17e1bf2533bea6138ab8441a8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\14a5679e15ec2351a662100ad1da435f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c5619c6aae018f8ed08932a4d4041495\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c99ca587f94b6841928427e63931d80d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customtabs:27.0.2] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7c3e19b81b9341ed1831988adc78d927\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2ac281c72db130c7708d31071faac3f3\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7f13016667ed060e106b23a7aeb1eb66\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\0f3b17daa729aa0a6cad264f69e5d8f9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c54136b497261f3f8b9958dcec26c9f6\AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\0972abc5e0011687f71f43f06eed59b9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\eef0d52610956036abb87a20d636040b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\9b03e1af616369bc7de0261accdc1fd4\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\769f6c4f686a89be9042d78c815eaf95\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\d751de5f1507c5955f9a53bd042e431b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2d981301f1bf1e43fee270a770fcbfaa\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7c849f73dc685770df95b2b6924b7a95\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\a60d16d3811318fdaf7f8d3e3479926b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c984d4c7f6bf63feb84dacbc8dad260a\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
 	package
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:3:5-54
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:3:5-54
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
-	xmlns:android
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:2:11-69
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:1-49:12
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.GET_ACCOUNTS
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:6:5-71
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:6:5-71
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:6:22-68
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:6:22-68
 uses-permission#android.permission.READ_PROFILE
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:7:5-71
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:7:5-71
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:7:22-68
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:7:22-68
 uses-permission#android.permission.READ_CONTACTS
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:8:5-72
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:8:5-72
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:8:22-69
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:8:22-69
 uses-permission#android.permission.INTERNET
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:9:5-67
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:9:5-67
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:9:22-64
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:9:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:12:5-81
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:12:5-81
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:12:22-78
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:12:22-78
 uses-permission#android.permission.CAMERA
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:13:5-65
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:13:5-65
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:13:22-62
-uses-permission#android.permission.MEDIA_CONTENT_CONTROL
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:14:5-80
-	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:14:22-77
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:13:22-62
 application
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:16:5-48:19
-MERGED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:28:5-48:19
-MERGED from [com.android.support:cardview-v7:25.1.0] C:\Users\KHS\.android\build-cache\6eb22c4d43583afe5fdf537e6323cb103d3d2fe5\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:customtabs:25.0.0] C:\Users\KHS\.android\build-cache\319c194a0772828c77deca4fdf185640a5e8e5db\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:design:25.3.1] C:\Users\KHS\.android\build-cache\9ed10ba1233a972db71837da9ec05160de32e067\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\KHS\.android\build-cache\439882fadefd179964d3043f03ac27aabcef141d\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\KHS\.android\build-cache\17b5f0af783af1070d78e132cfe47b07bfdd0f98\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\KHS\.android\build-cache\64e69d1010514fae5e2cda48e7a980996cabdf6f\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:transition:25.3.1] C:\Users\KHS\.android\build-cache\db79db5dd973748fdb4c23514e797127b2c2a92b\output\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\KHS\.android\build-cache\77d26e58c83f33da08c9fbafa240ac2399e7b8c5\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\KHS\.android\build-cache\76643d8154f172a9b9b8374240219b6c50cb3665\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\KHS\.android\build-cache\48feb3f2a951a78750f4c5d1581987f8dfaea1a2\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\KHS\.android\build-cache\e8473ced911e553bd440349e6754ff4bf40e7894\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\KHS\.android\build-cache\09f5d447379425b038d87ae40f29b7149992277b\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\KHS\.android\build-cache\c0ba7896bd9bf706db5261c576cc8bbfe0579785\output\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\KHS\.android\build-cache\d8f7515d78fb7a3b2c0b29ef85e4f9a77f7ccc0b\output\AndroidManifest.xml:9:5-20
-	android:label
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:20:9-41
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:15:5-47:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\517ff2df4aca61d9dec8d3432f1d544e\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\517ff2df4aca61d9dec8d3432f1d544e\AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\31febcc4013032731e420e33cf03127f\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\31febcc4013032731e420e33cf03127f\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\71c917cac5d2b3866f837e19fdd4718c\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-login:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\71c917cac5d2b3866f837e19fdd4718c\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\b1c403853198a0a42a3776e343c305e4\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-share:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\b1c403853198a0a42a3776e343c305e4\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:28:5-35:19
+MERGED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:28:5-35:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\91b9005897d8d69a08c506801001134a\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\91b9005897d8d69a08c506801001134a\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\52b871e80c2ded025ad4c61ea758e833\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\52b871e80c2ded025ad4c61ea758e833\AndroidManifest.xml:10:5-20
+MERGED from [com.facebook.android:facebook-places:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\3c4e1710a8fb0f6bd7bbccef53490570\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-places:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\3c4e1710a8fb0f6bd7bbccef53490570\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\059ba8fce9086098bebf5ec284cf5b5f\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-applinks:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\059ba8fce9086098bebf5ec284cf5b5f\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\fb9244e59beafb77dcd98464c1abfdd1\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-messenger:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\fb9244e59beafb77dcd98464c1abfdd1\AndroidManifest.xml:28:5-29:19
+MERGED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:28:5-51:19
+MERGED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:28:5-51:19
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2ac281c72db130c7708d31071faac3f3\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2ac281c72db130c7708d31071faac3f3\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7f13016667ed060e106b23a7aeb1eb66\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7f13016667ed060e106b23a7aeb1eb66\AndroidManifest.xml:22:5-23:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c54136b497261f3f8b9958dcec26c9f6\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c54136b497261f3f8b9958dcec26c9f6\AndroidManifest.xml:9:5-20
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2ac281c72db130c7708d31071faac3f3\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:21:9-35
-	android:allowBackup
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:18:9-35
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:20:9-35
+	android:label
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:19:9-41
 	android:icon
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:19:9-43
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:18:9-43
+	android:allowBackup
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:17:9-35
 	android:theme
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:22:9-40
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:21:9-40
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:17:9-38
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:16:9-38
 meta-data#com.facebook.sdk.ApplicationId
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:23:9-25:55
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:22:9-24:55
 	android:value
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:25:13-52
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:24:13-52
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:24:13-58
-activity#com.hyunseok.android.sharemusicplaylist.MainActivity_
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:27:9-33:20
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:23:13-58
+activity#com.hyunseok.android.sharemusicplaylist.MainActivity
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:26:9-32:20
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:27:19-48
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:28:13-32:29
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:26:19-47
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:29:17-69
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:29:25-66
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:31:17-77
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:31:27-74
-activity#com.hyunseok.android.sharemusicplaylist.SearchActivity_
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:34:9-53
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:30:27-74
+activity#com.hyunseok.android.sharemusicplaylist.SearchActivity
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:33:9-52
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:34:19-50
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:33:19-49
 activity#com.hyunseok.android.sharemusicplaylist.LoginActivity
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:35:9-51
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:34:9-51
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:35:19-48
-activity#com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:36:9-61
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:34:19-48
+activity#com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:35:9-60
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:36:19-58
-activity#com.hyunseok.android.sharemusicplaylist.PlaylistNewActivity_
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:37:9-58
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:35:19-57
+activity#com.hyunseok.android.sharemusicplaylist.PlaylistNewActivity
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:36:9-57
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:37:19-55
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:36:19-54
 service#com.hyunseok.android.sharemusicplaylist.player.PlayerService
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:39:9-42:39
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:38:9-41:39
 	android:enabled
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:41:13-35
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:40:13-35
 	android:exported
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:42:13-36
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:41:13-36
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:40:13-49
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:39:13-49
 activity#com.hyunseok.android.sharemusicplaylist.PopUp_Activity
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:44:9-46:56
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:43:9-45:56
 	android:theme
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:46:13-53
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:45:13-53
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:45:13-43
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:44:13-43
 activity#com.hyunseok.android.sharemusicplaylist.TrackInfoActivity
-ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:47:9-55
+ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:46:9-55
 	android:name
-		ADDED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml:47:19-52
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml:46:19-52
 uses-sdk
-INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\KHS\.android\build-cache\194fe0e6cf43eaa71a37602523725ffda0de4319\output\AndroidManifest.xml:19:5-43
-MERGED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:24:5-26:41
-MERGED from [com.android.support:cardview-v7:25.1.0] C:\Users\KHS\.android\build-cache\6eb22c4d43583afe5fdf537e6323cb103d3d2fe5\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:customtabs:25.0.0] C:\Users\KHS\.android\build-cache\319c194a0772828c77deca4fdf185640a5e8e5db\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:25.3.1] C:\Users\KHS\.android\build-cache\9ed10ba1233a972db71837da9ec05160de32e067\output\AndroidManifest.xml:21:5-23:62
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\KHS\.android\build-cache\439882fadefd179964d3043f03ac27aabcef141d\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\KHS\.android\build-cache\17b5f0af783af1070d78e132cfe47b07bfdd0f98\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\KHS\.android\build-cache\64e69d1010514fae5e2cda48e7a980996cabdf6f\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\KHS\.android\build-cache\f9f40be7f519bceac3f37730b7e12dc31cbafc8e\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:transition:25.3.1] C:\Users\KHS\.android\build-cache\db79db5dd973748fdb4c23514e797127b2c2a92b\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\KHS\.android\build-cache\77d26e58c83f33da08c9fbafa240ac2399e7b8c5\output\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\KHS\.android\build-cache\76643d8154f172a9b9b8374240219b6c50cb3665\output\AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\KHS\.android\build-cache\48feb3f2a951a78750f4c5d1581987f8dfaea1a2\output\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\KHS\.android\build-cache\e8473ced911e553bd440349e6754ff4bf40e7894\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\KHS\.android\build-cache\09f5d447379425b038d87ae40f29b7149992277b\output\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\KHS\.android\build-cache\c0ba7896bd9bf706db5261c576cc8bbfe0579785\output\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\KHS\.android\build-cache\d8f7515d78fb7a3b2c0b29ef85e4f9a77f7ccc0b\output\AndroidManifest.xml:5:5-7:41
-	tools:overrideLibrary
-		ADDED from [com.android.support:design:25.3.1] C:\Users\KHS\.android\build-cache\9ed10ba1233a972db71837da9ec05160de32e067\output\AndroidManifest.xml:23:9-59
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\517ff2df4aca61d9dec8d3432f1d544e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\517ff2df4aca61d9dec8d3432f1d544e\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\31febcc4013032731e420e33cf03127f\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-android-sdk:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\31febcc4013032731e420e33cf03127f\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\71c917cac5d2b3866f837e19fdd4718c\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-login:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\71c917cac5d2b3866f837e19fdd4718c\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\b1c403853198a0a42a3776e343c305e4\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-share:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\b1c403853198a0a42a3776e343c305e4\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\98cc4d3b583eba800f9f0abbe64679d3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\98cc4d3b583eba800f9f0abbe64679d3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\34ae4f536e725c0e74c950f842fe9ca0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\34ae4f536e725c0e74c950f842fe9ca0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\91b9005897d8d69a08c506801001134a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\91b9005897d8d69a08c506801001134a\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cb2f8b1d4050953fd254c3b6f8d7e899\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cb2f8b1d4050953fd254c3b6f8d7e899\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\db246e633270744d3d68d37ed4bd5af1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\db246e633270744d3d68d37ed4bd5af1\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\52b871e80c2ded025ad4c61ea758e833\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\52b871e80c2ded025ad4c61ea758e833\AndroidManifest.xml:6:5-8:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\37e4a61d7197824e2cdab3abf1603201\AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\37e4a61d7197824e2cdab3abf1603201\AndroidManifest.xml:19:5-43
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2a4b562144968053746ab604bd412960\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2a4b562144968053746ab604bd412960\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cc2dede99340fd47d766bf17ab0120ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cc2dede99340fd47d766bf17ab0120ed\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cb006a40735cf1985d1d249d86d13fa4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\cb006a40735cf1985d1d249d86d13fa4\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.android:facebook-places:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\3c4e1710a8fb0f6bd7bbccef53490570\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-places:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\3c4e1710a8fb0f6bd7bbccef53490570\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\059ba8fce9086098bebf5ec284cf5b5f\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-applinks:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\059ba8fce9086098bebf5ec284cf5b5f\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\fb9244e59beafb77dcd98464c1abfdd1\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-messenger:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\fb9244e59beafb77dcd98464c1abfdd1\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:24:5-26:41
+MERGED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:24:5-26:41
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\bf3d18d0312fd4704974c15940639d9b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\bf3d18d0312fd4704974c15940639d9b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f0198758c7b17872b879047fa8e72c19\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f0198758c7b17872b879047fa8e72c19\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\017e5f264c253b4bcec9222a8de3042b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\017e5f264c253b4bcec9222a8de3042b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\a5ea6a7b9b17c3f7743be467f8365d5d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\a5ea6a7b9b17c3f7743be467f8365d5d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\ec1ca2e26cb436c37c27743f3aa3d1c8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\ec1ca2e26cb436c37c27743f3aa3d1c8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\75b35892cd0a96a6605cd4807b38992d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\75b35892cd0a96a6605cd4807b38992d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\1529a0498af22cfdef6213b9fed0059e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\1529a0498af22cfdef6213b9fed0059e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\98d07ab11e756b2886cbfd16fdeb81d5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\98d07ab11e756b2886cbfd16fdeb81d5\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\dc1db4f17e1bf2533bea6138ab8441a8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\dc1db4f17e1bf2533bea6138ab8441a8\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\14a5679e15ec2351a662100ad1da435f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\14a5679e15ec2351a662100ad1da435f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c5619c6aae018f8ed08932a4d4041495\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c5619c6aae018f8ed08932a4d4041495\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c99ca587f94b6841928427e63931d80d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c99ca587f94b6841928427e63931d80d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.0.2] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7c3e19b81b9341ed1831988adc78d927\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:27.0.2] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7c3e19b81b9341ed1831988adc78d927\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2ac281c72db130c7708d31071faac3f3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2ac281c72db130c7708d31071faac3f3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7f13016667ed060e106b23a7aeb1eb66\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7f13016667ed060e106b23a7aeb1eb66\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\0f3b17daa729aa0a6cad264f69e5d8f9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\0f3b17daa729aa0a6cad264f69e5d8f9\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c54136b497261f3f8b9958dcec26c9f6\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c54136b497261f3f8b9958dcec26c9f6\AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\0972abc5e0011687f71f43f06eed59b9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\0972abc5e0011687f71f43f06eed59b9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\eef0d52610956036abb87a20d636040b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\eef0d52610956036abb87a20d636040b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\9b03e1af616369bc7de0261accdc1fd4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\9b03e1af616369bc7de0261accdc1fd4\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\769f6c4f686a89be9042d78c815eaf95\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\769f6c4f686a89be9042d78c815eaf95\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\d751de5f1507c5955f9a53bd042e431b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\d751de5f1507c5955f9a53bd042e431b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2d981301f1bf1e43fee270a770fcbfaa\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\2d981301f1bf1e43fee270a770fcbfaa\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7c849f73dc685770df95b2b6924b7a95\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\7c849f73dc685770df95b2b6924b7a95\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\a60d16d3811318fdaf7f8d3e3479926b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\a60d16d3811318fdaf7f8d3e3479926b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c984d4c7f6bf63feb84dacbc8dad260a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\c984d4c7f6bf63feb84dacbc8dad260a\AndroidManifest.xml:20:5-44
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
-		INJECTED from D:\workspace\MingleMusic\app\src\main\AndroidManifest.xml
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+		ADDED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
+		INJECTED from D:\WORKSPACE\MingleMusic\app\src\main\AndroidManifest.xml
 activity#com.facebook.FacebookActivity
-ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:29:9-32:66
+ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:29:9-32:66
 	android:configChanges
-		ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:31:13-96
+		ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:31:13-96
 	android:theme
-		ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:32:13-63
+		ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:32:13-63
 	android:name
-		ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:30:13-57
+		ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:30:13-57
 activity#com.facebook.CustomTabMainActivity
-ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:33:9-71
+ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:33:9-71
 	android:name
-		ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:33:19-68
+		ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:33:19-68
+activity#com.facebook.CustomTabActivity
+ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:34:9-67
+	android:name
+		ADDED from [com.facebook.android:facebook-common:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\f78cf15e4fc60c33ebe4e48a7c228b0d\AndroidManifest.xml:34:19-64
 provider#com.facebook.internal.FacebookInitProvider
-ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:44:9-47:40
+ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:39:9-42:40
 	android:authorities
-		ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:46:13-72
+		ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:41:13-72
 	android:exported
-		ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:47:13-37
+		ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:42:13-37
 	android:name
-		ADDED from [com.facebook.android:facebook-android-sdk:4.22.1] C:\Users\KHS\.android\build-cache\c3fb8c7510ea3f7db1b324edc4c97700e46e6653\output\AndroidManifest.xml:45:13-70
-meta-data#android.support.VERSION
-ADDED from [com.android.support:design:25.3.1] C:\Users\KHS\.android\build-cache\9ed10ba1233a972db71837da9ec05160de32e067\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\KHS\.android\build-cache\439882fadefd179964d3043f03ac27aabcef141d\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\KHS\.android\build-cache\17b5f0af783af1070d78e132cfe47b07bfdd0f98\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\KHS\.android\build-cache\64e69d1010514fae5e2cda48e7a980996cabdf6f\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\KHS\.android\build-cache\f9f40be7f519bceac3f37730b7e12dc31cbafc8e\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:transition:25.3.1] C:\Users\KHS\.android\build-cache\db79db5dd973748fdb4c23514e797127b2c2a92b\output\AndroidManifest.xml:22:5-24:34
-MERGED from [com.android.support:support-v4:25.3.1] C:\Users\KHS\.android\build-cache\77d26e58c83f33da08c9fbafa240ac2399e7b8c5\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\KHS\.android\build-cache\76643d8154f172a9b9b8374240219b6c50cb3665\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\KHS\.android\build-cache\48feb3f2a951a78750f4c5d1581987f8dfaea1a2\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\KHS\.android\build-cache\e8473ced911e553bd440349e6754ff4bf40e7894\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\KHS\.android\build-cache\09f5d447379425b038d87ae40f29b7149992277b\output\AndroidManifest.xml:25:5-27:34
-MERGED from [com.android.support:support-compat:25.3.1] C:\Users\KHS\.android\build-cache\c0ba7896bd9bf706db5261c576cc8bbfe0579785\output\AndroidManifest.xml:25:5-27:34
-	android:value
-		ADDED from [com.android.support:design:25.3.1] C:\Users\KHS\.android\build-cache\9ed10ba1233a972db71837da9ec05160de32e067\output\AndroidManifest.xml:27:9-31
+		ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:40:13-70
+receiver#com.facebook.CurrentAccessTokenExpirationBroadcastReceiver
+ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:44:9-50:20
+	android:exported
+		ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:46:13-37
 	android:name
-		ADDED from [com.android.support:design:25.3.1] C:\Users\KHS\.android\build-cache\9ed10ba1233a972db71837da9ec05160de32e067\output\AndroidManifest.xml:26:9-47
+		ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:45:13-86
+intent-filter#action:name:com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:47:13-49:29
+action#com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED
+ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:48:17-95
+	android:name
+		ADDED from [com.facebook.android:facebook-core:4.42.0] C:\Users\KHS\.gradle\caches\transforms-2\files-2.1\acc03e580f7e087d7b857e8b2ca5257c\AndroidManifest.xml:48:25-92

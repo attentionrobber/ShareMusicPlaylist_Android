@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.SearchTabFragment;
 
@@ -129,7 +129,7 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
 
     private void action_playlist() {
         // TODO my playlist 로 추가
-        Intent intent = new Intent(context, PlaylistDetailActivity_.class);
+        Intent intent = new Intent(context, PlaylistDetailActivity.class);
         context.startActivity(intent);
     }
     private void action_track() {

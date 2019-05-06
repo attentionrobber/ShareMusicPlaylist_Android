@@ -1,11 +1,12 @@
 package com.hyunseok.android.sharemusicplaylist;
 
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
@@ -25,11 +25,6 @@ import com.hyunseok.android.sharemusicplaylist.domain.Track;
 import com.hyunseok.android.sharemusicplaylist.util.Logger;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
-
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -42,23 +37,16 @@ import java.util.List;
  * PlaylistDetail Activity 에 비교하여 더 있어야 될것들
  * 대표이미지 설정 버튼, 음악 추가 버튼, TAG 입력부분(?)
  */
-
-@EActivity(R.layout.activity_playlist_new)
 public class PlaylistNewActivity extends AppCompatActivity {
 
     private final int REQ_CAMERA = 101; // 카메라 요청 코드
     private final int REQ_GALLERY = 102; // 갤러리 요청 코드
 
-    @ViewById
     ImageView imageView_playlistNew;
-    @ViewById
     EditText et_playlistTitle;
-    @ViewById
     Button btn_OK, btn_cancle, btn_addTrack;
-    @ViewById
     ToggleButton toggleButton;
 
-    @ViewById
     RecyclerView recyclerView;
     PlaylistRecyclerViewAdapter_Sample adapter;
     private List<Track> tracks = new ArrayList<>(); // Activity 하단의 RecyclerView 에 들어가는 Tracks
@@ -66,13 +54,33 @@ public class PlaylistNewActivity extends AppCompatActivity {
     // Image
     private Uri imageUri;
 
-    @AfterViews
-    protected void init() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_playlist_new);
 
+        setWidget();
+        init();
+    }
+
+    private void setWidget() {
+        imageView_playlistNew = findViewById(R.id.imageView_playlistNew);
+        et_playlistTitle = findViewById(R.id.et_playlistTitle);
+        btn_OK = findViewById(R.id.btn_OK);
+        btn_cancle = findViewById(R.id.btn_cancle);
+        btn_addTrack = findViewById(R.id.btn_addTrack);
+        toggleButton = findViewById(R.id.toggleButton);
+
+        imageView_playlistNew.setOnClickListener(v -> setImage());
+        btn_OK.setOnClickListener(this::buttonEvent);
+        btn_cancle.setOnClickListener(this::buttonEvent);
+        btn_addTrack.setOnClickListener(this::buttonEvent);
+    }
+
+    protected void init() {
         adapter = new PlaylistRecyclerViewAdapter_Sample(this, tracks, "");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
     }
 
     private Playlist makePlaylist() {
@@ -102,7 +110,6 @@ public class PlaylistNewActivity extends AppCompatActivity {
         Logger.print("PlaylistNewActivity","Save To DB===========================" + playlistTest.size());
     }
 
-    @Click({R.id.btn_OK, R.id.btn_cancle, R.id.btn_addTrack})
     public void buttonEvent(View v) {
         int cnt = 0; // TODO cnt 삭제 -> real Data로 바꾸기
         switch (v.getId()) {
@@ -132,7 +139,6 @@ public class PlaylistNewActivity extends AppCompatActivity {
         }
     }
 
-    @Click({R.id.imageView_playlistNew})
     public void setImage() {
         AlertDialog.Builder alert_Imgbtn = new AlertDialog.Builder(PlaylistNewActivity.this);
         alert_Imgbtn.setTitle("Input Image");

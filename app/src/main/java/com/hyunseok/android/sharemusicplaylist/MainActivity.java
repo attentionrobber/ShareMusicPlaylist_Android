@@ -2,33 +2,23 @@ package com.hyunseok.android.sharemusicplaylist;
 
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.TabPagerAdapter;
-import com.hyunseok.android.sharemusicplaylist.util.Logger;
 import com.hyunseok.android.sharemusicplaylist.util.PermissionControl;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
 
 import java.security.Permission;
 
-@EActivity(R.layout.activity_main)
 public class MainActivity extends AppCompatActivity {
 
-    @ViewById
     TabLayout tabLayout;
-    @ViewById
-    static
-    ViewPager viewPager;
-    @ViewById
+    static ViewPager viewPager;
     Button btn_back;
 
     public static MainTabFragment search;
@@ -37,7 +27,21 @@ public class MainActivity extends AppCompatActivity {
     TabPagerAdapter pagerAdapter; // ViewPager Adapter
     private static int REQ = 100;
 
-    @AfterViews // Define Initialization Code
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        setWidget();
+        init();
+    }
+
+    private void setWidget() {
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        btn_back = findViewById(R.id.btn_back);
+    }
+
     protected void init() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             PermissionControl.checkPermission(this, REQ);
@@ -46,14 +50,6 @@ public class MainActivity extends AppCompatActivity {
         player = MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYER);
         playlist = MainTabFragment.newInstance(MainTabFragment.TYPE_PLAYLIST);
         setLayout();
-    }
-
-    @Click({R.id.btn_back})
-    public void goLogin() {
-        // TODO 버튼 없애기
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     private void setLayout() {
@@ -91,6 +87,13 @@ public class MainActivity extends AppCompatActivity {
 //        });
         // 2. 탭이 변경되었을 때 페이지를 바꿔주는 리스너
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+    }
+
+    public void goLogin() {
+        // TODO 버튼 없애기
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     public static void changeTab(String tab) {

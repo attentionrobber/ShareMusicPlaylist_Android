@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.bumptech.glide.Glide;
-import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity_;
+import com.hyunseok.android.sharemusicplaylist.PlaylistDetailActivity;
 import com.hyunseok.android.sharemusicplaylist.R;
 import com.hyunseok.android.sharemusicplaylist.domain.Playlist;
 import com.hyunseok.android.sharemusicplaylist.domain.Track;
@@ -38,7 +38,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         this.context = context;
         this.datas = datas;
         this.flag = flag;
-        intent = new Intent(context, PlaylistDetailActivity_.class);
+        intent = new Intent(context, PlaylistDetailActivity.class);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class PlaylistRecyclerViewAdapter extends RecyclerView.Adapter<PlaylistRe
         }
 
         private void goFollowPlaylistDetail() {
-            intent = new Intent(context, PlaylistDetailActivity_.class);
+            intent = new Intent(context, PlaylistDetailActivity.class);
             context.startActivity(intent);
         }
     }

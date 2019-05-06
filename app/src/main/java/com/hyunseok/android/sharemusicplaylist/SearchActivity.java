@@ -1,5 +1,6 @@
 package com.hyunseok.android.sharemusicplaylist;
 
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,36 +13,43 @@ import android.widget.Toast;
 
 import com.hyunseok.android.sharemusicplaylist.adapter.TabPagerAdapter;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
-
 /**
  * Search Tab 에서 검색했을 때 나오는 검색 결과를 상세히 보여주는 액티비티
  */
-
-@EActivity(R.layout.activity_search)
 public class SearchActivity extends AppCompatActivity {
 
-    @ViewById
     Toolbar toolbar;
-    @ViewById
     TabLayout tabLayout;
-    @ViewById
     LinearLayout linearLayout; // 검색 후 처음 보여주는 이미지
-    @ViewById
     RelativeLayout relativeLayout; // 검색 후 처음 보여주는 이미지를 클릭하면 상세히 보여줌.
-    @ViewById
     ViewPager viewPager;
-    @ViewById
     TextView tv_playlist, tv_track, tv_TAG, tv_album;
 
-    @AfterViews
-    protected void init() {
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search);
+
+        setWidget();
         setLayout();
+    }
 
+    private void setWidget() {
+        toolbar = findViewById(R.id.toolbar);
+        tabLayout = findViewById(R.id.tabLayout);
+        linearLayout = findViewById(R.id.linearLayout);
+        relativeLayout = findViewById(R.id.relativeLayout);
+        viewPager = findViewById(R.id.viewPager);
+
+        tv_playlist = findViewById(R.id.tv_playlist);
+        tv_track = findViewById(R.id.tv_track);
+        tv_TAG = findViewById(R.id.tv_TAG);
+        tv_album = findViewById(R.id.tv_album);
+        tv_playlist.setOnClickListener(this::goDetail);
+        tv_track.setOnClickListener(this::goDetail);
+        tv_TAG.setOnClickListener(this::goDetail);
+        tv_album.setOnClickListener(this::goDetail);
     }
 
     private void setLayout() {
@@ -76,12 +84,6 @@ public class SearchActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
     }
 
-    @Click({R.id.imgbtn_search})
-    public void search() {
-        Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
-    }
-
-    @Click({R.id.tv_playlist, R.id.tv_track, R.id.tv_TAG, R.id.tv_album})
     public void goDetail(View v) {
 
         // TODO 각 TAB 별로 알맞는 소스추가

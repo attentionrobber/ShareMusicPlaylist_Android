@@ -29,11 +29,6 @@ ext {
     facebook = 'com.facebook.android:facebook-android-sdk:[4,5)'
     google = ''
 
-    // Android Annotations
-    androidannotations = 'org.androidannotations:androidannotations:4.1.0'
-    //androidannotations = "org.androidannotations:androidannotations:${AAVersion}"
-    //androidannotations_apt = "org.androidannotations:androidannotations:${AAVersion}"
-
     // Ormlite
     ormlite_core = 'com.j256.ormlite:ormlite-core:5.0'
     ormlite = 'com.j256.ormlite:ormlite-android:5.0'

@@ -11,7 +11,6 @@
     <!-- 카메라 사용 기본권한 3가지 Runetime Permission은 WRITE, CAMERA 설치 권한은 MEDIA_... -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
 
     <application
         android:name=".MyApplication"
@@ -24,17 +23,17 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-        <activity android:name=".MainActivity_">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SearchActivity_" />
+        <activity android:name=".SearchActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".PlaylistDetailActivity_" />
-        <activity android:name=".PlaylistNewActivity_" />
+        <activity android:name=".PlaylistDetailActivity" />
+        <activity android:name=".PlaylistNewActivity" />
 
         <service
             android:name=".player.PlayerService"

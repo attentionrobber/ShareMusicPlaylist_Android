@@ -28,6 +28,7 @@ public class PopUp_Activity extends Activity {
     String selectedListTitle;
     DBHelper dbHelper;
     Dao<Playlist, Integer> playlistDao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +68,7 @@ public class PopUp_Activity extends Activity {
                         setDialog(listTitles);
                     }else{
                         Toast.makeText(this, "No exist your List. Please Make your Playlist", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(PopUp_Activity.this, PlaylistNewActivity_.class);
+                        Intent intent = new Intent(PopUp_Activity.this, PlaylistNewActivity.class);
                         intent.putExtra("TrackInfo", track);
                         startActivity(intent);
                     }
@@ -76,7 +77,7 @@ public class PopUp_Activity extends Activity {
                 break;
             case R.id.btnAddNewPlaylist :
                 Toast.makeText(PopUp_Activity.this, "새로운 액티비티 생성후 곡 추가", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(PopUp_Activity.this, PlaylistNewActivity_.class);
+                Intent intent = new Intent(PopUp_Activity.this, PlaylistNewActivity.class);
                 intent.putExtra("TrackInfo", track);
                 startActivity(intent);
                 break;
